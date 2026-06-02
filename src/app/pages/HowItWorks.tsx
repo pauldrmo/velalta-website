@@ -112,9 +112,9 @@ export default function HowItWorks() {
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-5">Prêt à l'essayer ?</h2>
           <p className="text-[18px] text-white/50 mb-8">Rejoignez les premières enseignes pilotes et transformez l'expérience d'achat dès aujourd'hui.</p>
-          <Link to="/contact" className="btn-primary text-[16px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
             <span>Demander une démo →</span>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

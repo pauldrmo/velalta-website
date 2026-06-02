@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import {
   QrCode, Scan, CreditCard, Receipt, Shield, Database, BarChart3,
   CheckCircle, Smartphone, Store, Users, TrendingUp, Clock, Zap,
-  ArrowRight, ChevronDown, Star, ExternalLink, Lock, Globe,
-  Activity, Package, Bell, LayoutDashboard,
+  ArrowRight, ChevronDown, Lock, Globe, Mail,
+  Activity, Package, Bell,
 } from "lucide-react";
 
 // Phone mockup component
@@ -203,20 +203,24 @@ export default function Home() {
                 <span className="text-blue-300/80 text-[13px]">Rejoignez les premiers partenaires</span>
               </div>
 
-              <h1 className="text-[56px] md:text-[68px] font-black leading-[0.98] tracking-[-0.03em] text-white mb-8">
+              <h1 className="text-[56px] md:text-[68px] font-black leading-[0.98] tracking-[-0.03em] text-white mb-4">
                 Réinventez<br />
                 <span className="gradient-text">l'expérience</span><br />
                 d'achat
               </h1>
+
+              <p className="text-[20px] md:text-[22px] italic text-white/35 font-medium mb-8 tracking-tight">
+                Winning time and money.
+              </p>
 
               <p className="text-[18px] md:text-[20px] text-white/55 leading-relaxed mb-10 max-w-lg">
                 Velalta transforme le passage en caisse en une expérience mobile ultra-fluide. Scan, paie, et pars — zéro file d'attente, zéro friction.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link to="/contact" className="btn-primary text-[15px]">
+                <a href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Velalta" className="btn-primary text-[15px] text-center">
                   <span>Demander une démo gratuite</span>
-                </Link>
+                </a>
                 <Link to="/produit" className="btn-secondary text-[15px] inline-flex items-center justify-center gap-2">
                   Découvrir le produit
                   <ArrowRight size={16} />
@@ -747,26 +751,20 @@ export default function Home() {
             Rejoignez les enseignes pilotes et offrez à vos clients l'expérience d'achat de demain — dès aujourd'hui.
           </p>
 
-          <div className="glass-card rounded-3xl p-8 text-left">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <input type="text" placeholder="Votre nom" className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
-              <input type="text" placeholder="Nom de l'enseigne" className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
+          <div className="glass-card rounded-3xl p-8 text-center">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center mx-auto mb-5">
+              <Mail size={26} className="text-blue-400" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <input type="email" placeholder="Email professionnel" className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
-              <input type="tel" placeholder="Téléphone" className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
-            </div>
-            <select className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white/70 focus:outline-none focus:border-blue-500/50 transition-all mb-5 text-[15px]">
-              <option value="" className="bg-[#050A14]">Nombre de magasins</option>
-              <option value="1" className="bg-[#050A14]">1 magasin</option>
-              <option value="2-5" className="bg-[#050A14]">2 à 5 magasins</option>
-              <option value="6-20" className="bg-[#050A14]">6 à 20 magasins</option>
-              <option value="20+" className="bg-[#050A14]">Plus de 20 magasins</option>
-            </select>
-            <button className="btn-primary w-full text-[16px] py-4">
-              <span>Planifier une démo gratuite →</span>
-            </button>
-            <p className="text-[12px] text-white/30 mt-4 text-center">
+            <p className="text-[16px] text-white/55 leading-relaxed mb-8 max-w-md mx-auto">
+              Écrivez-nous directement — nous répondons sous 24h pour organiser votre démo personnalisée.
+            </p>
+            <a
+              href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Velalta&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9mo%20Velalta.%0A%0ANom%20%3A%0AEnseigne%20%3A%0ANombre%20de%20magasins%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0A%0AMessage%20%3A"
+              className="btn-primary text-[16px] py-4 block w-full"
+            >
+              <span>Planifier une démo par email →</span>
+            </a>
+            <p className="text-[12px] text-white/30 mt-4">
               Réponse sous 24h · Aucun engagement · 100% gratuit
             </p>
           </div>

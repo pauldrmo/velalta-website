@@ -23,9 +23,9 @@ export default function ForRetailers() {
               Velalta permet à vos enseignes de transformer les caisses en un avantage compétitif. Moins de personnel, plus de fluidité, plus de revenus.
             </p>
             <div className="flex gap-4">
-              <Link to="/contact" className="btn-primary text-[15px]">
+              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px]">
                 <span>Demander une démo</span>
-              </Link>
+              </a>
               <Link to="/tarifs" className="btn-secondary text-[15px] inline-flex items-center gap-2">
                 Voir les tarifs
                 <ArrowRight size={15} />
@@ -233,9 +233,9 @@ export default function ForRetailers() {
           <p className="text-[18px] text-white/50 mb-10 max-w-lg mx-auto">
             Accédez à l'offre pilote et transformez l'expérience d'achat de vos clients dès aujourd'hui.
           </p>
-          <Link to="/contact" className="btn-primary text-[16px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
             <span>Demander une démo gratuite →</span>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

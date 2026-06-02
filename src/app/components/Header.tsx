@@ -6,7 +6,10 @@ const VelaltaLogo = () => (
   <div className="flex items-center gap-2.5">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="32" height="32" rx="9" fill="url(#logo-grad)" />
-      <path d="M9 9L16 23L23 9" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Checkmark body = validation ✓ + velocity V shape */}
+      <path d="M7 16 L13 23 L27 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      {/* Arrow tip = velocity vector → */}
+      <path d="M23 9 L27 8 L26 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
       <defs>
         <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
           <stop stopColor="#2563EB" />

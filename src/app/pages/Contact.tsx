@@ -1,9 +1,7 @@
-import { useState } from "react";
-import { Mail, MapPin, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [type, setType] = useState<"demo" | "investor" | "other">("demo");
+  const type = "demo";
 
   return (
     <div className="bg-[#050A14]">
@@ -34,7 +32,7 @@ export default function Contact() {
             <div className="space-y-8">
               {[
                 { icon: Mail, title: "Email", val: "pauldormeau@icloud.com", sub: "Réponse sous 24h" },
-                { icon: MapPin, title: "Adresse", val: "Paris, France", sub: "Disponible partout en France" },
+                { icon: MapPin, title: "Adresse", val: "Paris & Rouen", sub: "Disponible partout en France" },
                 { icon: Clock, title: "Disponibilité", val: "Lun — Ven", sub: "9h00 — 18h00" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
@@ -69,106 +67,51 @@ export default function Contact() {
 
             {/* Right — form */}
             <div className="lg:col-span-2">
-              {submitted ? (
-                <div className="glass-card rounded-3xl p-12 text-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="text-emerald-400" size={32} />
-                  </div>
-                  <h2 className="text-[32px] font-black text-white mb-3">Message envoyé !</h2>
-                  <p className="text-[16px] text-white/55">Notre équipe vous répondra dans les 24 heures. Merci pour votre intérêt pour Velalta.</p>
+              <div className="glass-card rounded-3xl p-10 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center mx-auto mb-6">
+                  <Mail className="text-blue-400" size={30} />
                 </div>
-              ) : (
-                <div className="glass-card rounded-3xl p-8">
-                  {/* Type selector */}
-                  <div className="mb-6">
-                    <div className="text-[13px] font-semibold text-white/40 uppercase tracking-wide mb-3">Objet du contact</div>
-                    <div className="flex gap-2 flex-wrap">
-                      {[
-                        { val: "demo" as const, label: "Demande de démo" },
-                        { val: "investor" as const, label: "Investisseur" },
-                        { val: "other" as const, label: "Autre" },
-                      ].map((t) => (
-                        <button
-                          key={t.val}
-                          onClick={() => setType(t.val)}
-                          className={`px-4 py-2 rounded-lg text-[14px] font-semibold transition-all ${
-                            type === t.val
-                              ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white"
-                              : "glass-card text-white/50 hover:text-white"
-                          }`}
-                        >
-                          {t.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                <h2 className="text-[28px] font-black text-white mb-3">Écrivez-nous directement</h2>
+                <p className="text-[16px] text-white/50 leading-relaxed mb-8 max-w-sm mx-auto">
+                  Un clic pour ouvrir votre messagerie. Nous répondons sous 24h pour organiser votre démo.
+                </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className="block text-[12px] font-semibold text-white/40 uppercase tracking-wide mb-2">Prénom & Nom</label>
-                      <input type="text" placeholder="Jean Dupont" className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
-                    </div>
-                    <div>
-                      <label className="block text-[12px] font-semibold text-white/40 uppercase tracking-wide mb-2">
-                        {type === "investor" ? "Société / Fonds" : "Enseigne / Société"}
-                      </label>
-                      <input type="text" placeholder={type === "investor" ? "Votre fonds d'investissement" : "Nom de votre enseigne"} className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className="block text-[12px] font-semibold text-white/40 uppercase tracking-wide mb-2">Email professionnel</label>
-                      <input type="email" placeholder="jean@enseigne.fr" className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
-                    </div>
-                    <div>
-                      <label className="block text-[12px] font-semibold text-white/40 uppercase tracking-wide mb-2">Téléphone</label>
-                      <input type="tel" placeholder="+33 6 00 00 00 00" className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px]" />
-                    </div>
-                  </div>
-
-                  {type === "demo" && (
-                    <div className="mb-4">
-                      <label className="block text-[12px] font-semibold text-white/40 uppercase tracking-wide mb-2">Nombre de magasins</label>
-                      <select className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white/70 focus:outline-none focus:border-blue-500/50 transition-all text-[15px]">
-                        <option value="" className="bg-[#050A14]">Sélectionnez...</option>
-                        <option value="1" className="bg-[#050A14]">1 magasin</option>
-                        <option value="2-5" className="bg-[#050A14]">2 à 5 magasins</option>
-                        <option value="6-20" className="bg-[#050A14]">6 à 20 magasins</option>
-                        <option value="20+" className="bg-[#050A14]">Plus de 20 magasins</option>
-                      </select>
-                    </div>
-                  )}
-
-                  <div className="mb-6">
-                    <label className="block text-[12px] font-semibold text-white/40 uppercase tracking-wide mb-2">Message</label>
-                    <textarea
-                      placeholder={
-                        type === "demo"
-                          ? "Décrivez votre enseigne, vos besoins et vos questions..."
-                          : type === "investor"
-                          ? "Décrivez votre thèse d'investissement et vos questions..."
-                          : "Votre message..."
-                      }
-                      rows={4}
-                      className="w-full px-4 py-3.5 bg-white/[0.06] border border-white/[0.1] rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.08] transition-all text-[15px] resize-none"
-                    />
-                  </div>
-
-                  <button
-                    onClick={() => setSubmitted(true)}
-                    className="btn-primary w-full text-[16px] py-4"
-                  >
-                    <span>
-                      {type === "demo" ? "Planifier ma démo gratuite →" : type === "investor" ? "Demander le pitch deck →" : "Envoyer le message →"}
-                    </span>
-                  </button>
-
-                  <p className="text-center text-[12px] text-white/25 mt-4">
-                    Réponse sous 24h · Aucun engagement · Données protégées
-                  </p>
+                <div className="space-y-3 mb-8">
+                  {[
+                    {
+                      label: "Démo enseigne",
+                      href: "mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Velalta&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9mo%20Velalta.%0A%0ANom%20%3A%0AEnseigne%20%3A%0ANombre%20de%20magasins%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0A",
+                      primary: true,
+                    },
+                    {
+                      label: "Dossier investisseur",
+                      href: "mailto:pauldormeau@icloud.com?subject=Investissement%20Velalta%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20Velalta%20dans%20le%20cadre%20d%27un%20investissement.%0A%0ANom%20%3A%0ASoci%C3%A9t%C3%A9%2FFonds%20%3A%0A",
+                      primary: false,
+                    },
+                    {
+                      label: "Autre demande",
+                      href: "mailto:pauldormeau@icloud.com?subject=Contact%20Velalta",
+                      primary: false,
+                    },
+                  ].map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className={`block w-full py-3.5 rounded-xl text-[15px] font-semibold transition-all ${
+                        item.primary
+                          ? "btn-primary"
+                          : "btn-secondary"
+                      }`}
+                    >
+                      <span>{item.label} →</span>
+                    </a>
+                  ))}
                 </div>
-              )}
+
+                <p className="text-[12px] text-white/25">
+                  Réponse sous 24h · Aucun engagement · Données protégées
+                </p>
+              </div>
             </div>
           </div>
         </div>

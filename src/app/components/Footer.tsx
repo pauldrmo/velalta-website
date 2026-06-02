@@ -1,11 +1,12 @@
 import { Link } from "react-router";
-import { Twitter, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Linkedin, Mail, MapPin } from "lucide-react";
 
 const VelaltaLogo = () => (
   <div className="flex items-center gap-2.5">
     <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="32" height="32" rx="9" fill="url(#footer-logo-grad)" />
-      <path d="M9 9L16 23L23 9" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7 16 L13 23 L27 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <path d="M23 9 L27 8 L26 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
       <defs>
         <linearGradient id="footer-logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
           <stop stopColor="#2563EB" />
@@ -33,14 +34,9 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="#"
-                className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
-                aria-label="Twitter"
-              >
-                <Twitter size={16} />
-              </a>
-              <a
-                href="#"
+                href="https://www.linkedin.com/in/paul-dormeau-681288270/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
                 aria-label="LinkedIn"
               >
@@ -56,7 +52,7 @@ export default function Footer() {
             </div>
             <div className="mt-5 flex items-start gap-2 text-white/30 text-[13px]">
               <MapPin size={14} className="mt-0.5 flex-shrink-0" />
-              <span>Paris, France</span>
+              <span>Paris &amp; Rouen, France</span>
             </div>
           </div>
 

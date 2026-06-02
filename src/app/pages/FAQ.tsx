@@ -110,9 +110,9 @@ export default function FAQ() {
           <div className="glass-card rounded-2xl p-8">
             <div className="text-[32px] font-black text-white mb-3">Vous avez une autre question ?</div>
             <p className="text-[16px] text-white/50 mb-6">Notre équipe répond sous 24h.</p>
-            <Link to="/contact" className="btn-primary text-[15px] inline-block">
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px] inline-block">
               <span>Nous contacter →</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

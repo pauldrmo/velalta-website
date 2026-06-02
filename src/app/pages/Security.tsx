@@ -130,9 +130,9 @@ export default function Security() {
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[36px] font-black text-white mb-4">Des questions sur notre sécurité ?</h2>
           <p className="text-[16px] text-white/50 mb-8">Notre équipe technique est disponible pour répondre à toutes vos questions et partager notre documentation sécurité.</p>
-          <Link to="/contact" className="btn-primary text-[15px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px] inline-block">
             <span>Contacter l'équipe sécurité →</span>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

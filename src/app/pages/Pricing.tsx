@@ -85,9 +85,9 @@ export default function Pricing() {
               ))}
             </div>
 
-            <Link to="/contact" className="btn-primary text-[16px] block text-center w-full py-4">
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] block text-center w-full py-4">
               <span>Commencer maintenant — Gratuit →</span>
-            </Link>
+            </a>
             <p className="text-center text-[12px] text-white/25 mt-4">
               Aucun engagement · Résiliation à tout moment · Réponse sous 24h
             </p>
@@ -167,9 +167,9 @@ export default function Pricing() {
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-5">Commencez gratuitement</h2>
           <p className="text-[18px] text-white/50 mb-8">Aucun engagement. Aucun frais fixe. Testez Velalta et ne payez que sur vos transactions.</p>
-          <Link to="/contact" className="btn-primary text-[16px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
             <span>Demander une proposition →</span>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

@@ -118,9 +118,9 @@ export default function Product() {
               </div>
             ))}
           </div>
-          <Link to="/contact" className="btn-primary text-[15px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px] inline-block">
             <span>Parler à l'équipe technique →</span>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

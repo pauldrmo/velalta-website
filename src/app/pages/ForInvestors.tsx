@@ -23,13 +23,13 @@ export default function ForInvestors() {
               Velalta s'attaque à un marché de 3 000 Md€ avec un modèle économique scalable, un premier-mover advantage et une équipe technique expérimentée.
             </p>
             <div className="flex gap-4">
-              <Link to="/contact" className="btn-primary text-[15px]">
+              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px]">
                 <span>Demander un pitch deck</span>
-              </Link>
-              <Link to="/contact" className="btn-secondary text-[15px] inline-flex items-center gap-2">
+              </a>
+              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-secondary text-[15px] inline-flex items-center gap-2">
                 Prendre contact
                 <ArrowRight size={15} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -219,9 +219,9 @@ export default function ForInvestors() {
                 </div>
               ))}
             </div>
-            <Link to="/contact" className="btn-primary text-[16px] inline-block">
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
               <span>Demander le pitch deck complet →</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
