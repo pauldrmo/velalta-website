@@ -490,7 +490,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Clock, title: "28 secondes", sub: "Checkout moyen", color: "from-cyan-500/15 to-blue-500/10" },
-                  { icon: Star, title: "96%", sub: "Satisfaction client", color: "from-blue-500/15 to-pink-500/10" },
+                  { icon: Users, title: "96%", sub: "Satisfaction client", color: "from-blue-500/15 to-cyan-500/10" },
                   { icon: Receipt, title: "100%", sub: "Facture numérique", color: "from-blue-500/15 to-cyan-500/10" },
                   { icon: Bell, title: "0 €", sub: "Frais pour le client", color: "from-emerald-500/15 to-green-500/10" },
                 ].map((card, i) => (
