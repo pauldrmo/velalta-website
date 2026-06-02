@@ -12,8 +12,8 @@ const VelaltaLogo = () => (
       <path d="M23 9 L27 8 L26 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
       <defs>
         <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#2563EB" />
-          <stop offset="1" stopColor="#7C3AED" />
+          <stop stopColor="#0A84FF" />
+          <stop offset="1" stopColor="#0060CC" />
         </linearGradient>
       </defs>
     </svg>
@@ -49,7 +49,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#050A14]/90 backdrop-blur-xl border-b border-white/[0.07] shadow-[0_4px_40px_rgba(0,0,0,0.4)]"
+          ? "bg-[#07070F]/90 backdrop-blur-xl border-b border-white/[0.07] shadow-[0_4px_40px_rgba(0,0,0,0.4)]"
           : "bg-transparent"
       }`}
     >
@@ -103,7 +103,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#050A14]/98 backdrop-blur-xl border-t border-white/[0.07]">
+        <div className="lg:hidden bg-[#07070F]/98 backdrop-blur-xl border-t border-white/[0.07]">
           <nav className="px-6 py-6 space-y-1">
             {navItems.map((item) => (
               <Link

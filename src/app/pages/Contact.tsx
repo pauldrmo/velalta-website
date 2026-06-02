@@ -4,7 +4,7 @@ export default function Contact() {
   const type = "demo";
 
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
@@ -68,7 +68,7 @@ export default function Contact() {
             {/* Right — form */}
             <div className="lg:col-span-2">
               <div className="glass-card rounded-3xl p-10 text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center mx-auto mb-6">
                   <Mail className="text-blue-400" size={30} />
                 </div>
                 <h2 className="text-[28px] font-black text-white mb-3">Écrivez-nous directement</h2>

@@ -17,8 +17,8 @@ const VelaltaLogo = () => (
       <path d="M23 9 L27 8 L26 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
       <defs>
         <linearGradient id="footer-logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#2563EB" />
-          <stop offset="1" stopColor="#7C3AED" />
+          <stop stopColor="#0A84FF" />
+          <stop offset="1" stopColor="#0060CC" />
         </linearGradient>
       </defs>
     </svg>
@@ -28,7 +28,7 @@ const VelaltaLogo = () => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#020609] border-t border-white/[0.06]">
+    <footer className="bg-[#06060C] border-t border-white/[0.06]">
       {/* Main footer */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">

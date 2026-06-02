@@ -12,7 +12,7 @@ function PhoneMockup() {
   return (
     <div className="relative">
       {/* Glow behind phone */}
-      <div className="absolute inset-0 -m-8 bg-gradient-to-br from-blue-600/20 via-violet-600/10 to-cyan-600/15 rounded-full blur-3xl" />
+      <div className="absolute inset-0 -m-8 bg-gradient-to-br from-blue-600/20 via-blue-600/10 to-cyan-600/15 rounded-full blur-3xl" />
 
       {/* Phone frame */}
       <div className="relative w-[280px] mx-auto">
@@ -85,20 +85,20 @@ function PhoneMockup() {
           <defs>
             <linearGradient id="phone-border" x1="0" y1="0" x2="280" y2="560" gradientUnits="userSpaceOnUse">
               <stop stopColor="#3B82F6" stopOpacity="0.4" />
-              <stop offset="0.5" stopColor="#8B5CF6" stopOpacity="0.2" />
+              <stop offset="0.5" stopColor="#0A84FF" stopOpacity="0.2" />
               <stop offset="1" stopColor="#06B6D4" stopOpacity="0.3" />
             </linearGradient>
             <linearGradient id="app-header-grad" x1="12" y1="92" x2="268" y2="144" gradientUnits="userSpaceOnUse">
               <stop stopColor="#1E3A6E" />
-              <stop offset="1" stopColor="#2D1B6E" />
+              <stop offset="1" stopColor="#0A2A6E" />
             </linearGradient>
             <linearGradient id="pay-btn-grad" x1="20" y1="448" x2="260" y2="494" gradientUnits="userSpaceOnUse">
               <stop stopColor="#2563EB" />
-              <stop offset="1" stopColor="#7C3AED" />
+              <stop offset="1" stopColor="#0060CC" />
             </linearGradient>
             <linearGradient id="item-grad" x1="0" y1="0" x2="1" y2="1">
               <stop stopColor="#3B82F6" />
-              <stop offset="1" stopColor="#8B5CF6" />
+              <stop offset="1" stopColor="#0A84FF" />
             </linearGradient>
           </defs>
         </svg>
@@ -179,7 +179,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
 
       {/* ─── HERO ──────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -187,7 +187,7 @@ export default function Home() {
         <div className="absolute inset-0 grid-overlay pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/4 -left-64 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[120px] orb-animate" />
-          <div className="absolute bottom-1/4 -right-64 w-[500px] h-[500px] bg-violet-600/15 rounded-full blur-[100px] orb-animate-delayed" />
+          <div className="absolute bottom-1/4 -right-64 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[100px] orb-animate-delayed" />
           <div className="absolute top-3/4 left-1/3 w-[400px] h-[400px] bg-cyan-600/8 rounded-full blur-[80px] orb-animate-slow" />
         </div>
 
@@ -210,7 +210,7 @@ export default function Home() {
               </h1>
 
               <p className="text-[20px] md:text-[22px] italic text-white/35 font-medium mb-8 tracking-tight">
-                Winning time and money.
+                The Future of Checkout.
               </p>
 
               <p className="text-[18px] md:text-[20px] text-white/55 leading-relaxed mb-10 max-w-lg">
@@ -284,7 +284,7 @@ export default function Home() {
       {/* ─── PROBLEM / SOLUTION ────────────────────────────────────────── */}
       <section className="py-28 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-violet-600/5 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/5 rounded-full blur-[120px]" />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="text-center mb-20">
@@ -352,7 +352,7 @@ export default function Home() {
                   { icon: Receipt, title: "QR facture à la sortie", desc: "Contrôle rapide et traçabilité totale pour le magasin." },
                 ].map((step, i) => (
                   <div key={i} className="flex items-start gap-4 p-4 bg-white/[0.03] rounded-xl border border-white/[0.06] hover:bg-white/[0.06] transition-colors">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
                       <step.icon className="text-blue-400" size={18} />
                     </div>
                     <div>
@@ -389,7 +389,7 @@ export default function Home() {
                   onClick={() => setActiveTab(tab)}
                   className={`px-5 py-2.5 rounded-lg text-[14px] font-semibold transition-all duration-200 capitalize ${
                     activeTab === tab
-                      ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg"
+                      ? "bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-lg"
                       : "text-white/50 hover:text-white"
                   }`}
                 >
@@ -403,7 +403,7 @@ export default function Home() {
           {activeTab === "enseignes" && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-blue-500/20 flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 border border-blue-500/20 flex items-center justify-center mb-6">
                   <Store className="text-blue-400" size={26} />
                 </div>
                 <h3 className="text-[36px] font-black text-white mb-5">Boostez vos revenus<br />tout en réduisant vos coûts</h3>
@@ -490,7 +490,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Clock, title: "28 secondes", sub: "Checkout moyen", color: "from-cyan-500/15 to-blue-500/10" },
-                  { icon: Star, title: "96%", sub: "Satisfaction client", color: "from-violet-500/15 to-pink-500/10" },
+                  { icon: Star, title: "96%", sub: "Satisfaction client", color: "from-blue-500/15 to-pink-500/10" },
                   { icon: Receipt, title: "100%", sub: "Facture numérique", color: "from-blue-500/15 to-cyan-500/10" },
                   { icon: Bell, title: "0 €", sub: "Frais pour le client", color: "from-emerald-500/15 to-green-500/10" },
                 ].map((card, i) => (
@@ -509,8 +509,8 @@ export default function Home() {
           {activeTab === "investisseurs" && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500/20 to-purple-500/20 border border-violet-500/20 flex items-center justify-center mb-6">
-                  <TrendingUp className="text-violet-400" size={26} />
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/20 flex items-center justify-center mb-6">
+                  <TrendingUp className="text-blue-400" size={26} />
                 </div>
                 <h3 className="text-[36px] font-black text-white mb-5">Un marché de 50 Md€<br />à transformer</h3>
                 <p className="text-[16px] text-white/55 leading-relaxed mb-8">
@@ -525,8 +525,8 @@ export default function Home() {
                     "First-mover advantage en France",
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle size={12} className="text-violet-400" />
+                      <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle size={12} className="text-blue-400" />
                       </div>
                       <span className="text-[14px] text-white/70">{item}</span>
                     </div>
@@ -543,8 +543,8 @@ export default function Home() {
                   { label: "Objectif Y3 (SOM)", value: "85 M€", desc: "Volume transactions" },
                   { label: "Commission sur transactions", value: "0,6%", desc: "Revenue Velalta" },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 glass-card rounded-xl border border-violet-500/10">
-                    <div className="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center flex-shrink-0 text-violet-400 font-black text-[13px]">
+                  <div key={i} className="flex items-center gap-4 p-4 glass-card rounded-xl border border-blue-500/10">
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 text-blue-400 font-black text-[13px]">
                       {i + 1}
                     </div>
                     <div>
@@ -561,7 +561,7 @@ export default function Home() {
       </section>
 
       {/* ─── FEATURES GRID ─────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#040810]">
+      <section className="py-28 bg-[#0C0C14]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="text-center mb-20">
             <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
@@ -575,11 +575,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: QrCode, title: "QR d'entrée", desc: "Identification de session magasin instantanée en un scan.", gradient: "from-blue-600/15 to-cyan-600/10" },
-              { icon: Scan, title: "Scan code-barres", desc: "Rapide, fiable et précis. Gestion des codes EAN-13, QR, DataMatrix.", gradient: "from-violet-600/15 to-blue-600/10" },
+              { icon: Scan, title: "Scan code-barres", desc: "Rapide, fiable et précis. Gestion des codes EAN-13, QR, DataMatrix.", gradient: "from-blue-600/15 to-blue-600/10" },
               { icon: Package, title: "Panier intelligent", desc: "Quantités, suppression, promotions appliquées automatiquement.", gradient: "from-cyan-600/15 to-teal-600/10" },
               { icon: CreditCard, title: "Paiement in-app", desc: "Apple Pay, Google Pay, CB. Instantané, sécurisé, tokenisé.", gradient: "from-emerald-600/15 to-cyan-600/10" },
               { icon: Receipt, title: "Facture QR sortie", desc: "Contrôle anti-fraude rapide. Historique complet disponible.", gradient: "from-orange-600/15 to-amber-600/10" },
-              { icon: BarChart3, title: "Analytics temps réel", desc: "Dashboard complet : CA, flux, comportements, alertes.", gradient: "from-pink-600/15 to-violet-600/10" },
+              { icon: BarChart3, title: "Analytics temps réel", desc: "Dashboard complet : CA, flux, comportements, alertes.", gradient: "from-pink-600/15 to-blue-600/10" },
               { icon: Database, title: "Intégration ERP/POS", desc: "API REST complète. Compatible avec les principaux systèmes.", gradient: "from-blue-600/15 to-indigo-600/10" },
               { icon: Shield, title: "Anti-fraude IA", desc: "Détection comportementale, contrôles aléatoires, logs sécurisés.", gradient: "from-red-600/15 to-orange-600/10" },
               { icon: Globe, title: "Multi-magasins", desc: "Gérez tous vos points de vente depuis un dashboard central.", gradient: "from-teal-600/15 to-green-600/10" },
@@ -624,7 +624,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { icon: Shield, title: "PCI-DSS", desc: "Prestataire de paiement certifié", color: "text-blue-400" },
-                { icon: Lock, title: "Chiffrement E2E", desc: "Données chiffrées de bout en bout", color: "text-violet-400" },
+                { icon: Lock, title: "Chiffrement E2E", desc: "Données chiffrées de bout en bout", color: "text-blue-400" },
                 { icon: Database, title: "Logs complets", desc: "Traçabilité totale des transactions", color: "text-cyan-400" },
                 { icon: CheckCircle, title: "RGPD", desc: "Données minimisées et protégées", color: "text-emerald-400" },
                 { icon: Activity, title: "99,9% SLA", desc: "Uptime garanti contractuellement", color: "text-orange-400" },
@@ -642,7 +642,7 @@ export default function Home() {
       </section>
 
       {/* ─── PRICING TEASER ────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#040810]">
+      <section className="py-28 bg-[#0C0C14]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
@@ -659,7 +659,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <div className="relative gradient-border rounded-3xl p-8 md:p-12 glass-card text-center">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <div className="px-4 py-1.5 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full text-white text-[12px] font-bold uppercase tracking-wider shadow-lg">
+                <div className="px-4 py-1.5 bg-gradient-to-r from-blue-600 to-blue-600 rounded-full text-white text-[12px] font-bold uppercase tracking-wider shadow-lg">
                   Offre unique tout inclus
                 </div>
               </div>
@@ -739,9 +739,9 @@ export default function Home() {
       </section>
 
       {/* ─── CTA FINAL ─────────────────────────────────────────────────── */}
-      <section className="py-28 relative overflow-hidden bg-[#040810]">
+      <section className="py-28 relative overflow-hidden bg-[#0C0C14]">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-600/15 via-violet-600/15 to-cyan-600/10 rounded-full blur-[100px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-600/15 via-blue-600/15 to-cyan-600/10 rounded-full blur-[100px]" />
         </div>
         <div className="relative max-w-[800px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[48px] md:text-[60px] font-black text-white leading-tight tracking-tight mb-6">
@@ -752,7 +752,7 @@ export default function Home() {
           </p>
 
           <div className="glass-card rounded-3xl p-8 text-center">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center mx-auto mb-5">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center mx-auto mb-5">
               <Mail size={26} className="text-blue-400" />
             </div>
             <p className="text-[16px] text-white/55 leading-relaxed mb-8 max-w-md mx-auto">

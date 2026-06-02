@@ -42,11 +42,11 @@ export default function FAQ() {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-600/8 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-600/8 rounded-full blur-[120px]" />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-8 text-center">
           <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-8">
@@ -69,7 +69,7 @@ export default function FAQ() {
             {categories.map((cat, ci) => (
               <div key={ci}>
                 <h2 className="text-[22px] font-black text-white mb-5 flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center text-[13px] font-black text-blue-400">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center text-[13px] font-black text-blue-400">
                     {ci + 1}
                   </span>
                   {cat.title}
@@ -105,7 +105,7 @@ export default function FAQ() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-[#040810]">
+      <section className="py-20 bg-[#0C0C14]">
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <div className="glass-card rounded-2xl p-8">
             <div className="text-[32px] font-black text-white mb-3">Vous avez une autre question ?</div>

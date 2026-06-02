@@ -3,7 +3,7 @@ import { Shield, Lock, Database, CheckCircle, ArrowRight, Eye, Activity, Users, 
 
 export default function Security() {
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
@@ -36,7 +36,7 @@ export default function Security() {
               { title: "99,9%", sub: "SLA garanti", desc: "Uptime contractuel", icon: Activity },
             ].map((cert, i) => (
               <div key={i} className="glass-card rounded-2xl p-6 text-center">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center mb-4 mx-auto">
                   <cert.icon className="text-blue-400" size={22} />
                 </div>
                 <div className="text-[22px] font-black text-white mb-0.5">{cert.title}</div>
@@ -57,7 +57,7 @@ export default function Security() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: CreditCardIcon, title: "Paiements PCI-DSS", desc: "Partenariat avec des prestataires certifiés PCI-DSS niveau 1. Tokenisation des données carte. Aucune donnée sensible stockée côté Velalta.", color: "text-blue-400", bg: "from-blue-600/12 to-cyan-600/6" },
-              { icon: Lock, title: "Chiffrement E2E", desc: "Toutes les données sont chiffrées de bout en bout avec AES-256. Les communications sont protégées par TLS 1.3.", color: "text-violet-400", bg: "from-violet-600/12 to-purple-600/6" },
+              { icon: Lock, title: "Chiffrement E2E", desc: "Toutes les données sont chiffrées de bout en bout avec AES-256. Les communications sont protégées par TLS 1.3.", color: "text-blue-400", bg: "from-blue-600/10 to-blue-800/6" },
               { icon: Database, title: "Logs & traçabilité", desc: "Chaque transaction est loguée de manière immuable. Audit trail complet disponible pour les enseignes.", color: "text-cyan-400", bg: "from-cyan-600/12 to-teal-600/6" },
               { icon: CheckCircle, title: "Conformité RGPD", desc: "Collecte minimale de données, droit à l'effacement, consentement explicite. Aucune donnée personnelle revendue.", color: "text-emerald-400", bg: "from-emerald-600/12 to-green-600/6" },
               { icon: Eye, title: "Anti-fraude IA", desc: "Algorithmes de détection comportementale en temps réel. Contrôles aléatoires à la sortie. Score de confiance par session.", color: "text-orange-400", bg: "from-orange-600/12 to-amber-600/6" },
@@ -76,7 +76,7 @@ export default function Security() {
       </section>
 
       {/* RGPD */}
-      <section className="py-28 bg-[#040810]">
+      <section className="py-28 bg-[#0C0C14]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>

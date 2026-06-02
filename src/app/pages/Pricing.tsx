@@ -3,7 +3,7 @@ import { CheckCircle, Zap, ArrowRight, Shield, BarChart3, Database, Globe, Users
 
 export default function Pricing() {
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
@@ -28,7 +28,7 @@ export default function Pricing() {
         <div className="max-w-[900px] mx-auto px-6 md:px-8">
           <div className="relative gradient-border rounded-3xl p-8 md:p-12 glass-card">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-              <div className="px-5 py-2 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full text-white text-[13px] font-bold uppercase tracking-wider">
+              <div className="px-5 py-2 bg-gradient-to-r from-blue-600 to-blue-600 rounded-full text-white text-[13px] font-bold uppercase tracking-wider">
                 Offre unique · Tout inclus
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function Pricing() {
       </section>
 
       {/* Example calculation */}
-      <section className="py-20 bg-[#040810]">
+      <section className="py-20 bg-[#0C0C14]">
         <div className="max-w-[900px] mx-auto px-6 md:px-8">
           <div className="text-center mb-12">
             <h2 className="text-[36px] font-black text-white mb-4">Simulez vos revenus</h2>
@@ -163,7 +163,7 @@ export default function Pricing() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#040810]">
+      <section className="py-20 bg-[#0C0C14]">
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-5">Commencez gratuitement</h2>
           <p className="text-[18px] text-white/50 mb-8">Aucun engagement. Aucun frais fixe. Testez Velalta et ne payez que sur vos transactions.</p>

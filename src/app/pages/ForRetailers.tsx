@@ -3,12 +3,12 @@ import { CheckCircle, BarChart3, Store, TrendingUp, Clock, Users, ArrowRight, Sh
 
 export default function ForRetailers() {
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px]" />
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="max-w-4xl">
@@ -79,7 +79,7 @@ export default function ForRetailers() {
               {
                 icon: Users, title: "Optimisation RH",
                 desc: "Réaffectez votre personnel de caisse vers des missions à plus haute valeur : conseil, rayonnage, service client.",
-                color: "from-violet-600/15 to-purple-600/10", iconColor: "text-violet-400",
+                color: "from-blue-600/15 to-blue-800/10", iconColor: "text-blue-400",
               },
               {
                 icon: BarChart3, title: "Analytics avancés",
@@ -110,7 +110,7 @@ export default function ForRetailers() {
       </section>
 
       {/* Dashboard preview */}
-      <section className="py-28 bg-[#040810]">
+      <section className="py-28 bg-[#0C0C14]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -158,7 +158,7 @@ export default function ForRetailers() {
               <div className="bg-white/[0.03] rounded-xl p-4">
                 <div className="flex items-end gap-1 h-20">
                   {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t-sm bg-gradient-to-t from-blue-600/40 to-violet-600/30" style={{ height: `${h}%` }} />
+                    <div key={i} className="flex-1 rounded-t-sm bg-gradient-to-t from-blue-600/40 to-blue-600/30" style={{ height: `${h}%` }} />
                   ))}
                 </div>
                 <div className="flex justify-between mt-2 text-[10px] text-white/25">
@@ -208,7 +208,7 @@ export default function ForRetailers() {
             ].map((step, i) => (
               <div key={i} className="relative glass-card glass-card-hover rounded-2xl p-6">
                 <div className="text-[48px] font-black text-white/8 leading-none mb-4">{step.num}</div>
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center mb-4">
                   <step.icon className="text-blue-400" size={18} />
                 </div>
                 <h3 className="text-[18px] font-bold text-white mb-2">{step.title}</h3>
@@ -225,7 +225,7 @@ export default function ForRetailers() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 bg-[#040810]">
+      <section className="py-28 bg-[#0C0C14]">
         <div className="relative max-w-[800px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[48px] font-black text-white tracking-tight mb-6">
             Rejoignez les enseignes<br />pilotes Velalta

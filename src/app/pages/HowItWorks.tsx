@@ -3,7 +3,7 @@ import { QrCode, Scan, ShoppingCart, CreditCard, Receipt, ArrowRight, CheckCircl
 
 export default function HowItWorks() {
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
@@ -36,10 +36,10 @@ export default function HowItWorks() {
                 details: ["Ouverture de session en 1 seconde", "Identification du magasin automatique", "Panier vide prêt à l'emploi"],
               },
               {
-                num: "02", icon: Scan, iconColor: "text-violet-400",
+                num: "02", icon: Scan, iconColor: "text-blue-400",
                 title: "Vous scannez les produits en rayon",
                 desc: "Prenez un produit, scannez son code-barres avec la caméra de votre téléphone. Il s'ajoute instantanément à votre panier avec le prix exact, les promotions applicables et les informations produit.",
-                gradient: "from-violet-600/15 to-blue-600/5",
+                gradient: "from-blue-600/15 to-blue-600/5",
                 details: ["Ajout instantané au panier", "Prix et promos en temps réel", "Ajout manuel si code absent"],
               },
               {
@@ -108,7 +108,7 @@ export default function HowItWorks() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#040810]">
+      <section className="py-20 bg-[#0C0C14]">
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-5">Prêt à l'essayer ?</h2>
           <p className="text-[18px] text-white/50 mb-8">Rejoignez les premières enseignes pilotes et transformez l'expérience d'achat dès aujourd'hui.</p>

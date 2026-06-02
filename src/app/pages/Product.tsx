@@ -3,7 +3,7 @@ import { QrCode, Scan, CreditCard, Receipt, Shield, BarChart3, Database, Globe, 
 
 export default function Product() {
   return (
-    <div className="bg-[#050A14]">
+    <div className="bg-[#07070F]">
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
@@ -23,7 +23,7 @@ export default function Product() {
       </section>
 
       {/* Core flow */}
-      <section className="py-20 border-y border-white/[0.06] bg-[#040810]">
+      <section className="py-20 border-y border-white/[0.06] bg-[#0C0C14]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="text-center mb-12">
             <h2 className="text-[36px] font-black text-white mb-3">Le parcours client en 4 étapes</h2>
@@ -31,7 +31,7 @@ export default function Product() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { num: "1", icon: QrCode, title: "Entrée magasin", desc: "Le client scanne le QR code affiché à l'entrée. Sa session démarre instantanément.", color: "text-blue-400" },
-              { num: "2", icon: Scan, title: "Scan en rayon", desc: "Chaque produit est scanné directement avec la caméra du smartphone.", color: "text-violet-400" },
+              { num: "2", icon: Scan, title: "Scan en rayon", desc: "Chaque produit est scanné directement avec la caméra du smartphone.", color: "text-blue-400" },
               { num: "3", icon: CreditCard, title: "Paiement in-app", desc: "Apple Pay, Google Pay ou CB. Paiement sécurisé en un geste.", color: "text-cyan-400" },
               { num: "4", icon: Receipt, title: "QR de sortie", desc: "Un QR code généré pour le contrôle à la sortie. C'est tout.", color: "text-emerald-400" },
             ].map((step, i) => (
@@ -64,8 +64,8 @@ export default function Product() {
                 title: "Paiements sécurisés", badge: "Module de paiement",
                 desc: "Velalta s'appuie sur les meilleurs prestataires de paiement du marché (Stripe, Adyen) pour garantir des transactions sécurisées, instantanées et conformes PCI-DSS.",
                 features: ["Apple Pay & Google Pay", "Carte bancaire physique", "3D Secure automatique", "Tokenisation des cartes", "Gestion des remboursements"],
-                icon: CreditCard, iconColor: "text-violet-400",
-                gradient: "from-violet-600/10 to-transparent",
+                icon: CreditCard, iconColor: "text-blue-400",
+                gradient: "from-blue-600/10 to-transparent",
               },
               {
                 title: "Analytics & reporting", badge: "Dashboard",
@@ -105,7 +105,7 @@ export default function Product() {
       </section>
 
       {/* Integration */}
-      <section className="py-28 bg-[#040810]">
+      <section className="py-28 bg-[#0C0C14]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-4">Compatible avec votre stack</h2>
           <p className="text-[18px] text-white/50 mb-12 max-w-xl mx-auto">
