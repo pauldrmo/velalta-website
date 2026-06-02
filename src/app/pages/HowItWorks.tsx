@@ -112,9 +112,19 @@ export default function HowItWorks() {
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-5">Prêt à l'essayer ?</h2>
           <p className="text-[18px] text-white/50 mb-8">Rejoignez les premières enseignes pilotes et transformez l'expérience d'achat dès aujourd'hui.</p>
-          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
-            <span>Demander une démo →</span>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://group-skid-95043529.figma.site"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-[16px] inline-flex items-center justify-center gap-2"
+            >
+              <span>Tester la démo MVP →</span>
+            </a>
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-secondary text-[16px] inline-block text-center">
+              Demander une démo
+            </a>
+          </div>
         </div>
       </section>
     </div>

@@ -221,10 +221,15 @@ export default function Home() {
                 <a href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Velalta" className="btn-primary text-[15px] text-center">
                   <span>Demander une démo gratuite</span>
                 </a>
-                <Link to="/produit" className="btn-secondary text-[15px] inline-flex items-center justify-center gap-2">
-                  Découvrir le produit
-                  <ArrowRight size={16} />
-                </Link>
+                <a
+                  href="https://group-skid-95043529.figma.site"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary text-[15px] inline-flex items-center justify-center gap-2 border-blue-500/30 hover:border-blue-400/50"
+                >
+                  <Smartphone size={16} className="text-blue-400" />
+                  Tester la démo
+                </a>
               </div>
 
               {/* Trust signals */}
