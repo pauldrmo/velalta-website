@@ -9,7 +9,7 @@ const categories = [
       { q: "Qu'est-ce que Velalta ?", a: "Velalta est une solution de self-checkout mobile qui permet aux clients de scanner leurs produits en rayon, payer dans l'application et sortir du magasin sans passer par une caisse traditionnelle." },
       { q: "Est-ce que ça fonctionne sur tous les smartphones ?", a: "Oui. Velalta est compatible avec tous les smartphones iOS (iPhone 11 et +) et Android (Android 8.0 et +) disposant d'un appareil photo." },
       { q: "Et si un produit ne scanne pas ?", a: "L'application permet d'ajouter manuellement un produit via sa recherche ou son code-barres saisi. Un assistant vous guide à chaque étape." },
-      { q: "Et si je perds le réseau ?", a: "L'application fonctionne en mode hors ligne. Vos scans sont enregistrés localement et synchronisés une fois la connexion rétablie." },
+      { q: "Et si vous perdez le réseau ?", a: "L'application fonctionne en mode hors ligne. Vos scans sont enregistrés localement et synchronisés une fois la connexion rétablie." },
     ],
   },
   {

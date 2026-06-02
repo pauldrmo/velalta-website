@@ -149,7 +149,7 @@ export default function Pricing() {
           <div className="space-y-4">
             {[
               { q: "Y a-t-il des frais cachés ?", a: "Non, absolument aucun. Vous ne payez que la commission de 0,8% sur les transactions réussies. Zéro frais d'installation, zéro abonnement." },
-              { q: "Quand suis-je facturé ?", a: "La commission est prélevée automatiquement sur chaque transaction. Un relevé mensuel détaillé vous est envoyé automatiquement." },
+              { q: "Quand êtes-vous facturé ?", a: "La commission est prélevée automatiquement sur chaque transaction. Un relevé mensuel détaillé vous est envoyé automatiquement." },
               { q: "Puis-je obtenir un tarif personnalisé ?", a: "Oui, pour les grandes enseignes avec des volumes importants, nous proposons des tarifs négociables. Contactez notre équipe commerciale." },
               { q: "Y a-t-il un engagement minimum ?", a: "Non, aucun. Vous pouvez tester Velalta sans engagement et l'arrêter à tout moment." },
             ].map((faq, i) => (

@@ -30,28 +30,28 @@ export default function HowItWorks() {
             {[
               {
                 num: "01", icon: QrCode, iconColor: "text-blue-400",
-                title: "Je scanne le QR à l'entrée",
+                title: "Vous scannez le QR à l'entrée",
                 desc: "À l'entrée du magasin, un QR code Velalta vous attend. Scannez-le avec votre téléphone pour ouvrir votre session d'achat instantanément. Aucune inscription préalable requise.",
                 gradient: "from-blue-600/15 to-cyan-600/5",
                 details: ["Ouverture de session en 1 seconde", "Identification du magasin automatique", "Panier vide prêt à l'emploi"],
               },
               {
                 num: "02", icon: Scan, iconColor: "text-violet-400",
-                title: "Je scanne les produits en rayon",
+                title: "Vous scannez les produits en rayon",
                 desc: "Prenez un produit, scannez son code-barres avec la caméra de votre téléphone. Il s'ajoute instantanément à votre panier avec le prix exact, les promotions applicables et les informations produit.",
                 gradient: "from-violet-600/15 to-blue-600/5",
                 details: ["Ajout instantané au panier", "Prix et promos en temps réel", "Ajout manuel si code absent"],
               },
               {
                 num: "03", icon: CreditCard, iconColor: "text-cyan-400",
-                title: "Je paie dans l'app",
+                title: "Vous payez dans l'app",
                 desc: "Une fois vos courses terminées, accédez à votre panier et procédez au paiement. Apple Pay, Google Pay ou carte bancaire — le paiement est sécurisé et instantané.",
                 gradient: "from-cyan-600/15 to-teal-600/5",
                 details: ["Apple Pay & Google Pay", "Carte bancaire sécurisée", "Reçu numérique immédiat"],
               },
               {
                 num: "04", icon: Receipt, iconColor: "text-emerald-400",
-                title: "Je montre le QR facture à la sortie",
+                title: "Vous présentez le QR facture à la sortie",
                 desc: "Un QR code de facture est généré automatiquement après votre paiement. Présentez-le au passage en sortie pour un contrôle rapide. C'est tout — vous êtes libre !",
                 gradient: "from-emerald-600/15 to-teal-600/5",
                 details: ["QR code facture instantané", "Contrôle anti-fraude rapide", "Facture envoyée par email"],
