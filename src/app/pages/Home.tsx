@@ -214,7 +214,7 @@ export default function Home() {
               </p>
 
               <p className="text-[18px] md:text-[20px] text-white/55 leading-relaxed mb-10 max-w-lg">
-                Velalta transforme le passage en caisse en une expérience mobile ultra-fluide. Scan, paie, et pars — zéro file d'attente, zéro friction.
+                Velalta transforme le passage en caisse en une expérience mobile ultra-fluide. Scannez, payez, et repartez — zéro file d'attente, zéro friction.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
