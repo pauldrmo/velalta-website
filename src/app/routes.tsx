@@ -9,6 +9,10 @@ import ForInvestors from "./pages/ForInvestors";
 import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
+import MentionsLegales from "./pages/MentionsLegales";
+import Confidentialite from "./pages/Confidentialite";
+import CGU from "./pages/CGU";
+import RGPD from "./pages/RGPD";
 import NotFound from "./pages/NotFound";
 
 export const router = createBrowserRouter([
@@ -25,6 +29,10 @@ export const router = createBrowserRouter([
       { path: "tarifs", Component: Pricing },
       { path: "faq", Component: FAQ },
       { path: "contact", Component: Contact },
+      { path: "mentions-legales", Component: MentionsLegales },
+      { path: "confidentialite", Component: Confidentialite },
+      { path: "cgu", Component: CGU },
+      { path: "rgpd", Component: RGPD },
       { path: "*", Component: NotFound },
     ],
   },

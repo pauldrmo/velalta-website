@@ -116,15 +116,15 @@ export default function Footer() {
             <h4 className="text-[13px] font-semibold text-white/40 uppercase tracking-widest mb-5">Légal</h4>
             <ul className="space-y-3">
               {[
-                "Mentions légales",
-                "Confidentialité",
-                "CGU",
-                "RGPD",
+                { label: "Mentions légales", path: "/mentions-legales" },
+                { label: "Confidentialité", path: "/confidentialite" },
+                { label: "CGU", path: "/cgu" },
+                { label: "RGPD", path: "/rgpd" },
               ].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-white/55 hover:text-white text-[14px] transition-colors">
-                    {item}
-                  </a>
+                <li key={item.path}>
+                  <Link to={item.path} className="text-white/55 hover:text-white text-[14px] transition-colors">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
