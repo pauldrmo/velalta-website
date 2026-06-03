@@ -79,12 +79,6 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/contact"
-              className="px-4 py-2 text-[14px] font-medium text-white/70 hover:text-white transition-colors"
-            >
-              Connexion
-            </Link>
-            <Link
-              to="/contact"
               className="btn-primary text-[14px] py-2.5 px-5"
             >
               <span>Demander une démo</span>
