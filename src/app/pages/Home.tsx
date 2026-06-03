@@ -657,7 +657,7 @@ export default function Home() {
               Simple, transparent, aligné<br />sur votre succès
             </h2>
             <p className="text-[18px] text-white/50 max-w-2xl mx-auto">
-              Pas d'abonnement. Pas de frais cachés. Vous ne payez que sur les transactions réussies.
+              Pas d'abonnement. Pas de frais cachés. L'enseigne ne paie rien — c'est le client qui prend en charge la micro-surcharge de 0,8%.
             </p>
           </div>
 

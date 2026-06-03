@@ -18,7 +18,7 @@ export default function Pricing() {
             <span className="gradient-text">transparent.</span>
           </h1>
           <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl mx-auto">
-            Aucun abonnement. Aucun frais fixe. Vous ne payez que sur les transactions réussies — et vous en gagnez aussi.
+            Aucun frais pour l'enseigne. La micro-surcharge de 0,8% est assumée par le client — dont 0,2% vous revient directement en revenu additionnel.
           </p>
         </div>
       </section>
@@ -148,9 +148,9 @@ export default function Pricing() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "Y a-t-il des frais cachés ?", a: "Non, absolument aucun. Vous ne payez que la commission de 0,8% sur les transactions réussies. Zéro frais d'installation, zéro abonnement." },
-              { q: "Quand êtes-vous facturé ?", a: "La commission est prélevée automatiquement sur chaque transaction. Un relevé mensuel détaillé vous est envoyé automatiquement." },
-              { q: "Puis-je obtenir un tarif personnalisé ?", a: "Oui, pour les grandes enseignes avec des volumes importants, nous proposons des tarifs négociables. Contactez notre équipe commerciale." },
+              { q: "Y a-t-il des frais cachés ?", a: "Non, absolument aucun. L'enseigne ne paie rien — ni à l'installation, ni en abonnement, ni par transaction. C'est le client qui s'acquitte d'une micro-surcharge de 0,8%, dont 0,2% est reversé directement à l'enseigne en revenu additionnel." },
+              { q: "Comment fonctionne le reversement du 0,2% ?", a: "Le 0,2% généré sur chaque transaction est comptabilisé en temps réel dans votre dashboard. Un relevé mensuel détaillé vous est envoyé et le montant est crédité automatiquement." },
+              { q: "Puis-je négocier une meilleure part de commission ?", a: "Oui, pour les grandes enseignes avec des volumes importants, nous pouvons étudier une répartition personnalisée. Contactez notre équipe commerciale." },
               { q: "Y a-t-il un engagement minimum ?", a: "Non, aucun. Vous pouvez tester Velalta sans engagement et l'arrêter à tout moment." },
             ].map((faq, i) => (
               <div key={i} className="glass-card rounded-xl p-6">
@@ -166,7 +166,7 @@ export default function Pricing() {
       <section className="py-20 bg-[#0C0C14]">
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-5">Commencez gratuitement</h2>
-          <p className="text-[18px] text-white/50 mb-8">Aucun engagement. Aucun frais fixe. Testez Velalta et ne payez que sur vos transactions.</p>
+          <p className="text-[18px] text-white/50 mb-8">Aucun engagement. Aucun frais fixe. Intégrez Velalta gratuitement et générez des revenus sur chaque transaction client.</p>
           <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
             <span>Demander une proposition →</span>
           </a>
