@@ -41,7 +41,7 @@ export default function Pricing() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
               {[
                 { val: "0,8%", label: "Commission totale", sub: "par transaction client", color: "text-white", bg: "bg-white/[0.04]" },
-                { val: "0,6%", label: "Pour Velalta", sub: "coût de la plateforme", color: "text-blue-400", bg: "bg-blue-500/[0.08]" },
+                { val: "0,6%", label: "Pour Scanpay", sub: "coût de la plateforme", color: "text-blue-400", bg: "bg-blue-500/[0.08]" },
                 { val: "0,2%", label: "Pour vous", sub: "revenu additionnel garanti", color: "text-emerald-400", bg: "bg-emerald-500/[0.08]" },
               ].map((item, i) => (
                 <div key={i} className={`${item.bg} rounded-2xl p-6 text-center border border-white/[0.06]`}>
@@ -85,7 +85,7 @@ export default function Pricing() {
               ))}
             </div>
 
-            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] block text-center w-full py-4">
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[16px] block text-center w-full py-4">
               <span>Commencer maintenant — Gratuit →</span>
             </a>
             <p className="text-center text-[12px] text-white/25 mt-4">
@@ -119,7 +119,7 @@ export default function Pricing() {
                     <span className="text-white/80">{ex.transactions}</span>
                   </div>
                   <div className="flex justify-between text-white/50">
-                    <span>CA Velalta</span>
+                    <span>CA Scanpay</span>
                     <span className="text-white/80">{ex.ca}</span>
                   </div>
                   <div className="border-t border-white/[0.07] pt-2.5">
@@ -151,7 +151,7 @@ export default function Pricing() {
               { q: "Y a-t-il des frais cachés ?", a: "Non, absolument aucun. L'enseigne ne paie rien — ni à l'installation, ni en abonnement, ni par transaction. C'est le client qui s'acquitte d'une micro-surcharge de 0,8%, dont 0,2% est reversé directement à l'enseigne en revenu additionnel." },
               { q: "Comment fonctionne le reversement du 0,2% ?", a: "Le 0,2% généré sur chaque transaction est comptabilisé en temps réel dans votre dashboard. Un relevé mensuel détaillé vous est envoyé et le montant est crédité automatiquement." },
               { q: "Puis-je négocier une meilleure part de commission ?", a: "Oui, pour les grandes enseignes avec des volumes importants, nous pouvons étudier une répartition personnalisée. Contactez notre équipe commerciale." },
-              { q: "Y a-t-il un engagement minimum ?", a: "Non, aucun. Vous pouvez tester Velalta sans engagement et l'arrêter à tout moment." },
+              { q: "Y a-t-il un engagement minimum ?", a: "Non, aucun. Vous pouvez tester Scanpay sans engagement et l'arrêter à tout moment." },
             ].map((faq, i) => (
               <div key={i} className="glass-card rounded-xl p-6">
                 <h3 className="text-[16px] font-bold text-white mb-2">{faq.q}</h3>
@@ -166,8 +166,8 @@ export default function Pricing() {
       <section className="py-20 bg-[#0C0C14]">
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-5">Commencez gratuitement</h2>
-          <p className="text-[18px] text-white/50 mb-8">Aucun engagement. Aucun frais fixe. Intégrez Velalta gratuitement et générez des revenus sur chaque transaction client.</p>
-          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
+          <p className="text-[18px] text-white/50 mb-8">Aucun engagement. Aucun frais fixe. Intégrez Scanpay gratuitement et générez des revenus sur chaque transaction client.</p>
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[16px] inline-block">
             <span>Demander une proposition →</span>
           </a>
         </div>

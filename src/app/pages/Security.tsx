@@ -19,7 +19,7 @@ export default function Security() {
               <span className="gradient-text">design.</span>
             </h1>
             <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl">
-              Velalta a été conçu dès le départ avec une architecture security-first. Chaque couche du système est protégée, auditée et conforme aux standards internationaux.
+              Scanpay a été conçu dès le départ avec une architecture security-first. Chaque couche du système est protégée, auditée et conforme aux standards internationaux.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function Security() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: CreditCardIcon, title: "Paiements PCI-DSS", desc: "Partenariat avec des prestataires certifiés PCI-DSS niveau 1. Tokenisation des données carte. Aucune donnée sensible stockée côté Velalta.", color: "text-blue-400", bg: "from-blue-600/12 to-cyan-600/6" },
+              { icon: CreditCardIcon, title: "Paiements PCI-DSS", desc: "Partenariat avec des prestataires certifiés PCI-DSS niveau 1. Tokenisation des données carte. Aucune donnée sensible stockée côté Scanpay.", color: "text-blue-400", bg: "from-blue-600/12 to-cyan-600/6" },
               { icon: Lock, title: "Chiffrement E2E", desc: "Toutes les données sont chiffrées de bout en bout avec AES-256. Les communications sont protégées par TLS 1.3.", color: "text-blue-400", bg: "from-blue-600/10 to-blue-800/6" },
               { icon: Database, title: "Logs & traçabilité", desc: "Chaque transaction est loguée de manière immuable. Audit trail complet disponible pour les enseignes.", color: "text-cyan-400", bg: "from-cyan-600/12 to-teal-600/6" },
               { icon: CheckCircle, title: "Conformité RGPD", desc: "Collecte minimale de données, droit à l'effacement, consentement explicite. Aucune donnée personnelle revendue.", color: "text-emerald-400", bg: "from-emerald-600/12 to-green-600/6" },
@@ -82,7 +82,7 @@ export default function Security() {
             <div>
               <h2 className="text-[40px] font-black text-white mb-6">Vos données vous appartiennent</h2>
               <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                Velalta ne monétise pas les données de vos clients. Nous collectons uniquement les informations strictement nécessaires au fonctionnement du service, conformément au principe de minimisation du RGPD.
+                Scanpay ne monétise pas les données de vos clients. Nous collectons uniquement les informations strictement nécessaires au fonctionnement du service, conformément au principe de minimisation du RGPD.
               </p>
               <div className="space-y-3">
                 {[
@@ -102,7 +102,7 @@ export default function Security() {
               </div>
             </div>
             <div className="glass-card rounded-2xl p-8">
-              <div className="text-[13px] font-semibold text-white/40 uppercase tracking-wide mb-6">Données collectées par Velalta</div>
+              <div className="text-[13px] font-semibold text-white/40 uppercase tracking-wide mb-6">Données collectées par Scanpay</div>
               <div className="space-y-4">
                 {[
                   { type: "Données de transaction", detail: "Produits, montants, horodatage", keep: "3 ans", icon: "📦" },
@@ -130,7 +130,7 @@ export default function Security() {
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[36px] font-black text-white mb-4">Des questions sur notre sécurité ?</h2>
           <p className="text-[16px] text-white/50 mb-8">Notre équipe technique est disponible pour répondre à toutes vos questions et partager notre documentation sécurité.</p>
-          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px] inline-block">
             <span>Contacter l'équipe sécurité →</span>
           </a>
         </div>

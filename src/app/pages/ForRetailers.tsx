@@ -20,10 +20,10 @@ export default function ForRetailers() {
               <span className="gradient-text">Augmentez vos revenus.</span>
             </h1>
             <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl mb-10">
-              Velalta permet à vos enseignes de transformer les caisses en un avantage compétitif. Moins de personnel, plus de fluidité, plus de revenus.
+              Scanpay permet à vos enseignes de transformer les caisses en un avantage compétitif. Moins de personnel, plus de fluidité, plus de revenus.
             </p>
             <div className="flex gap-4">
-              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px]">
+              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px]">
                 <span>Demander une démo</span>
               </a>
               <Link to="/tarifs" className="btn-secondary text-[15px] inline-flex items-center gap-2">
@@ -60,7 +60,7 @@ export default function ForRetailers() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="text-center mb-20">
             <h2 className="text-[40px] md:text-[52px] font-black text-white tracking-tight mb-4">
-              Pourquoi les enseignes<br />choisissent Velalta
+              Pourquoi les enseignes<br />choisissent Scanpay
             </h2>
           </div>
 
@@ -115,13 +115,13 @@ export default function ForRetailers() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
-                Dashboard Velalta
+                Dashboard Scanpay
               </div>
               <h2 className="text-[40px] md:text-[48px] font-black text-white leading-tight mb-6">
                 Pilotez vos performances<br />en temps réel
               </h2>
               <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                Votre dashboard Velalta centralise toutes les métriques critiques de vos points de vente. Alertes en temps réel, rapports automatiques, export comptable.
+                Votre dashboard Scanpay centralise toutes les métriques critiques de vos points de vente. Alertes en temps réel, rapports automatiques, export comptable.
               </p>
               <div className="space-y-3">
                 {[
@@ -169,7 +169,7 @@ export default function ForRetailers() {
               {[
                 { label: "Transactions (aujourd'hui)", val: "1 247", sub: "+18% vs hier", positive: true },
                 { label: "CA généré", val: "21 840 €", sub: "+12%", positive: true },
-                { label: "Revenu Velalta/magasin", val: "+43,68 €", sub: "ce jour", positive: true },
+                { label: "Revenu Scanpay/magasin", val: "+43,68 €", sub: "ce jour", positive: true },
                 { label: "Temps moyen checkout", val: "27 sec", sub: "-8 sec", positive: true },
               ].map((m, i) => (
                 <div key={i} className="flex items-center justify-between py-3 border-b border-white/[0.05] last:border-0">
@@ -228,12 +228,12 @@ export default function ForRetailers() {
       <section className="py-28 bg-[#0C0C14]">
         <div className="relative max-w-[800px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[48px] font-black text-white tracking-tight mb-6">
-            Rejoignez les enseignes<br />pilotes Velalta
+            Rejoignez les enseignes<br />pilotes Scanpay
           </h2>
           <p className="text-[18px] text-white/50 mb-10 max-w-lg mx-auto">
             Accédez à l'offre pilote et transformez l'expérience d'achat de vos clients dès aujourd'hui.
           </p>
-          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[16px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[16px] inline-block">
             <span>Demander une démo gratuite →</span>
           </a>
         </div>

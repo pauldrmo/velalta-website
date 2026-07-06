@@ -17,7 +17,7 @@ export default function RGPD() {
 
           <div className="glass-card rounded-xl p-5 border border-blue-500/20">
             <p className="text-[14px] text-white/60">
-              Velalta Technologies SAS s'engage à respecter le <strong className="text-white">Règlement Général sur la Protection des Données (RGPD)</strong> — Règlement UE 2016/679 du Parlement européen et du Conseil du 27 avril 2016. Cette page détaille notre approche de la conformité RGPD.
+              Scanpay Technologies SAS s'engage à respecter le <strong className="text-white">Règlement Général sur la Protection des Données (RGPD)</strong> — Règlement UE 2016/679 du Parlement européen et du Conseil du 27 avril 2016. Cette page détaille notre approche de la conformité RGPD.
             </p>
           </div>
 
@@ -42,12 +42,12 @@ export default function RGPD() {
 
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">2. Bases légales de traitement</h2>
-            <p>Velalta Technologies SAS fonde ses traitements de données sur les bases légales suivantes :</p>
+            <p>Scanpay Technologies SAS fonde ses traitements de données sur les bases légales suivantes :</p>
             <div className="mt-4 space-y-3">
               {[
                 {
                   base: "Consentement (Art. 6.1.a)",
-                  desc: "Pour l'envoi de communications marketing ou d'actualités Velalta, uniquement si vous y avez explicitement consenti.",
+                  desc: "Pour l'envoi de communications marketing ou d'actualités Scanpay, uniquement si vous y avez explicitement consenti.",
                 },
                 {
                   base: "Exécution d'un contrat (Art. 6.1.b)",
@@ -79,7 +79,7 @@ export default function RGPD() {
 
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">4. Mesures de sécurité</h2>
-            <p>Velalta Technologies SAS met en œuvre les mesures techniques et organisationnelles suivantes :</p>
+            <p>Scanpay Technologies SAS met en œuvre les mesures techniques et organisationnelles suivantes :</p>
             <ul className="mt-4 space-y-2 list-none">
               {[
                 "Chiffrement HTTPS (TLS) sur l'ensemble du site",
@@ -138,14 +138,14 @@ export default function RGPD() {
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">7. Délégué à la Protection des Données (DPO)</h2>
             <p>
-              En tant que startup en phase de lancement, Velalta Technologies SAS n'est pas tenue de désigner un DPO obligatoire. Le responsable de la conformité RGPD est actuellement Paul Dormeau, contactable à : <a href="mailto:pauldormeau@icloud.com" className="text-blue-400 hover:text-blue-300 transition-colors">pauldormeau@icloud.com</a>
+              En tant que startup en phase de lancement, Scanpay Technologies SAS n'est pas tenue de désigner un DPO obligatoire. Le responsable de la conformité RGPD est actuellement Paul Dormeau, contactable à : <a href="mailto:pauldormeau@icloud.com" className="text-blue-400 hover:text-blue-300 transition-colors">pauldormeau@icloud.com</a>
             </p>
           </section>
 
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">8. Mise à jour de la politique</h2>
             <p>
-              Cette politique RGPD sera mise à jour au fur et à mesure du développement de Velalta Technologies SAS, notamment lors de la mise en production des services, de l'obtention de certifications ou de l'évolution de la réglementation applicable.
+              Cette politique RGPD sera mise à jour au fur et à mesure du développement de Scanpay Technologies SAS, notamment lors de la mise en production des services, de l'obtention de certifications ou de l'évolution de la réglementation applicable.
             </p>
           </section>
 

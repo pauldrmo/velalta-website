@@ -40,7 +40,10 @@
       "mcp__9148cad2-8232-46fd-aeb3-7a2a9e1883e8__get_project_url",
       "Bash(mkdir -p \"/Users/pauldormeau/Desktop/velalta-mvp/.claude\")",
       "Bash(perl -i -pe ' *)",
-      "Bash(echo \"Done\")"
+      "Bash(echo \"Done\")",
+      "Bash(npx tsc *)",
+      "Bash(npx vitest *)",
+      "Bash(xargs -0 perl -i -pe ' *)"
     ]
   }
 }

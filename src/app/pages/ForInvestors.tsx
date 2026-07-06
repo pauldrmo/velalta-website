@@ -20,13 +20,13 @@ export default function ForInvestors() {
               <span className="gradient-text">de rupture.</span>
             </h1>
             <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl mb-10">
-              Velalta s'attaque à un marché de 3 000 Md€ encore dominé par des caisses physiques coûteuses et obsolètes. Le moment de lancer la révolution mobile du retail, c'est maintenant.
+              Scanpay s'attaque à un marché de 3 000 Md€ encore dominé par des caisses physiques coûteuses et obsolètes. Le moment de lancer la révolution mobile du retail, c'est maintenant.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="mailto:pauldormeau@icloud.com?subject=Investissement%20Velalta%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20le%20pitch%20deck%20Velalta.%0A%0ACordialement%2C" className="btn-primary text-[15px]">
+              <a href="mailto:pauldormeau@icloud.com?subject=Investissement%20Scanpay%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20le%20pitch%20deck%20Scanpay.%0A%0ACordialement%2C" className="btn-primary text-[15px]">
                 <span>Demander le pitch deck →</span>
               </a>
-              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Investisseur%20%E2%80%94%20Velalta" className="btn-secondary text-[15px] inline-flex items-center gap-2">
+              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Investisseur%20%E2%80%94%20Scanpay" className="btn-secondary text-[15px] inline-flex items-center gap-2">
                 Prendre contact
                 <ArrowRight size={15} />
               </a>
@@ -43,7 +43,7 @@ export default function ForInvestors() {
               { val: "3 000 Md€", label: "Retail EU annuel", sub: "Marché total (TAM)" },
               { val: "50 Md€", label: "Self-checkout mobile", sub: "Marché adressable (SAM)" },
               { val: "<5%", label: "Pénétration actuelle", sub: "Du self-checkout en France" },
-              { val: "0,6%", label: "Commission Velalta", sub: "Par transaction — modèle SaaS" },
+              { val: "0,6%", label: "Commission Scanpay", sub: "Par transaction — modèle SaaS" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-[32px] md:text-[40px] font-black gradient-text mb-1">{stat.val}</div>
@@ -67,13 +67,13 @@ export default function ForInvestors() {
                 Une fenêtre de marché<br />historique
               </h2>
               <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                Le self-checkout représente moins de 5% des transactions en France. Les solutions existantes — bornes physiques à 20-40 k€ par installation — sont coûteuses, peu fiables et frustrantes. Velalta propose un modèle 100% logiciel, sans investissement matériel, déployable en quelques semaines.
+                Le self-checkout représente moins de 5% des transactions en France. Les solutions existantes — bornes physiques à 20-40 k€ par installation — sont coûteuses, peu fiables et frustrantes. Scanpay propose un modèle 100% logiciel, sans investissement matériel, déployable en quelques semaines.
               </p>
               <div className="space-y-4">
                 {[
                   { title: "First-mover advantage", desc: "Aucun acteur dominant sur le mobile self-checkout en France : la place est à prendre." },
                   { title: "Modèle asset-light", desc: "100% logiciel, zéro infrastructure physique. Les coûts marginaux tendent vers zéro à l'échelle." },
-                  { title: "Switching costs élevés", desc: "Une fois intégré dans l'ERP d'une enseigne, Velalta devient une infrastructure critique." },
+                  { title: "Switching costs élevés", desc: "Une fois intégré dans l'ERP d'une enseigne, Scanpay devient une infrastructure critique." },
                   { title: "Effet réseau", desc: "Plus d'enseignes partenaires = plus d'attractivité pour les clients finaux, et vice versa." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-4 glass-card rounded-xl">
@@ -96,7 +96,7 @@ export default function ForInvestors() {
                 <div className="space-y-3">
                   {[
                     { label: "Commission totale par transaction", val: "0,8%", color: "text-white" },
-                    { label: "Part Velalta (revenus SaaS)", val: "0,6%", color: "text-blue-400" },
+                    { label: "Part Scanpay (revenus SaaS)", val: "0,6%", color: "text-blue-400" },
                     { label: "Part commerçant (incentive adoption)", val: "0,2%", color: "text-emerald-400" },
                     { label: "Abonnement ou frais fixes", val: "0 €", color: "text-white/50" },
                     { label: "Frais d'intégration", val: "0 €", color: "text-white/50" },
@@ -166,13 +166,13 @@ export default function ForInvestors() {
               {
                 icon: Globe, num: "03",
                 title: "Cadre réglementaire favorable",
-                desc: "Le RGPD européen avantage les acteurs locaux face aux géants américains. Velalta est conçu dès l'origine dans le respect de la réglementation européenne.",
+                desc: "Le RGPD européen avantage les acteurs locaux face aux géants américains. Scanpay est conçu dès l'origine dans le respect de la réglementation européenne.",
                 color: "from-slate-600/15 to-blue-800/10",
               },
               {
                 icon: Zap, num: "04",
                 title: "Technologie enfin mature",
-                desc: "APIs de paiement (Stripe, Adyen), scan mobile précis, ERP modernes ouverts : les briques technologiques pour construire Velalta à grande échelle existent et sont fiables.",
+                desc: "APIs de paiement (Stripe, Adyen), scan mobile précis, ERP modernes ouverts : les briques technologiques pour construire Scanpay à grande échelle existent et sont fiables.",
                 color: "from-blue-600/12 to-slate-600/10",
               },
             ].map((item, i) => (
@@ -199,10 +199,10 @@ export default function ForInvestors() {
           <div className="relative gradient-border rounded-3xl p-8 md:p-12 glass-card">
             <div className="text-center mb-12">
               <h2 className="text-[40px] md:text-[52px] font-black text-white mb-5">
-                Investir dans Velalta,<br />c'est financer un lancement.
+                Investir dans Scanpay,<br />c'est financer un lancement.
               </h2>
               <p className="text-[18px] text-white/55 max-w-2xl mx-auto leading-relaxed">
-                Nous recherchons des partenaires investisseurs pour financer le lancement commercial de Velalta : premiers déploiements pilotes en France, développement du produit et structuration des premières équipes.
+                Nous recherchons des partenaires investisseurs pour financer le lancement commercial de Scanpay : premiers déploiements pilotes en France, développement du produit et structuration des premières équipes.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export default function ForInvestors() {
                 {
                   icon: Target,
                   title: "Seed / Pré-seed",
-                  desc: "Financer les premiers magasins pilotes, valider le product-market fit et construire les fondations commerciales de Velalta en France.",
+                  desc: "Financer les premiers magasins pilotes, valider le product-market fit et construire les fondations commerciales de Scanpay en France.",
                 },
                 {
                   icon: BarChart3,
@@ -240,10 +240,10 @@ export default function ForInvestors() {
                 Les informations financières détaillées, les termes d'investissement et les données de marché complètes sont disponibles exclusivement dans notre pitch deck confidentiel.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:pauldormeau@icloud.com?subject=Investissement%20Velalta%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20le%20pitch%20deck%20Velalta.%0A%0ACordialement%2C" className="btn-primary text-[15px] inline-block">
+                <a href="mailto:pauldormeau@icloud.com?subject=Investissement%20Scanpay%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20le%20pitch%20deck%20Scanpay.%0A%0ACordialement%2C" className="btn-primary text-[15px] inline-block">
                   <span>Demander le pitch deck complet →</span>
                 </a>
-                <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Investisseur%20%E2%80%94%20Velalta" className="btn-secondary text-[15px] inline-flex items-center justify-center gap-2">
+                <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Investisseur%20%E2%80%94%20Scanpay" className="btn-secondary text-[15px] inline-flex items-center justify-center gap-2">
                   <Mail size={15} />
                   Échange informel
                 </a>

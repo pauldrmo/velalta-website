@@ -2,8 +2,8 @@ import { Link, useLocation } from "react-router";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const VelaltaLogo = () => (
-  <span className="text-[20px] font-bold text-white tracking-tight">Velalta</span>
+const ScanpayLogo = () => (
+  <span className="text-[20px] font-bold text-white tracking-tight">Scanpay</span>
 );
 
 const navItems = [
@@ -41,7 +41,7 @@ export default function Header() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/">
-            <VelaltaLogo />
+            <ScanpayLogo />
           </Link>
 
           {/* Desktop Navigation */}

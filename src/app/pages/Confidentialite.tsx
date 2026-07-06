@@ -18,7 +18,7 @@ export default function Confidentialite() {
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">1. Responsable du traitement</h2>
             <p>
-              Le responsable du traitement des données personnelles collectées sur velalta.fr est <strong className="text-white">Velalta Technologies SAS</strong>, représentée par Paul Dormeau. Contact : <a href="mailto:pauldormeau@icloud.com" className="text-blue-400 hover:text-blue-300 transition-colors">pauldormeau@icloud.com</a>
+              Le responsable du traitement des données personnelles collectées sur scanpay.fr est <strong className="text-white">Scanpay Technologies SAS</strong>, représentée par Paul Dormeau. Contact : <a href="mailto:pauldormeau@icloud.com" className="text-blue-400 hover:text-blue-300 transition-colors">pauldormeau@icloud.com</a>
             </p>
           </section>
 
@@ -47,7 +47,7 @@ export default function Confidentialite() {
               {[
                 { base: "Intérêt légitime", desc: "Répondre à vos demandes de contact, démonstrations ou partenariats" },
                 { base: "Intérêt légitime", desc: "Améliorer les performances et le contenu du site" },
-                { base: "Consentement", desc: "Vous envoyer des informations sur Velalta si vous en avez fait la demande" },
+                { base: "Consentement", desc: "Vous envoyer des informations sur Scanpay si vous en avez fait la demande" },
                 { base: "Obligation légale", desc: "Respect de nos obligations légales et réglementaires" },
               ].map((item, i) => (
                 <div key={i} className="glass-card rounded-lg px-4 py-3 flex items-start gap-4">
@@ -80,7 +80,7 @@ export default function Confidentialite() {
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">5. Destinataires des données</h2>
             <p>
-              Vos données personnelles sont destinées aux équipes internes de Velalta Technologies SAS. Elles peuvent être transmises à des sous-traitants techniques (hébergement, envoi d'e-mails) dans le strict cadre de l'exécution de leurs missions et sous garantie contractuelle de confidentialité.
+              Vos données personnelles sont destinées aux équipes internes de Scanpay Technologies SAS. Elles peuvent être transmises à des sous-traitants techniques (hébergement, envoi d'e-mails) dans le strict cadre de l'exécution de leurs missions et sous garantie contractuelle de confidentialité.
             </p>
             <p className="mt-3">
               Nous ne vendons, ne louons et ne cédons jamais vos données personnelles à des tiers à des fins commerciales.
@@ -113,7 +113,7 @@ export default function Confidentialite() {
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">7. Cookies</h2>
             <p>
-              Le site velalta.fr utilise des cookies strictement nécessaires au fonctionnement du site. Aucun cookie de traçage publicitaire ou de profilage n'est déposé sans votre consentement explicite.
+              Le site scanpay.fr utilise des cookies strictement nécessaires au fonctionnement du site. Aucun cookie de traçage publicitaire ou de profilage n'est déposé sans votre consentement explicite.
             </p>
           </section>
 

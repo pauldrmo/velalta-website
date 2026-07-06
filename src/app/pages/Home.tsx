@@ -29,7 +29,7 @@ function PhoneMockup() {
 
           {/* App header */}
           <rect x="12" y="92" width="256" height="52" fill="url(#app-header-grad)" />
-          <text x="28" y="122" fill="white" fontSize="16" fontFamily="Inter, sans-serif" fontWeight="700">Velalta</text>
+          <text x="28" y="122" fill="white" fontSize="16" fontFamily="Inter, sans-serif" fontWeight="700">Scanpay</text>
           <text x="28" y="136" fill="rgba(255,255,255,0.7)" fontSize="10" fontFamily="Inter, sans-serif">Mon panier • Leclerc Paris 15</text>
           {/* QR icon */}
           <rect x="226" y="102" width="32" height="32" rx="8" fill="rgba(255,255,255,0.15)" />
@@ -214,11 +214,11 @@ export default function Home() {
               </p>
 
               <p className="text-[18px] md:text-[20px] text-white/55 leading-relaxed mb-10 max-w-lg">
-                Velalta transforme le passage en caisse en une expérience mobile ultra-fluide. Scannez, payez, et repartez — zéro file d'attente, zéro friction.
+                Scanpay transforme le passage en caisse en une expérience mobile ultra-fluide. Scannez, payez, et repartez — zéro file d'attente, zéro friction.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <a href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Velalta" className="btn-primary text-[15px] text-center">
+                <a href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Scanpay" className="btn-primary text-[15px] text-center">
                   <span>Demander une démo gratuite</span>
                 </a>
                 <a
@@ -327,7 +327,7 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-500/25 mb-6">
                   <CheckCircle size={15} className="text-emerald-400" />
-                  <span className="text-emerald-400 text-[13px] font-semibold">La solution Velalta</span>
+                  <span className="text-emerald-400 text-[13px] font-semibold">La solution Scanpay</span>
                 </div>
                 <h3 className="text-[36px] font-black text-white leading-tight mb-5">
                   Self-checkout mobile.<br />Sans friction.
@@ -413,7 +413,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-[36px] font-black text-white mb-5">Boostez vos revenus<br />tout en réduisant vos coûts</h3>
                 <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                  Velalta permet à vos enseignes de réduire drastiquement les coûts liés aux caisses tout en générant un revenu additionnel sur chaque transaction.
+                  Scanpay permet à vos enseignes de réduire drastiquement les coûts liés aux caisses tout en générant un revenu additionnel sur chaque transaction.
                 </p>
                 <div className="space-y-3 mb-8">
                   {[
@@ -438,7 +438,7 @@ export default function Home() {
               </div>
               <div className="glass-card rounded-2xl p-6 space-y-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[13px] text-white/50 font-semibold uppercase tracking-wide">Dashboard Velalta</span>
+                  <span className="text-[13px] text-white/50 font-semibold uppercase tracking-wide">Dashboard Scanpay</span>
                   <div className="flex items-center gap-1.5 text-emerald-400 text-[12px]">
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     Live
@@ -472,7 +472,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-[36px] font-black text-white mb-5">Shopping fluide,<br />zéro file d'attente</h3>
                 <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                  Avec Velalta, vos courses deviennent un plaisir. Scannez les produits en rayon, payez en quelques secondes et repartez sans attendre.
+                  Avec Scanpay, vos courses deviennent un plaisir. Scannez les produits en rayon, payez en quelques secondes et repartez sans attendre.
                 </p>
                 <div className="space-y-3 mb-8">
                   {[
@@ -519,7 +519,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-[36px] font-black text-white mb-5">Un marché de 50 Md€<br />à transformer</h3>
                 <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                  Le retail européen génère plus de 3 000 milliards d'euros par an. Velalta capture une commission sur chaque transaction mobile — un modèle SaaS-like à forte scalabilité.
+                  Le retail européen génère plus de 3 000 milliards d'euros par an. Scanpay capture une commission sur chaque transaction mobile — un modèle SaaS-like à forte scalabilité.
                 </p>
                 <div className="space-y-3 mb-8">
                   {[
@@ -546,7 +546,7 @@ export default function Home() {
                   { label: "Marché total (TAM)", value: "50 Md€", desc: "Transactions retail EU/an" },
                   { label: "Marché adressable (SAM)", value: "4,2 Md€", desc: "Self-checkout mobile EU" },
                   { label: "Objectif Y3 (SOM)", value: "85 M€", desc: "Volume transactions" },
-                  { label: "Commission sur transactions", value: "0,6%", desc: "Revenue Velalta" },
+                  { label: "Commission sur transactions", value: "0,6%", desc: "Revenue Scanpay" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 glass-card rounded-xl border border-blue-500/10">
                     <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 text-blue-400 font-black text-[13px]">
@@ -619,7 +619,7 @@ export default function Home() {
                 Votre confiance est<br />notre priorité absolue
               </h2>
               <p className="text-[16px] text-white/55 leading-relaxed mb-10">
-                Velalta est conçu dès la conception avec une approche security-by-design. Chaque transaction est protégée par des couches de sécurité multiples.
+                Scanpay est conçu dès la conception avec une approche security-by-design. Chaque transaction est protégée par des couches de sécurité multiples.
               </p>
               <Link to="/securite" className="btn-secondary text-[14px] inline-flex items-center gap-2">
                 Voir notre politique sécurité
@@ -677,7 +677,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
                 {[
                   { val: "0,8%", label: "Commission totale", sub: "par transaction", color: "text-white" },
-                  { val: "0,6%", label: "Pour Velalta", sub: "coût plateforme", color: "text-blue-400" },
+                  { val: "0,6%", label: "Pour Scanpay", sub: "coût plateforme", color: "text-blue-400" },
                   { val: "0,2%", label: "Pour vous", sub: "revenu additionnel", color: "text-emerald-400" },
                 ].map((item, i) => (
                   <div key={i} className="glass-card rounded-xl p-5">
@@ -764,7 +764,7 @@ export default function Home() {
               Écrivez-nous directement — nous répondons sous 24h pour organiser votre démo personnalisée.
             </p>
             <a
-              href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Velalta&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9mo%20Velalta.%0A%0ANom%20%3A%0AEnseigne%20%3A%0ANombre%20de%20magasins%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0A%0AMessage%20%3A"
+              href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Scanpay&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9mo%20Scanpay.%0A%0ANom%20%3A%0AEnseigne%20%3A%0ANombre%20de%20magasins%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0A%0AMessage%20%3A"
               className="btn-primary text-[16px] py-4 block w-full"
             >
               <span>Planifier une démo par email →</span>

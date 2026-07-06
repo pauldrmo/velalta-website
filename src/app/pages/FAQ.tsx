@@ -6,8 +6,8 @@ const categories = [
   {
     title: "Le produit",
     faqs: [
-      { q: "Qu'est-ce que Velalta ?", a: "Velalta est une solution de self-checkout mobile qui permet aux clients de scanner leurs produits en rayon, payer dans l'application et sortir du magasin sans passer par une caisse traditionnelle." },
-      { q: "Est-ce que ça fonctionne sur tous les smartphones ?", a: "Oui. Velalta est compatible avec tous les smartphones iOS (iPhone 11 et +) et Android (Android 8.0 et +) disposant d'un appareil photo." },
+      { q: "Qu'est-ce que Scanpay ?", a: "Scanpay est une solution de self-checkout mobile qui permet aux clients de scanner leurs produits en rayon, payer dans l'application et sortir du magasin sans passer par une caisse traditionnelle." },
+      { q: "Est-ce que ça fonctionne sur tous les smartphones ?", a: "Oui. Scanpay est compatible avec tous les smartphones iOS (iPhone 11 et +) et Android (Android 8.0 et +) disposant d'un appareil photo." },
       { q: "Et si un produit ne scanne pas ?", a: "L'application permet d'ajouter manuellement un produit via sa recherche ou son code-barres saisi. Un assistant vous guide à chaque étape." },
       { q: "Et si vous perdez le réseau ?", a: "L'application fonctionne en mode hors ligne. Vos scans sont enregistrés localement et synchronisés une fois la connexion rétablie." },
     ],
@@ -15,25 +15,25 @@ const categories = [
   {
     title: "Paiements",
     faqs: [
-      { q: "Quels modes de paiement sont acceptés ?", a: "Apple Pay, Google Pay, carte bancaire Visa/Mastercard et American Express. Le paiement en espèces n'est pas disponible via l'app Velalta." },
-      { q: "Mes données de carte sont-elles sécurisées ?", a: "Oui. Velalta ne stocke jamais les numéros de carte bancaire. Seul un token sécurisé est conservé, via nos partenaires certifiés PCI-DSS." },
+      { q: "Quels modes de paiement sont acceptés ?", a: "Apple Pay, Google Pay, carte bancaire Visa/Mastercard et American Express. Le paiement en espèces n'est pas disponible via l'app Scanpay." },
+      { q: "Mes données de carte sont-elles sécurisées ?", a: "Oui. Scanpay ne stocke jamais les numéros de carte bancaire. Seul un token sécurisé est conservé, via nos partenaires certifiés PCI-DSS." },
       { q: "Comment se passe le remboursement ?", a: "En cas de retour produit, le remboursement est effectué sur le mode de paiement d'origine dans un délai de 3 à 5 jours ouvrés." },
     ],
   },
   {
     title: "Pour les enseignes",
     faqs: [
-      { q: "Combien de temps pour intégrer Velalta ?", a: "L'intégration complète prend entre 2 et 4 semaines selon la complexité de votre infrastructure existante. Notre équipe vous accompagne à chaque étape." },
-      { q: "Velalta est-il compatible avec mon ERP ?", a: "Velalta dispose d'une API REST complète compatible avec Cegid, Sage, SAP Retail, Odoo et la plupart des systèmes POS du marché. Pour un ERP custom, nos équipes peuvent réaliser l'intégration." },
+      { q: "Combien de temps pour intégrer Scanpay ?", a: "L'intégration complète prend entre 2 et 4 semaines selon la complexité de votre infrastructure existante. Notre équipe vous accompagne à chaque étape." },
+      { q: "Scanpay est-il compatible avec mon ERP ?", a: "Scanpay dispose d'une API REST complète compatible avec Cegid, Sage, SAP Retail, Odoo et la plupart des systèmes POS du marché. Pour un ERP custom, nos équipes peuvent réaliser l'intégration." },
       { q: "Comment gérer les promotions ?", a: "Les promotions sont automatiquement appliquées lors du scan via la synchronisation de votre catalogue produits. Le client voit le prix réduit en temps réel." },
-      { q: "Comment éviter la fraude ?", a: "Velalta combine plusieurs couches anti-fraude : contrôles aléatoires à la sortie, logs des transactions, détection comportementale par IA et vérifications croisées avec votre stock." },
+      { q: "Comment éviter la fraude ?", a: "Scanpay combine plusieurs couches anti-fraude : contrôles aléatoires à la sortie, logs des transactions, détection comportementale par IA et vérifications croisées avec votre stock." },
     ],
   },
   {
     title: "Conformité & sécurité",
     faqs: [
-      { q: "Velalta est-il conforme au RGPD ?", a: "Oui. Velalta collecte uniquement les données strictement nécessaires, conformément au principe de minimisation du RGPD. Aucune donnée personnelle n'est revendue." },
-      { q: "Quelles données Velalta collecte-t-il ?", a: "Velalta collecte uniquement les données de transaction (produits, montant, horodatage), un email si le client crée un compte, et des données comportementales anonymisées." },
+      { q: "Scanpay est-il conforme au RGPD ?", a: "Oui. Scanpay collecte uniquement les données strictement nécessaires, conformément au principe de minimisation du RGPD. Aucune donnée personnelle n'est revendue." },
+      { q: "Quelles données Scanpay collecte-t-il ?", a: "Scanpay collecte uniquement les données de transaction (produits, montant, horodatage), un email si le client crée un compte, et des données comportementales anonymisées." },
     ],
   },
 ];
@@ -57,7 +57,7 @@ export default function FAQ() {
             <span className="gradient-text">fréquentes</span>
           </h1>
           <p className="text-[20px] text-white/55 leading-relaxed max-w-xl mx-auto">
-            Tout ce que vous devez savoir sur Velalta. Vous ne trouvez pas votre réponse ? Contactez-nous.
+            Tout ce que vous devez savoir sur Scanpay. Vous ne trouvez pas votre réponse ? Contactez-nous.
           </p>
         </div>
       </section>
@@ -110,7 +110,7 @@ export default function FAQ() {
           <div className="glass-card rounded-2xl p-8">
             <div className="text-[32px] font-black text-white mb-3">Vous avez une autre question ?</div>
             <p className="text-[16px] text-white/50 mb-6">Notre équipe répond sous 24h.</p>
-            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px] inline-block">
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px] inline-block">
               <span>Nous contacter →</span>
             </a>
           </div>

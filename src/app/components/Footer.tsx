@@ -9,7 +9,7 @@ const InstagramIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
-const VelaltaLogo = () => (
+const ScanpayLogo = () => (
   <div className="flex items-center gap-2.5">
     <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="32" height="32" rx="9" fill="url(#footer-logo-grad)" />
@@ -22,7 +22,7 @@ const VelaltaLogo = () => (
         </linearGradient>
       </defs>
     </svg>
-    <span className="text-[19px] font-bold text-white tracking-tight">Velalta</span>
+    <span className="text-[19px] font-bold text-white tracking-tight">Scanpay</span>
   </div>
 );
 
@@ -35,7 +35,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/">
-              <VelaltaLogo />
+              <ScanpayLogo />
             </Link>
             <p className="mt-5 text-white/50 text-[15px] leading-relaxed max-w-xs">
               La plateforme de self-checkout mobile qui réinvente l'expérience d'achat en magasin.
@@ -51,7 +51,7 @@ export default function Footer() {
                 <Linkedin size={16} />
               </a>
               <a
-                href="https://www.instagram.com/velalta.app"
+                href="https://www.instagram.com/scanpay.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
@@ -136,7 +136,7 @@ export default function Footer() {
       <div className="border-t border-white/[0.05]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-6">
           <p className="text-white/25 text-[12px] leading-relaxed text-center">
-            Velalta est une startup en phase de lancement. Les certifications et conformités mentionnées sont en cours de validation. Ce site est un projet pilote destiné à recueillir l'intérêt des partenaires potentiels. Toutes les fonctionnalités décrites sont prévues mais non encore déployées en production.
+            Scanpay est une startup en phase de lancement. Les certifications et conformités mentionnées sont en cours de validation. Ce site est un projet pilote destiné à recueillir l'intérêt des partenaires potentiels. Toutes les fonctionnalités décrites sont prévues mais non encore déployées en production.
           </p>
         </div>
       </div>
@@ -145,7 +145,7 @@ export default function Footer() {
       <div className="border-t border-white/[0.04]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/25 text-[13px]">
-            © 2026 Velalta Technologies SAS. Tous droits réservés.
+            © 2026 Scanpay Technologies SAS. Tous droits réservés.
           </p>
           <div className="flex items-center gap-2 text-white/25 text-[13px]">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

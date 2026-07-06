@@ -18,7 +18,7 @@ export default function HowItWorks() {
             <span className="gradient-text">bonjour.</span>
           </h1>
           <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl mx-auto">
-            4 étapes. 28 secondes. Zéro file d'attente. Voilà Velalta.
+            4 étapes. 28 secondes. Zéro file d'attente. Voilà Scanpay.
           </p>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default function HowItWorks() {
               {
                 num: "01", icon: QrCode, iconColor: "text-blue-400",
                 title: "Vous scannez le QR à l'entrée",
-                desc: "À l'entrée du magasin, un QR code Velalta vous attend. Scannez-le avec votre téléphone pour ouvrir votre session d'achat instantanément. Aucune inscription préalable requise.",
+                desc: "À l'entrée du magasin, un QR code Scanpay vous attend. Scannez-le avec votre téléphone pour ouvrir votre session d'achat instantanément. Aucune inscription préalable requise.",
                 gradient: "from-blue-600/15 to-cyan-600/5",
                 details: ["Ouverture de session en 1 seconde", "Identification du magasin automatique", "Panier vide prêt à l'emploi"],
               },
@@ -98,7 +98,7 @@ export default function HowItWorks() {
                 </div>
               </div>
               <div>
-                <div className="text-[20px] text-white/40 mb-2 font-semibold">Velalta</div>
+                <div className="text-[20px] text-white/40 mb-2 font-semibold">Scanpay</div>
                 <div className="text-[56px] font-black gradient-text">28 sec</div>
                 <div className="text-[14px] text-white/40 mt-1">checkout moyen</div>
               </div>
@@ -121,7 +121,7 @@ export default function HowItWorks() {
             >
               <span>Tester la démo MVP →</span>
             </a>
-            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-secondary text-[16px] inline-block text-center">
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-secondary text-[16px] inline-block text-center">
               Demander une démo
             </a>
           </div>

@@ -17,9 +17,9 @@ export default function MentionsLegales() {
 
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">1. Éditeur du site</h2>
-            <p>Le site <strong className="text-white">velalta.fr</strong> est édité par :</p>
+            <p>Le site <strong className="text-white">scanpay.fr</strong> est édité par :</p>
             <div className="mt-4 glass-card rounded-xl p-6 space-y-2 text-[14px]">
-              <p><span className="text-white/40">Dénomination sociale</span> <span className="text-white ml-2">Velalta Technologies SAS</span></p>
+              <p><span className="text-white/40">Dénomination sociale</span> <span className="text-white ml-2">Scanpay Technologies SAS</span></p>
               <p><span className="text-white/40">Forme juridique</span> <span className="text-white ml-2">Société par Actions Simplifiée (SAS)</span></p>
               <p><span className="text-white/40">Capital social</span> <span className="text-white ml-2">En cours de constitution</span></p>
               <p><span className="text-white/40">Siège social</span> <span className="text-white ml-2">Paris & Rouen, France</span></p>
@@ -43,17 +43,17 @@ export default function MentionsLegales() {
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">3. Propriété intellectuelle</h2>
             <p>
-              L'ensemble des éléments constituant le site velalta.fr (textes, images, logos, graphismes, icônes, sons, logiciels, etc.) sont la propriété exclusive de Velalta Technologies SAS ou de ses partenaires, et sont protégés par les lois françaises et internationales relatives à la propriété intellectuelle.
+              L'ensemble des éléments constituant le site scanpay.fr (textes, images, logos, graphismes, icônes, sons, logiciels, etc.) sont la propriété exclusive de Scanpay Technologies SAS ou de ses partenaires, et sont protégés par les lois françaises et internationales relatives à la propriété intellectuelle.
             </p>
             <p className="mt-3">
-              Toute reproduction, représentation, modification, publication, adaptation ou exploitation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation préalable et écrite de Velalta Technologies SAS.
+              Toute reproduction, représentation, modification, publication, adaptation ou exploitation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation préalable et écrite de Scanpay Technologies SAS.
             </p>
           </section>
 
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">4. Limitation de responsabilité</h2>
             <p>
-              Velalta Technologies SAS s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, elle ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition. En conséquence, Velalta décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur le site.
+              Scanpay Technologies SAS s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, elle ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition. En conséquence, Scanpay décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur le site.
             </p>
             <p className="mt-3">
               Ce site est un projet pilote en phase de lancement. Les fonctionnalités, tarifs et services décrits sont prévisionnels et peuvent évoluer sans préavis.
@@ -63,7 +63,7 @@ export default function MentionsLegales() {
           <section>
             <h2 className="text-white text-xl font-semibold mb-4">5. Liens hypertextes</h2>
             <p>
-              Le site velalta.fr peut contenir des liens vers des sites tiers. Velalta Technologies SAS n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou à leurs pratiques en matière de confidentialité.
+              Le site scanpay.fr peut contenir des liens vers des sites tiers. Scanpay Technologies SAS n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou à leurs pratiques en matière de confidentialité.
             </p>
           </section>
 

@@ -80,17 +80,17 @@ export default function Contact() {
                   {[
                     {
                       label: "Démo enseigne",
-                      href: "mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Velalta&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9mo%20Velalta.%0A%0ANom%20%3A%0AEnseigne%20%3A%0ANombre%20de%20magasins%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0A",
+                      href: "mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Scanpay&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9mo%20Scanpay.%0A%0ANom%20%3A%0AEnseigne%20%3A%0ANombre%20de%20magasins%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0A",
                       primary: true,
                     },
                     {
                       label: "Dossier investisseur",
-                      href: "mailto:pauldormeau@icloud.com?subject=Investissement%20Velalta%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20Velalta%20dans%20le%20cadre%20d%27un%20investissement.%0A%0ANom%20%3A%0ASoci%C3%A9t%C3%A9%2FFonds%20%3A%0A",
+                      href: "mailto:pauldormeau@icloud.com?subject=Investissement%20Scanpay%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20Scanpay%20dans%20le%20cadre%20d%27un%20investissement.%0A%0ANom%20%3A%0ASoci%C3%A9t%C3%A9%2FFonds%20%3A%0A",
                       primary: false,
                     },
                     {
                       label: "Autre demande",
-                      href: "mailto:pauldormeau@icloud.com?subject=Contact%20Velalta",
+                      href: "mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay",
                       primary: false,
                     },
                   ].map((item) => (

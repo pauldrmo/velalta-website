@@ -14,10 +14,10 @@ export default function Product() {
             Le produit
           </div>
           <h1 className="text-[56px] md:text-[72px] font-black text-white leading-[0.95] tracking-tight mb-8">
-            Velalta, de A à Z
+            Scanpay, de A à Z
           </h1>
           <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl mx-auto">
-            Découvrez toutes les fonctionnalités qui font de Velalta la solution de self-checkout mobile la plus complète du marché.
+            Découvrez toutes les fonctionnalités qui font de Scanpay la solution de self-checkout mobile la plus complète du marché.
           </p>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default function Product() {
               },
               {
                 title: "Paiements sécurisés", badge: "Module de paiement",
-                desc: "Velalta s'appuie sur les meilleurs prestataires de paiement du marché (Stripe, Adyen) pour garantir des transactions sécurisées, instantanées et conformes PCI-DSS.",
+                desc: "Scanpay s'appuie sur les meilleurs prestataires de paiement du marché (Stripe, Adyen) pour garantir des transactions sécurisées, instantanées et conformes PCI-DSS.",
                 features: ["Apple Pay & Google Pay", "Carte bancaire physique", "3D Secure automatique", "Tokenisation des cartes", "Gestion des remboursements"],
                 icon: CreditCard, iconColor: "text-blue-400",
                 gradient: "from-blue-600/10 to-transparent",
@@ -109,7 +109,7 @@ export default function Product() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-8 text-center">
           <h2 className="text-[40px] font-black text-white mb-4">Compatible avec votre stack</h2>
           <p className="text-[18px] text-white/50 mb-12 max-w-xl mx-auto">
-            API REST documentée, webhooks, SDKs. Velalta s'intègre dans votre environnement existant.
+            API REST documentée, webhooks, SDKs. Scanpay s'intègre dans votre environnement existant.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-12">
             {["Cegid", "Sage Retail", "SAP", "Odoo", "Lightspeed", "WooCommerce", "Custom ERP", "API REST"].map((name, i) => (
@@ -118,7 +118,7 @@ export default function Product() {
               </div>
             ))}
           </div>
-          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Velalta" className="btn-primary text-[15px] inline-block">
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px] inline-block">
             <span>Parler à l'équipe technique →</span>
           </a>
         </div>
