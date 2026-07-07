@@ -214,7 +214,7 @@ export default function Home() {
               </p>
 
               <p className="text-[18px] md:text-[20px] text-white/55 leading-relaxed mb-10 max-w-lg">
-                Scanpay transforme le passage en caisse en une expérience mobile ultra-fluide. Scannez, payez, et repartez — zéro file d'attente, zéro friction.
+                Scanpay transforme le passage en caisse en une expérience mobile ultra-fluide. Scannez, payez, et repartez — en toute simplicité.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -306,9 +306,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[
-              { icon: Clock, color: "from-red-500/20 to-orange-500/10", border: "border-red-500/20", iconColor: "text-red-400", title: "4 minutes", sub: "Temps moyen en caisse traditionnelle", desc: "Les clients perdent en moyenne 4 minutes à faire la queue — 40 min par semaine." },
-              { icon: Users, color: "from-orange-500/20 to-yellow-500/10", border: "border-orange-500/20", iconColor: "text-orange-400", title: "30% du coût", sub: "Des coûts opérationnels en caisse", desc: "Le personnel de caisse représente l'un des postes de coûts les plus importants." },
-              { icon: TrendingUp, color: "from-yellow-500/20 to-amber-500/10", border: "border-yellow-500/20", iconColor: "text-yellow-400", title: "15% perdu", sub: "En abandons de panier", desc: "1 client sur 6 abandonne ses achats face aux files d'attente." },
+              { icon: Clock, color: "from-red-500/20 to-orange-500/10", border: "border-red-500/20", iconColor: "text-red-400", title: "Un temps d'attente évitable.", sub: "La file d'attente, un frein au quotidien", desc: "Chaque passage en caisse représente du temps perdu pour vos clients — et une opportunité manquée pour votre enseigne." },
+              { icon: Users, color: "from-orange-500/20 to-yellow-500/10", border: "border-orange-500/20", iconColor: "text-orange-400", title: "Un coût structurel élevé.", sub: "Le poids financier des caisses traditionnelles", desc: "Le personnel de caisse et les équipements physiques représentent l'un des postes de coûts les plus lourds du retail." },
+              { icon: TrendingUp, color: "from-yellow-500/20 to-amber-500/10", border: "border-yellow-500/20", iconColor: "text-yellow-400", title: "Des clients qui repartent.", sub: "Les files d'attente découragent", desc: "Les files d'attente découragent certains clients, qui renoncent à leurs achats avant d'atteindre la caisse." },
             ].map((item, i) => (
               <div key={i} className={`glass-card glass-card-hover rounded-2xl p-6 border ${item.border} bg-gradient-to-br ${item.color}`}>
                 <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center mb-5">
@@ -495,7 +495,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: Clock, title: "28 secondes", sub: "Checkout moyen", color: "from-cyan-500/15 to-blue-500/10" },
-                  { icon: Users, title: "96%", sub: "Satisfaction client", color: "from-blue-500/15 to-cyan-500/10" },
+                  { icon: Users, title: "Élevée", sub: "Satisfaction client", color: "from-blue-500/15 to-cyan-500/10" },
                   { icon: Receipt, title: "100%", sub: "Facture numérique", color: "from-blue-500/15 to-cyan-500/10" },
                   { icon: Bell, title: "+0,8%", sub: "Micro-surcharge client", color: "from-blue-500/15 to-cyan-500/10" },
                 ].map((card, i) => (

@@ -62,7 +62,7 @@ export default function Product() {
               },
               {
                 title: "Paiements sécurisés", badge: "Module de paiement",
-                desc: "Scanpay s'appuie sur les meilleurs prestataires de paiement du marché (Stripe, Adyen) pour garantir des transactions sécurisées, instantanées et conformes PCI-DSS.",
+                desc: "Scanpay s'appuie sur les meilleurs prestataires de paiement du marché (Stripe, Adyen, Wero, Worldline) pour garantir des transactions sécurisées, instantanées et conformes PCI-DSS.",
                 features: ["Apple Pay & Google Pay", "Carte bancaire physique", "3D Secure automatique", "Tokenisation des cartes", "Gestion des remboursements"],
                 icon: CreditCard, iconColor: "text-blue-400",
                 gradient: "from-blue-600/10 to-transparent",

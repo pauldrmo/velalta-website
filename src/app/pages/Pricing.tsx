@@ -104,9 +104,9 @@ export default function Pricing() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { label: "Petit magasin", transactions: "200 / jour", ca: "5 000 €", revenu: "+10 €/jour", annuel: "+3 650 €/an" },
-              { label: "Supermarché moyen", transactions: "800 / jour", ca: "20 000 €", revenu: "+40 €/jour", annuel: "+14 600 €/an", featured: true },
-              { label: "Grande surface", transactions: "2 000 / jour", ca: "50 000 €", revenu: "+100 €/jour", annuel: "+36 500 €/an" },
+              { label: "Petit magasin", transactions: "100 transactions via Scanpay / jour", revenu: "+9 €/jour", annuel: "+3 285 €/an" },
+              { label: "Supermarché moyen", transactions: "300 transactions via Scanpay / jour", revenu: "+27 €/jour", annuel: "+9 855 €/an", featured: true },
+              { label: "Grande surface", transactions: "700 transactions via Scanpay / jour", revenu: "+63 €/jour", annuel: "+22 995 €/an" },
             ].map((ex, i) => (
               <div key={i} className={`glass-card rounded-2xl p-6 ${ex.featured ? "border border-blue-500/30 bg-blue-500/[0.05]" : ""}`}>
                 {ex.featured && (
@@ -115,12 +115,12 @@ export default function Pricing() {
                 <div className="text-[16px] font-bold text-white mb-4">{ex.label}</div>
                 <div className="space-y-2.5 text-[14px]">
                   <div className="flex justify-between text-white/50">
-                    <span>Transactions</span>
+                    <span>Volume</span>
                     <span className="text-white/80">{ex.transactions}</span>
                   </div>
                   <div className="flex justify-between text-white/50">
-                    <span>CA Scanpay</span>
-                    <span className="text-white/80">{ex.ca}</span>
+                    <span>Panier moyen</span>
+                    <span className="text-white/80">45 €</span>
                   </div>
                   <div className="border-t border-white/[0.07] pt-2.5">
                     <div className="flex justify-between">
@@ -136,7 +136,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="text-center text-[12px] text-white/25 mt-6">* Estimations basées sur un panier moyen de 25€. Pour plus d'informations, contactez notre équipe commerciale.</p>
+          <p className="text-center text-[12px] text-white/25 mt-6">* Estimations basées sur un panier moyen de 45 € et une commission de 0,2 % sur les transactions réalisées via Scanpay. Pour plus d'informations, contactez notre équipe commerciale.</p>
         </div>
       </section>
 

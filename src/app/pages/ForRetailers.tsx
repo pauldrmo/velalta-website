@@ -40,7 +40,7 @@ export default function ForRetailers() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { val: "-65%", label: "Coût de caisse", desc: "Réduction moyenne" },
+              { val: "↓", label: "Coût de caisse", desc: "Réduction des coûts liés aux caisses traditionnelles" },
               { val: "+0,2%", label: "Revenu additionnel", desc: "Par transaction" },
               { val: "2-4 sem", label: "Intégration", desc: "Délai de déploiement" },
               { val: "99,9%", label: "Uptime SLA", desc: "Garanti contractuellement" },
