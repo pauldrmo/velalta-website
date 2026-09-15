@@ -35,8 +35,8 @@ export default function ForRetailers() {
             maxWidth: 800,
             marginBottom: 24,
           }}>
-            La caisse de demain,<br />
-            <em style={{ color: "var(--signal)" }}>déployée aujourd'hui.</em>
+            Scanpay<br />
+            <em style={{ color: "var(--signal)" }}>dans votre magasin.</em>
           </h1>
           <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
             Scanpay s'intègre à votre infrastructure existante. Vos clients scannent, paient et sortent. Vous percevez une commission sur chaque transaction.
@@ -217,7 +217,7 @@ export default function ForRetailers() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "var(--ink)", padding: "80px 40px", textAlign: "center" }}>
+      <section style={{ background: "var(--surface-dark)", padding: "80px 40px", textAlign: "center" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
           <h2 style={{
             fontFamily: "var(--serif)",
@@ -225,9 +225,9 @@ export default function ForRetailers() {
             fontWeight: 700,
             color: "#fff",
             marginBottom: 16,
-          }}>Votre magasin, prêt demain.</h2>
+          }}>Parlons-en.</h2>
           <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", marginBottom: 36 }}>
-            Rejoignez les premières enseignes pilotes et transformez l'expérience de vos clients.
+            Rejoignez les premières enseignes pilotes.
           </p>
           <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay%20-%20Enseigne" className="btn-primary">
             Nous contacter →

@@ -49,7 +49,7 @@ function TransactionBlock() {
   return (
     <div
       style={{
-        background: "var(--dark-bg)",
+        background: "var(--surface-dark)",
         color: "var(--dark-text)",
         padding: "40px 48px",
         fontFamily: "var(--mono)",
@@ -276,7 +276,7 @@ export default function Home() {
       {/* ── 02 THE SHIFT ─────────────────────────────── */}
       <section
         style={{
-          background: "var(--dark-bg)",
+          background: "var(--surface-dark)",
           color: "var(--dark-text)",
           padding: `clamp(64px, 10vw, 120px) ${PAD}`,
           borderBottom: "1px solid #222",
@@ -894,7 +894,7 @@ export default function Home() {
       {/* ── 08 THE FUTURE ────────────────────────────── */}
       <section
         style={{
-          background: "var(--dark-bg)",
+          background: "var(--surface-dark)",
           color: "var(--dark-text)",
           padding: `clamp(80px, 12vw, 160px) ${PAD}`,
         }}

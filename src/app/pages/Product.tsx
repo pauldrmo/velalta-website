@@ -72,8 +72,8 @@ export default function Product() {
             maxWidth: 800,
             marginBottom: 24,
           }}>
-            Une technologie simple.<br />
-            <em style={{ color: "var(--signal)" }}>Un parcours fluide.</em>
+            Ce que fait<br />
+            <em style={{ color: "var(--signal)" }}>Scanpay.</em>
           </h1>
           <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
             Scanpay remplace la caisse traditionnelle par une séquence mobile : scan → paiement → sortie. Cinq étapes, moins de trente secondes, zéro file d'attente.
@@ -90,7 +90,7 @@ export default function Product() {
       </section>
 
       {/* Transaction sequence */}
-      <section style={{ borderBottom: "1px solid var(--rule)", background: "var(--ink)", padding: "32px 40px" }}>
+      <section style={{ borderBottom: "1px solid var(--rule)", background: "var(--surface-dark)", padding: "32px 40px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", gap: 12, alignItems: "center", justifyContent: "center", flexWrap: "wrap" }}>
           {["SCAN", "IDENTIFY", "AUTHORIZE", "PAY", "VERIFY", "EXIT"].map((step, i, arr) => (
             <div key={step} style={{ display: "flex", alignItems: "center", gap: 12 }}>

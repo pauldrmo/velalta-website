@@ -14,6 +14,8 @@
   --signal-mid:   #C0CFFF;
   --rule:         #E0E4EF;
   --rule-subtle:  #F0F2FA;
+  --surface-dark: #0A0A14;
+  --surface-dark-text: #ffffff;
   --serif:        'Space Grotesk', 'Helvetica Neue', sans-serif;
   --mono:         'JetBrains Mono', 'Courier New', monospace;
 
@@ -24,6 +26,51 @@
   --sh-lg:  0 6px 0 rgba(0,0,0,0.05), 0 16px 56px rgba(0,0,0,0.13), 0 4px 14px rgba(0,0,0,0.06);
   --sh-blue: 0 4px 0 rgba(0,40,180,0.35), 0 8px 36px rgba(0,82,255,0.32), 0 2px 8px rgba(0,82,255,0.18);
   --sh-inset: inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.10);
+}
+
+/* ── Dark mode (system preference) ─────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:           #18181E;
+    --bg-alt:       #1E1E28;
+    --ink:          #EEEEF5;
+    --ink-2:        #9898B0;
+    --ink-3:        #52526A;
+    --signal:       #5C85FF;
+    --signal-hover: #7099FF;
+    --signal-light: #141A30;
+    --signal-mid:   #222E58;
+    --rule:         #2C2C3E;
+    --rule-subtle:  #222230;
+    --surface-dark: #0C0C14;
+    --surface-dark-text: #ffffff;
+    --sh-xs:  0 1px 0 rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.35);
+    --sh-sm:  0 2px 0 rgba(0,0,0,0.4), 0 4px 18px rgba(0,0,0,0.40);
+    --sh-md:  0 4px 0 rgba(0,0,0,0.35), 0 8px 36px rgba(0,0,0,0.45);
+    --sh-lg:  0 6px 0 rgba(0,0,0,0.3), 0 16px 60px rgba(0,0,0,0.50);
+    --sh-blue: 0 4px 0 rgba(0,20,100,0.6), 0 8px 36px rgba(60,100,255,0.45);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:           #18181E;
+  --bg-alt:       #1E1E28;
+  --ink:          #EEEEF5;
+  --ink-2:        #9898B0;
+  --ink-3:        #52526A;
+  --signal:       #5C85FF;
+  --signal-hover: #7099FF;
+  --signal-light: #141A30;
+  --signal-mid:   #222E58;
+  --rule:         #2C2C3E;
+  --rule-subtle:  #222230;
+  --surface-dark: #0C0C14;
+  --surface-dark-text: #ffffff;
+  --sh-xs:  0 1px 0 rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.35);
+  --sh-sm:  0 2px 0 rgba(0,0,0,0.4), 0 4px 18px rgba(0,0,0,0.40);
+  --sh-md:  0 4px 0 rgba(0,0,0,0.35), 0 8px 36px rgba(0,0,0,0.45);
+  --sh-lg:  0 6px 0 rgba(0,0,0,0.3), 0 16px 60px rgba(0,0,0,0.50);
+  --sh-blue: 0 4px 0 rgba(0,20,100,0.6), 0 8px 36px rgba(60,100,255,0.45);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

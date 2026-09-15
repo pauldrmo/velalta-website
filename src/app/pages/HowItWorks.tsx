@@ -53,8 +53,8 @@ export default function HowItWorks() {
             maxWidth: 700,
             marginBottom: 24,
           }}>
-            Cinq étapes.<br />
-            <em style={{ color: "var(--signal)" }}>Vingt-huit secondes.</em>
+            Le checkout<br />
+            <em style={{ color: "var(--signal)" }}>sans caisse.</em>
           </h1>
           <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 520 }}>
             Scanpay transforme le parcours d'achat en une séquence fluide et sans friction — du scan du premier produit à la sortie du magasin.
@@ -181,9 +181,9 @@ export default function HowItWorks() {
           fontWeight: 700,
           color: "var(--ink)",
           marginBottom: 20,
-        }}>Prêt à essayer Scanpay ?</h2>
+        }}>Envie de tester ?</h2>
         <p style={{ fontSize: 16, color: "var(--ink-2)", marginBottom: 36, maxWidth: 400, margin: "0 auto 36px" }}>
-          Rejoignez les premières enseignes pilotes et transformez l'expérience d'achat.
+          La démo MVP est disponible en ligne.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="https://group-skid-95043529.figma.site" target="_blank" rel="noopener noreferrer" className="btn-primary">

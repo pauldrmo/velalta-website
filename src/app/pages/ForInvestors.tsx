@@ -59,8 +59,8 @@ export default function ForInvestors() {
             maxWidth: 800,
             marginBottom: 24,
           }}>
-            Le checkout est cassé.<br />
-            <em style={{ color: "var(--signal)" }}>Nous le reconstruisons.</em>
+            Pourquoi<br />
+            <em style={{ color: "var(--signal)" }}>Scanpay.</em>
           </h1>
           <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 600, marginBottom: 40 }}>
             Scanpay est une infrastructure de paiement mobile pour le retail physique. Nous résolvons le dernier point de friction du parcours d'achat avec un modèle économique aligné sur les intérêts de tous.
@@ -72,7 +72,7 @@ export default function ForInvestors() {
       </section>
 
       {/* Metrics */}
-      <section style={{ borderBottom: "1px solid var(--rule)", background: "var(--ink)" }}>
+      <section style={{ borderBottom: "1px solid var(--rule)", background: "var(--surface-dark)" }}>
         <div style={{
           maxWidth: 1280, margin: "0 auto",
           display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
@@ -223,9 +223,9 @@ export default function ForInvestors() {
             fontWeight: 700,
             color: "var(--ink)",
             marginBottom: 16,
-          }}>Construire l'avenir du retail, ensemble.</h2>
+          }}>On se parle ?</h2>
           <p style={{ fontSize: 15, color: "var(--ink-2)", marginBottom: 36, maxWidth: 440, margin: "0 auto 36px" }}>
-            Pour toute question sur Scanpay, notre modèle ou nos perspectives de développement, contactez-nous directement.
+            Pour toute question sur le modèle ou les perspectives, contactez-nous.
           </p>
           <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay%20-%20Investisseurs" className="btn-primary">
             Prendre contact →

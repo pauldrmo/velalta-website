@@ -55,8 +55,8 @@ export default function Pricing() {
             color: "var(--ink)",
             marginBottom: 24,
           }}>
-            Zéro abonnement.<br />
-            <em style={{ color: "var(--signal)" }}>100 % à la transaction.</em>
+            Gratuit pour<br />
+            <em style={{ color: "var(--signal)" }}>l'enseigne.</em>
           </h1>
           <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 560 }}>
             Scanpay est gratuit pour les enseignes. Le client paie une surcharge de +0,8 % par transaction : 0,2 % sont reversés au magasin, 0,6 % reviennent à Scanpay.
@@ -141,7 +141,7 @@ export default function Pricing() {
                 {t.featured && (
                   <div style={{
                     position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)",
-                    background: "var(--ink)",
+                    background: "var(--surface-dark)",
                     color: "#fff",
                     fontFamily: "var(--mono)",
                     fontSize: 10,
