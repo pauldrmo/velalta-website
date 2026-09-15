@@ -3,23 +3,23 @@ import { TrendingUp, Globe, Zap, BarChart3, CheckCircle, ArrowRight, Target, Roc
 
 export default function ForInvestors() {
   return (
-    <div className="bg-[#07070F]">
+    <div style={{ paddingTop: 56 }}>
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px]" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800/8 rounded-full blur-[100px]" />
+          
+          
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="max-w-4xl">
-            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-8">
+            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-8">
               Investisseurs
             </div>
-            <h1 className="text-[56px] md:text-[72px] font-black text-white leading-[0.95] tracking-tight mb-8">
+            <h1 className="text-[56px] md:text-[72px] font-black text-[#0C0C0C] leading-[0.95] tracking-tight mb-8">
               Une opportunité<br />
               <span className="gradient-text">de rupture.</span>
             </h1>
-            <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl mb-10">
+            <p className="text-[20px] text-[#4A4A4A] leading-relaxed max-w-2xl mb-10">
               Scanpay s'attaque à un marché de 3 000 Md€ encore dominé par des caisses physiques coûteuses et obsolètes. Le moment de lancer la révolution mobile du retail, c'est maintenant.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -36,7 +36,7 @@ export default function ForInvestors() {
       </section>
 
       {/* Market size */}
-      <section className="py-20 border-y border-white/[0.06] bg-white/[0.02]">
+      <section className="py-20 border-y border-[var(--rule)] bg-[var(--bg-alt)]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -47,8 +47,8 @@ export default function ForInvestors() {
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-[32px] md:text-[40px] font-black gradient-text mb-1">{stat.val}</div>
-                <div className="text-[15px] font-semibold text-white mb-0.5">{stat.label}</div>
-                <div className="text-[12px] text-white/35">{stat.sub}</div>
+                <div className="text-[15px] font-semibold text-[#0C0C0C] mb-0.5">{stat.label}</div>
+                <div className="text-[12px] text-[#8E8E8E]">{stat.sub}</div>
               </div>
             ))}
           </div>
@@ -60,13 +60,13 @@ export default function ForInvestors() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
-              <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
+              <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-6">
                 L'opportunité
               </div>
-              <h2 className="text-[40px] md:text-[48px] font-black text-white leading-tight mb-6">
+              <h2 className="text-[40px] md:text-[48px] font-black text-[#0C0C0C] leading-tight mb-6">
                 Une fenêtre de marché<br />historique
               </h2>
-              <p className="text-[16px] text-white/55 leading-relaxed mb-8">
+              <p className="text-[16px] text-[#4A4A4A] leading-relaxed mb-8">
                 Le self-checkout représente moins de 5% des transactions en France. Les solutions existantes — bornes physiques à 20-40 k€ par installation — sont coûteuses, peu fiables et frustrantes. Scanpay propose un modèle 100% logiciel, sans investissement matériel, déployable en quelques semaines.
               </p>
               <div className="space-y-4">
@@ -81,8 +81,8 @@ export default function ForInvestors() {
                       <CheckCircle size={14} className="text-blue-400" />
                     </div>
                     <div>
-                      <div className="text-[15px] font-semibold text-white">{item.title}</div>
-                      <div className="text-[13px] text-white/45 mt-0.5">{item.desc}</div>
+                      <div className="text-[15px] font-semibold text-[#0C0C0C]">{item.title}</div>
+                      <div className="text-[13px] text-[#6B6B6B] mt-0.5">{item.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -92,17 +92,17 @@ export default function ForInvestors() {
             <div className="space-y-5">
               {/* Revenue model */}
               <div className="glass-card rounded-2xl p-6">
-                <div className="text-[13px] font-semibold text-white/40 uppercase tracking-wide mb-4">Modèle économique</div>
+                <div className="text-[13px] font-semibold text-[#8E8E8E] uppercase tracking-wide mb-4">Modèle économique</div>
                 <div className="space-y-3">
                   {[
-                    { label: "Commission totale par transaction", val: "0,8%", color: "text-white" },
+                    { label: "Commission totale par transaction", val: "0,8%", color: "text-[#0C0C0C]" },
                     { label: "Part Scanpay (revenus SaaS)", val: "0,6%", color: "text-blue-400" },
                     { label: "Part commerçant (incentive adoption)", val: "0,2%", color: "text-emerald-400" },
-                    { label: "Abonnement ou frais fixes", val: "0 €", color: "text-white/50" },
-                    { label: "Frais d'intégration", val: "0 €", color: "text-white/50" },
+                    { label: "Abonnement ou frais fixes", val: "0 €", color: "text-[#6B6B6B]" },
+                    { label: "Frais d'intégration", val: "0 €", color: "text-[#6B6B6B]" },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between py-2.5 border-b border-white/[0.05] last:border-0">
-                      <span className="text-[14px] text-white/55">{item.label}</span>
+                    <div key={i} className="flex items-center justify-between py-2.5 border-b border-[var(--rule)] last:border-0">
+                      <span className="text-[14px] text-[#4A4A4A]">{item.label}</span>
                       <span className={`text-[16px] font-bold ${item.color}`}>{item.val}</span>
                     </div>
                   ))}
@@ -111,7 +111,7 @@ export default function ForInvestors() {
 
               {/* Use of funds */}
               <div className="glass-card rounded-2xl p-6">
-                <div className="text-[13px] font-semibold text-white/40 uppercase tracking-wide mb-4">Utilisation des fonds levés</div>
+                <div className="text-[13px] font-semibold text-[#8E8E8E] uppercase tracking-wide mb-4">Utilisation des fonds levés</div>
                 <div className="space-y-4">
                   {[
                     { label: "Développement produit & tech", pct: "40%", w: "w-[40%]" },
@@ -121,8 +121,8 @@ export default function ForInvestors() {
                   ].map((item, i) => (
                     <div key={i}>
                       <div className="flex justify-between mb-1.5">
-                        <span className="text-[13px] text-white/60">{item.label}</span>
-                        <span className="text-[13px] font-bold text-white">{item.pct}</span>
+                        <span className="text-[13px] text-[#4A4A4A]">{item.label}</span>
+                        <span className="text-[13px] font-bold text-[#0C0C0C]">{item.pct}</span>
                       </div>
                       <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
                         <div className={`h-full ${item.w} bg-gradient-to-r from-blue-500 to-blue-400 rounded-full`} />
@@ -130,7 +130,7 @@ export default function ForInvestors() {
                     </div>
                   ))}
                 </div>
-                <p className="text-[11px] text-white/25 mt-4">Détail complet disponible dans le pitch deck — contactez-nous pour y accéder.</p>
+                <p className="text-[11px] text-[#9E9E9E] mt-4">Détail complet disponible dans le pitch deck — contactez-nous pour y accéder.</p>
               </div>
             </div>
           </div>
@@ -138,13 +138,13 @@ export default function ForInvestors() {
       </section>
 
       {/* Why now */}
-      <section className="py-28 bg-[#0C0C14]">
+      <section className="py-28 bg-[var(--bg-alt)]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-[40px] md:text-[48px] font-black text-white tracking-tight mb-4">
+            <h2 className="text-[40px] md:text-[48px] font-black text-[#0C0C0C] tracking-tight mb-4">
               Pourquoi maintenant
             </h2>
-            <p className="text-[18px] text-white/50 max-w-2xl mx-auto">
+            <p className="text-[18px] text-[#6B6B6B] max-w-2xl mx-auto">
               Quatre forces convergent pour créer une fenêtre d'entrée unique sur ce marché.
             </p>
           </div>
@@ -182,9 +182,9 @@ export default function ForInvestors() {
                     <item.icon className="text-blue-400" size={22} />
                   </div>
                   <div>
-                    <div className="text-[12px] font-bold text-white/30 uppercase tracking-widest mb-2">{item.num}</div>
-                    <h3 className="text-[20px] font-bold text-white mb-3">{item.title}</h3>
-                    <p className="text-[14px] text-white/50 leading-relaxed">{item.desc}</p>
+                    <div className="text-[12px] font-bold text-[#9E9E9E] uppercase tracking-widest mb-2">{item.num}</div>
+                    <h3 className="text-[20px] font-bold text-[#0C0C0C] mb-3">{item.title}</h3>
+                    <p className="text-[14px] text-[#6B6B6B] leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </div>
@@ -198,10 +198,10 @@ export default function ForInvestors() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="relative gradient-border rounded-3xl p-8 md:p-12 glass-card">
             <div className="text-center mb-12">
-              <h2 className="text-[40px] md:text-[52px] font-black text-white mb-5">
+              <h2 className="text-[40px] md:text-[52px] font-black text-[#0C0C0C] mb-5">
                 Investir dans Scanpay,<br />c'est financer un lancement.
               </h2>
-              <p className="text-[18px] text-white/55 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-[18px] text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed">
                 Nous recherchons des partenaires investisseurs pour financer le lancement commercial de Scanpay : premiers déploiements pilotes en France, développement du produit et structuration des premières équipes.
               </p>
             </div>
@@ -228,15 +228,15 @@ export default function ForInvestors() {
                   <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center mb-4 mx-auto">
                     <item.icon className="text-blue-400" size={22} />
                   </div>
-                  <h3 className="text-[17px] font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-[13px] text-white/45 leading-relaxed">{item.desc}</p>
+                  <h3 className="text-[17px] font-bold text-[#0C0C0C] mb-2">{item.title}</h3>
+                  <p className="text-[13px] text-[#6B6B6B] leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
 
             {/* CTA block */}
             <div className="max-w-xl mx-auto text-center">
-              <p className="text-[15px] text-white/40 mb-6">
+              <p className="text-[15px] text-[#8E8E8E] mb-6">
                 Les informations financières détaillées, les termes d'investissement et les données de marché complètes sont disponibles exclusivement dans notre pitch deck confidentiel.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -248,7 +248,7 @@ export default function ForInvestors() {
                   Échange informel
                 </a>
               </div>
-              <p className="text-[12px] text-white/20 mt-4">NDA disponible sur demande · Réponse sous 48h</p>
+              <p className="text-[12px] text-[#ABABAB] mt-4">NDA disponible sur demande · Réponse sous 48h</p>
             </div>
           </div>
         </div>

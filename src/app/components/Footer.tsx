@@ -1,5 +1,6 @@
 import { Link } from "react-router";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+
+const MONO: React.CSSProperties = { fontFamily: "var(--mono)" };
 
 const InstagramIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -9,147 +10,194 @@ const InstagramIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
-const ScanpayLogo = () => (
-  <div className="flex items-center gap-2.5">
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="32" height="32" rx="9" fill="url(#footer-logo-grad)" />
-      <path d="M7 16 L13 23 L27 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-      <path d="M23 9 L27 8 L26 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-      <defs>
-        <linearGradient id="footer-logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#0A84FF" />
-          <stop offset="1" stopColor="#0060CC" />
-        </linearGradient>
-      </defs>
-    </svg>
-    <span className="text-[19px] font-bold text-white tracking-tight">Scanpay</span>
-  </div>
-);
+const socials = [
+  {
+    label: "LI",
+    href: "https://www.linkedin.com/in/paul-dormeau-681288270/",
+    aria: "LinkedIn",
+  },
+  {
+    label: "IG",
+    href: "https://www.instagram.com/scanpay.app",
+    aria: "Instagram",
+  },
+  {
+    label: "ML",
+    href: "mailto:pauldormeau@icloud.com",
+    aria: "Email",
+  },
+];
+
+const links = [
+  {
+    heading: "PRODUIT",
+    items: [
+      { label: "Fonctionnalités", path: "/produit" },
+      { label: "Comment ça marche", path: "/comment-ca-marche" },
+      { label: "Sécurité", path: "/securite" },
+      { label: "Tarifs", path: "/tarifs" },
+    ],
+  },
+  {
+    heading: "SOLUTIONS",
+    items: [
+      { label: "Pour les enseignes", path: "/pour-les-enseignes" },
+      { label: "Pour les investisseurs", path: "/pour-les-investisseurs" },
+      { label: "FAQ", path: "/faq" },
+      { label: "Contact", path: "/contact" },
+    ],
+  },
+  {
+    heading: "LÉGAL",
+    items: [
+      { label: "Mentions légales", path: "/mentions-legales" },
+      { label: "Confidentialité", path: "/confidentialite" },
+      { label: "CGU", path: "/cgu" },
+      { label: "RGPD", path: "/rgpd" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#06060C] border-t border-white/[0.06]">
-      {/* Main footer */}
-      <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <Link to="/">
-              <ScanpayLogo />
-            </Link>
-            <p className="mt-5 text-white/50 text-[15px] leading-relaxed max-w-xs">
-              La plateforme de self-checkout mobile qui réinvente l'expérience d'achat en magasin.
-            </p>
-            <div className="mt-6 flex items-center gap-3">
+    <footer style={{ background: "var(--dark-bg)", color: "var(--dark-text)", borderTop: "1px solid #1E1E1E" }}>
+      {/* Main grid */}
+      <div
+        style={{
+          maxWidth: 1280,
+          margin: "0 auto",
+          padding: "64px 40px",
+          display: "grid",
+          gridTemplateColumns: "2fr 1fr 1fr 1fr",
+          gap: 48,
+        }}
+        className="grid-cols-1 md:grid-cols-4"
+      >
+        {/* Brand */}
+        <div>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <span
+              style={{
+                ...MONO,
+                fontSize: 15,
+                fontWeight: 500,
+                letterSpacing: "0.06em",
+                color: "var(--dark-text)",
+              }}
+            >
+              SCANPAY
+            </span>
+          </Link>
+          <p
+            style={{
+              ...MONO,
+              fontSize: 11,
+              color: "#555",
+              lineHeight: 1.8,
+              marginTop: 20,
+              maxWidth: 280,
+            }}
+          >
+            Physical retail transaction infrastructure. Scan. Pay. Exit.
+          </p>
+          <div style={{ display: "flex", gap: 0, marginTop: 28 }}>
+            {socials.map((s) => (
               <a
-                href="https://www.linkedin.com/in/paul-dormeau-681288270/"
-                target="_blank"
+                key={s.label}
+                href={s.href}
+                target={s.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
-                aria-label="LinkedIn"
+                aria-label={s.aria}
+                style={{
+                  ...MONO,
+                  fontSize: 10,
+                  letterSpacing: "0.08em",
+                  color: "#555",
+                  textDecoration: "none",
+                  padding: "8px 14px 8px 0",
+                  transition: "color 0.12s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--signal)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#555")}
               >
-                <Linkedin size={16} />
+                {s.label}
               </a>
-              <a
-                href="https://www.instagram.com/scanpay.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
-                aria-label="Instagram"
-              >
-                <InstagramIcon size={16} />
-              </a>
-              <a
-                href="mailto:pauldormeau@icloud.com"
-                className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.08] transition-all"
-                aria-label="Email"
-              >
-                <Mail size={16} />
-              </a>
-            </div>
-            <div className="mt-5 flex items-start gap-2 text-white/30 text-[13px]">
-              <MapPin size={14} className="mt-0.5 flex-shrink-0" />
-              <span>Paris &amp; Rouen, France</span>
-            </div>
+            ))}
           </div>
-
-          {/* Product */}
-          <div>
-            <h4 className="text-[13px] font-semibold text-white/40 uppercase tracking-widest mb-5">Produit</h4>
-            <ul className="space-y-3">
-              {[
-                { label: "Fonctionnalités", path: "/produit" },
-                { label: "Comment ça marche", path: "/comment-ca-marche" },
-                { label: "Sécurité", path: "/securite" },
-                { label: "Tarifs", path: "/tarifs" },
-              ].map((item) => (
-                <li key={item.path}>
-                  <Link to={item.path} className="text-white/55 hover:text-white text-[14px] transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions */}
-          <div>
-            <h4 className="text-[13px] font-semibold text-white/40 uppercase tracking-widest mb-5">Solutions</h4>
-            <ul className="space-y-3">
-              {[
-                { label: "Pour les enseignes", path: "/pour-les-enseignes" },
-                { label: "Pour les investisseurs", path: "/pour-les-investisseurs" },
-                { label: "FAQ", path: "/faq" },
-                { label: "Contact", path: "/contact" },
-              ].map((item) => (
-                <li key={item.path}>
-                  <Link to={item.path} className="text-white/55 hover:text-white text-[14px] transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-[13px] font-semibold text-white/40 uppercase tracking-widest mb-5">Légal</h4>
-            <ul className="space-y-3">
-              {[
-                { label: "Mentions légales", path: "/mentions-legales" },
-                { label: "Confidentialité", path: "/confidentialite" },
-                { label: "CGU", path: "/cgu" },
-                { label: "RGPD", path: "/rgpd" },
-              ].map((item) => (
-                <li key={item.path}>
-                  <Link to={item.path} className="text-white/55 hover:text-white text-[14px] transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <p style={{ ...MONO, fontSize: 10, color: "#444", marginTop: 20 }}>
+            PARIS & ROUEN, FR
+          </p>
         </div>
+
+        {/* Link columns */}
+        {links.map((col) => (
+          <div key={col.heading}>
+            <div
+              style={{
+                ...MONO,
+                fontSize: 10,
+                letterSpacing: "0.12em",
+                color: "#444",
+                marginBottom: 20,
+              }}
+            >
+              {col.heading}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {col.items.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  style={{
+                    fontSize: 13,
+                    color: "#888",
+                    textDecoration: "none",
+                    transition: "color 0.12s",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--dark-text)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#888")}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Startup disclaimer */}
-      <div className="border-t border-white/[0.05]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-6">
-          <p className="text-white/25 text-[12px] leading-relaxed text-center">
-            Scanpay est une startup en phase de lancement. Les certifications et conformités mentionnées sont en cours de validation. Ce site est un projet pilote destiné à recueillir l'intérêt des partenaires potentiels. Toutes les fonctionnalités décrites sont prévues mais non encore déployées en production.
+      {/* Disclaimer */}
+      <div style={{ borderTop: "1px solid #1A1A1A" }}>
+        <div
+          style={{
+            maxWidth: 1280,
+            margin: "0 auto",
+            padding: "20px 40px",
+          }}
+        >
+          <p style={{ ...MONO, fontSize: 10, color: "#333", lineHeight: 1.7 }}>
+            Scanpay est une startup en phase de lancement. Les certifications mentionnées sont en cours de validation. Ce site est un projet pilote destiné à recueillir l'intérêt des partenaires. Toutes les fonctionnalités décrites sont prévues mais non encore déployées en production.
           </p>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/[0.04]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/25 text-[13px]">
-            © 2026 Scanpay Technologies SAS. Tous droits réservés.
+      <div style={{ borderTop: "1px solid #151515" }}>
+        <div
+          style={{
+            maxWidth: 1280,
+            margin: "0 auto",
+            padding: "16px 40px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <p style={{ ...MONO, fontSize: 10, color: "#333" }}>
+            © 2026 SCANPAY TECHNOLOGIES SAS
           </p>
-          <div className="flex items-center gap-2 text-white/25 text-[13px]">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Tous les systèmes opérationnels</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--signal)", display: "inline-block" }} />
+            <span style={{ ...MONO, fontSize: 10, color: "#333" }}>SYSTÈMES OPÉRATIONNELS</span>
           </div>
         </div>
       </div>

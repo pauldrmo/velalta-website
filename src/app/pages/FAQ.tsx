@@ -42,21 +42,21 @@ export default function FAQ() {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   return (
-    <div className="bg-[#07070F]">
+    <div style={{ paddingTop: 56 }}>
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-600/8 rounded-full blur-[120px]" />
+          
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-8 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-8">
+          <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-8">
             FAQ
           </div>
-          <h1 className="text-[56px] md:text-[72px] font-black text-white leading-[0.95] tracking-tight mb-8">
+          <h1 className="text-[56px] md:text-[72px] font-black text-[#0C0C0C] leading-[0.95] tracking-tight mb-8">
             Questions<br />
             <span className="gradient-text">fréquentes</span>
           </h1>
-          <p className="text-[20px] text-white/55 leading-relaxed max-w-xl mx-auto">
+          <p className="text-[20px] text-[#4A4A4A] leading-relaxed max-w-xl mx-auto">
             Tout ce que vous devez savoir sur Scanpay. Vous ne trouvez pas votre réponse ? Contactez-nous.
           </p>
         </div>
@@ -68,8 +68,8 @@ export default function FAQ() {
           <div className="space-y-12">
             {categories.map((cat, ci) => (
               <div key={ci}>
-                <h2 className="text-[22px] font-black text-white mb-5 flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center text-[13px] font-black text-blue-400">
+                <h2 className="text-[22px] font-black text-[#0C0C0C] mb-5 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg  ">
                     {ci + 1}
                   </span>
                   {cat.title}
@@ -85,13 +85,13 @@ export default function FAQ() {
                         >
                           <span className="text-[16px] font-semibold text-white/90 pr-4">{faq.q}</span>
                           <ChevronDown
-                            className={`text-white/30 flex-shrink-0 transition-transform duration-200 ${openItem === key ? "rotate-180" : ""}`}
+                            className={`text-[#9E9E9E] flex-shrink-0 transition-transform duration-200 ${openItem === key ? "rotate-180" : ""}`}
                             size={18}
                           />
                         </button>
                         {openItem === key && (
-                          <div className="px-6 pb-5 border-t border-white/[0.06]">
-                            <p className="text-[15px] text-white/55 leading-relaxed pt-4">{faq.a}</p>
+                          <div className="px-6 pb-5 border-t border-[var(--rule)]">
+                            <p className="text-[15px] text-[#4A4A4A] leading-relaxed pt-4">{faq.a}</p>
                           </div>
                         )}
                       </div>
@@ -105,11 +105,11 @@ export default function FAQ() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-[#0C0C14]">
+      <section className="py-20 bg-[var(--bg-alt)]">
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
           <div className="glass-card rounded-2xl p-8">
-            <div className="text-[32px] font-black text-white mb-3">Vous avez une autre question ?</div>
-            <p className="text-[16px] text-white/50 mb-6">Notre équipe répond sous 24h.</p>
+            <div className="text-[32px] font-black text-[#0C0C0C] mb-3">Vous avez une autre question ?</div>
+            <p className="text-[16px] text-[#6B6B6B] mb-6">Notre équipe répond sous 24h.</p>
             <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px] inline-block">
               <span>Nous contacter →</span>
             </a>

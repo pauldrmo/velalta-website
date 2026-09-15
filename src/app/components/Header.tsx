@@ -1,113 +1,141 @@
 import { Link, useLocation } from "react-router";
-import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-
-const ScanpayLogo = () => (
-  <span className="text-[20px] font-bold text-white tracking-tight">Scanpay</span>
-);
+import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Produit", path: "/produit" },
-  { label: "Pour les enseignes", path: "/pour-les-enseignes" },
-  { label: "Investisseurs", path: "/pour-les-investisseurs" },
-  { label: "Sécurité", path: "/securite" },
-  { label: "Tarifs", path: "/tarifs" },
-  { label: "FAQ", path: "/faq" },
+  { label: "PRODUCT",  path: "/produit" },
+  { label: "SYSTEM",   path: "/comment-ca-marche" },
+  { label: "NETWORK",  path: "/pour-les-enseignes" },
+  { label: "COMPANY",  path: "/pour-les-investisseurs" },
 ];
 
 export default function Header() {
   const location = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setMobileOpen(false), [location.pathname]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#07070F]/90 backdrop-blur-xl border-b border-white/[0.07] shadow-[0_4px_40px_rgba(0,0,0,0.4)]"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/">
-            <ScanpayLogo />
-          </Link>
+    <header style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+      background: "var(--bg)",
+      borderBottom: "1px solid var(--rule)",
+    }}>
+      <div style={{
+        maxWidth: 1280, margin: "0 auto", padding: "0 40px",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        height: 56,
+      }}>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
+        {/* Wordmark */}
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 15,
+            fontWeight: 900,
+            letterSpacing: "0.04em",
+            color: "var(--ink)",
+          }}>
+            SCANPAY
+          </span>
+        </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex" style={{ gap: 0, alignItems: "center" }}>
+          {navItems.map((item) => {
+            const active = location.pathname === item.path;
+            return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 text-[14px] font-medium rounded-lg transition-all duration-150 ${
-                  location.pathname === item.path
-                    ? "text-white bg-white/[0.08]"
-                    : "text-white/60 hover:text-white hover:bg-white/[0.05]"
-                }`}
+                style={{
+                  fontFamily: "var(--mono)",
+                  fontSize: 11,
+                  letterSpacing: "0.1em",
+                  textDecoration: "none",
+                  padding: "0 20px",
+                  color: active ? "var(--signal)" : "var(--ink-3)",
+                  transition: "color 0.12s",
+                  lineHeight: "56px",
+                }}
+                onMouseEnter={(e) => { if (!active) e.currentTarget.style.color = "var(--ink)"; }}
+                onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = "var(--ink-3)"; }}
               >
                 {item.label}
               </Link>
-            ))}
-          </nav>
+            );
+          })}
+        </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              to="/contact"
-              className="btn-primary text-[14px] py-2.5 px-5"
-            >
-              <span>Demander une démo</span>
-            </Link>
-          </div>
+        {/* CTA */}
+        <a
+          href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay"
+          className="hidden lg:inline-flex"
+          style={{
+            fontFamily: "var(--mono)",
+            fontSize: 11,
+            letterSpacing: "0.1em",
+            textDecoration: "none",
+            padding: "9px 18px",
+            border: "1px solid var(--ink)",
+            color: "var(--ink)",
+            transition: "background 0.12s, color 0.12s",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "var(--ink)"; e.currentTarget.style.color = "var(--bg)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--ink)"; }}
+        >
+          CONTACT →
+        </a>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+        {/* Mobile toggle */}
+        <button
+          className="lg:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          style={{ background: "none", border: "none", cursor: "pointer", color: "var(--ink)", padding: 8, display: "flex" }}
+          aria-label="Menu"
+        >
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#07070F]/98 backdrop-blur-xl border-t border-white/[0.07]">
-          <nav className="px-6 py-6 space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-3 rounded-xl text-[15px] font-medium transition-colors ${
-                  location.pathname === item.path
-                    ? "text-white bg-white/[0.08]"
-                    : "text-white/60 hover:text-white hover:bg-white/[0.04]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-white/[0.07] mt-4">
-              <Link
-                to="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-primary block text-center text-[15px]"
-              >
-                <span>Demander une démo</span>
-              </Link>
-            </div>
-          </nav>
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div style={{ borderTop: "1px solid var(--rule)", background: "var(--bg)", padding: "0 40px 24px" }}>
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              style={{
+                display: "block",
+                fontFamily: "var(--mono)",
+                fontSize: 12,
+                letterSpacing: "0.1em",
+                textDecoration: "none",
+                color: location.pathname === item.path ? "var(--signal)" : "var(--ink)",
+                padding: "14px 0",
+                borderBottom: "1px solid var(--rule-subtle)",
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <a
+            href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay"
+            style={{
+              display: "block",
+              marginTop: 20,
+              fontFamily: "var(--mono)",
+              fontSize: 12,
+              letterSpacing: "0.1em",
+              textDecoration: "none",
+              color: "var(--bg)",
+              background: "var(--ink)",
+              padding: "14px 20px",
+              textAlign: "center",
+            }}
+          >
+            CONTACT →
+          </a>
         </div>
       )}
     </header>

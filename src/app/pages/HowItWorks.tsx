@@ -3,21 +3,21 @@ import { QrCode, Scan, ShoppingCart, CreditCard, Receipt, ArrowRight, CheckCircl
 
 export default function HowItWorks() {
   return (
-    <div className="bg-[#07070F]">
+    <div style={{ paddingTop: 56 }}>
       {/* Hero */}
       <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-cyan-600/8 rounded-full blur-[120px]" />
+          
         </div>
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-8 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-8">
+          <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-8">
             Comment ça marche
           </div>
-          <h1 className="text-[56px] md:text-[72px] font-black text-white leading-[0.95] tracking-tight mb-8">
+          <h1 className="text-[56px] md:text-[72px] font-black text-[#0C0C0C] leading-[0.95] tracking-tight mb-8">
             Simple comme<br />
             <span className="gradient-text">bonjour.</span>
           </h1>
-          <p className="text-[20px] text-white/55 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[20px] text-[#4A4A4A] leading-relaxed max-w-2xl mx-auto">
             4 étapes. 28 secondes. Zéro file d'attente. Voilà Scanpay.
           </p>
         </div>
@@ -65,9 +65,9 @@ export default function HowItWorks() {
                       <div className="w-12 h-12 rounded-2xl glass-card flex items-center justify-center">
                         <step.icon className={step.iconColor} size={24} strokeWidth={1.5} />
                       </div>
-                      <h2 className="text-[26px] md:text-[32px] font-black text-white leading-tight">{step.title}</h2>
+                      <h2 className="text-[26px] md:text-[32px] font-black text-[#0C0C0C] leading-tight">{step.title}</h2>
                     </div>
-                    <p className="text-[16px] text-white/55 leading-relaxed mb-6">{step.desc}</p>
+                    <p className="text-[16px] text-[#4A4A4A] leading-relaxed mb-6">{step.desc}</p>
                   </div>
                   <div className="space-y-3">
                     {step.details.map((detail, j) => (
@@ -75,7 +75,7 @@ export default function HowItWorks() {
                         <div className="w-5 h-5 rounded-full bg-white/[0.08] flex items-center justify-center">
                           <CheckCircle size={11} className={step.iconColor} />
                         </div>
-                        <span className="text-[14px] text-white/60">{detail}</span>
+                        <span className="text-[14px] text-[#4A4A4A]">{detail}</span>
                       </div>
                     ))}
                   </div>
@@ -88,19 +88,19 @@ export default function HowItWorks() {
           <div className="mt-16 glass-card rounded-3xl p-8 md:p-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center">
               <div>
-                <div className="text-[20px] text-white/40 mb-2 font-semibold">Caisse traditionnelle</div>
+                <div className="text-[20px] text-[#8E8E8E] mb-2 font-semibold">Caisse traditionnelle</div>
                 <div className="text-[56px] font-black text-red-400">4 min</div>
-                <div className="text-[14px] text-white/40 mt-1">temps moyen d'attente</div>
+                <div className="text-[14px] text-[#8E8E8E] mt-1">temps moyen d'attente</div>
               </div>
               <div className="flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full glass-card flex items-center justify-center">
-                  <span className="text-white/40 text-[24px] font-black">vs</span>
+                  <span className="text-[#8E8E8E] text-[24px] font-black">vs</span>
                 </div>
               </div>
               <div>
-                <div className="text-[20px] text-white/40 mb-2 font-semibold">Scanpay</div>
+                <div className="text-[20px] text-[#8E8E8E] mb-2 font-semibold">Scanpay</div>
                 <div className="text-[56px] font-black gradient-text">28 sec</div>
-                <div className="text-[14px] text-white/40 mt-1">checkout moyen</div>
+                <div className="text-[14px] text-[#8E8E8E] mt-1">checkout moyen</div>
               </div>
             </div>
           </div>
@@ -108,10 +108,10 @@ export default function HowItWorks() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0C0C14]">
+      <section className="py-20 bg-[var(--bg-alt)]">
         <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
-          <h2 className="text-[40px] font-black text-white mb-5">Prêt à l'essayer ?</h2>
-          <p className="text-[18px] text-white/50 mb-8">Rejoignez les premières enseignes pilotes et transformez l'expérience d'achat dès aujourd'hui.</p>
+          <h2 className="text-[40px] font-black text-[#0C0C0C] mb-5">Prêt à l'essayer ?</h2>
+          <p className="text-[18px] text-[#6B6B6B] mb-8">Rejoignez les premières enseignes pilotes et transformez l'expérience d'achat dès aujourd'hui.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://group-skid-95043529.figma.site"

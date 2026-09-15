@@ -1,779 +1,1025 @@
-import { Link } from "react-router";
 import { useState, useEffect, useRef } from "react";
-import {
-  QrCode, Scan, CreditCard, Receipt, Shield, Database, BarChart3,
-  CheckCircle, Smartphone, Store, Users, TrendingUp, Clock, Zap,
-  ArrowRight, ChevronDown, Lock, Globe, Mail,
-  Activity, Package, Bell,
-} from "lucide-react";
+import { Link } from "react-router";
 
-// Phone mockup component
-function PhoneMockup() {
+function LiveClock() {
+  const [time, setTime] = useState("--:--:--");
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString("fr-FR", { hour12: false }));
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return <>{time}</>;
+}
+
+const STATUS_CYCLE = ["PENDING", "AUTHORIZED", "COMPLETED"] as const;
+type TxStatus = (typeof STATUS_CYCLE)[number];
+
+function TransactionBlock() {
+  const [status, setStatus] = useState<TxStatus>("PENDING");
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIdx((i) => {
+        const next = (i + 1) % STATUS_CYCLE.length;
+        setStatus(STATUS_CYCLE[next]);
+        return next;
+      });
+    }, 2200);
+    return () => clearInterval(id);
+  }, []);
+
+  const statusColor =
+    status === "COMPLETED" ? "#22C55E" : status === "AUTHORIZED" ? "var(--signal)" : "var(--ink-3)";
+
+  const rows = [
+    ["TRANSACTION ID", "#VL-0482917"],
+    ["STORE", "PARIS 15 — 00482"],
+    ["DATE", "2026.09.14 / 14:38:21"],
+    ["ITEMS", "07"],
+    ["TOTAL", "€ 84.72"],
+    ["PAYMENT", "APPLE PAY"],
+    ["AUTHORIZATION", "GRANTED"],
+  ];
+
   return (
-    <div className="relative">
-      {/* Glow behind phone */}
-      <div className="absolute inset-0 -m-8 bg-gradient-to-br from-blue-600/20 via-blue-600/10 to-cyan-600/15 rounded-full blur-3xl" />
-
-      {/* Phone frame */}
-      <div className="relative w-[280px] mx-auto">
-        <svg viewBox="0 0 280 560" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full drop-shadow-2xl">
-          {/* Phone body */}
-          <rect x="2" y="2" width="276" height="556" rx="38" fill="#0D1B2E" stroke="url(#phone-border)" strokeWidth="2" />
-          {/* Dynamic island */}
-          <rect x="95" y="16" width="90" height="24" rx="12" fill="#050A14" />
-          {/* Screen area */}
-          <rect x="12" y="52" width="256" height="496" rx="28" fill="#060E1A" />
-          {/* Status bar */}
-          <text x="24" y="80" fill="rgba(255,255,255,0.6)" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">9:41</text>
-          <text x="208" y="80" fill="rgba(255,255,255,0.6)" fontSize="11" fontFamily="Inter, sans-serif">▮▮▮ ◆</text>
-
-          {/* App header */}
-          <rect x="12" y="92" width="256" height="52" fill="url(#app-header-grad)" />
-          <text x="28" y="122" fill="white" fontSize="16" fontFamily="Inter, sans-serif" fontWeight="700">Scanpay</text>
-          <text x="28" y="136" fill="rgba(255,255,255,0.7)" fontSize="10" fontFamily="Inter, sans-serif">Mon panier • Leclerc Paris 15</text>
-          {/* QR icon */}
-          <rect x="226" y="102" width="32" height="32" rx="8" fill="rgba(255,255,255,0.15)" />
-          <text x="234" y="122" fill="white" fontSize="14">⊞</text>
-
-          {/* Product list header */}
-          <text x="28" y="168" fill="rgba(255,255,255,0.5)" fontSize="10" fontFamily="Inter, sans-serif" fontWeight="600" letterSpacing="1">4 ARTICLES</text>
-
-          {/* Product items */}
-          {[
-            { name: "Yaourt nature x2", brand: "Danone", price: "2,40 €", y: 185 },
-            { name: "Pain de mie complet", brand: "Harry's", price: "1,85 €", y: 227 },
-            { name: "Jus d'orange 1L", brand: "Tropicana", price: "3,20 €", y: 269 },
-            { name: "Fromage Saint-Nectaire", brand: "Reflets de France", price: "4,50 €", y: 311 },
-          ].map((item, i) => (
-            <g key={i}>
-              <rect x="20" y={item.y} width="240" height="34" rx="8" fill="rgba(255,255,255,0.04)" />
-              <circle cx="40" cy={item.y + 17} r="10" fill="url(#item-grad)" fillOpacity="0.3" />
-              <text x="57" y={item.y + 13} fill="rgba(255,255,255,0.9)" fontSize="10" fontFamily="Inter, sans-serif" fontWeight="600">{item.name}</text>
-              <text x="57" y={item.y + 24} fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily="Inter, sans-serif">{item.brand}</text>
-              <text x="216" y={item.y + 19} fill="rgba(255,255,255,0.9)" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="700">{item.price}</text>
-            </g>
-          ))}
-
-          {/* Divider */}
-          <line x1="20" y1="358" x2="260" y2="358" stroke="rgba(255,255,255,0.07)" />
-
-          {/* Total */}
-          <text x="28" y="382" fill="rgba(255,255,255,0.5)" fontSize="11" fontFamily="Inter, sans-serif">Sous-total</text>
-          <text x="196" y="382" fill="rgba(255,255,255,0.7)" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">11,95 €</text>
-          <text x="28" y="404" fill="white" fontSize="15" fontFamily="Inter, sans-serif" fontWeight="700">Total</text>
-          <text x="180" y="404" fill="white" fontSize="18" fontFamily="Inter, sans-serif" fontWeight="800">11,95 €</text>
-
-          {/* Security badge */}
-          <rect x="62" y="415" width="156" height="22" rx="11" fill="rgba(16,185,129,0.15)" />
-          <circle cx="76" cy="426" r="5" fill="#10B981" />
-          <text x="86" y="430" fill="#34D399" fontSize="10" fontFamily="Inter, sans-serif" fontWeight="600">Transaction sécurisée</text>
-
-          {/* Pay button */}
-          <rect x="20" y="448" width="240" height="46" rx="14" fill="url(#pay-btn-grad)" />
-          <text x="110" y="476" fill="white" fontSize="15" fontFamily="Inter, sans-serif" fontWeight="700">Payer maintenant</text>
-
-          {/* Apple Pay / Card icons */}
-          <text x="55" y="514" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="Inter, sans-serif">Apple Pay</text>
-          <text x="122" y="514" fill="rgba(255,255,255,0.15)" fontSize="10">·</text>
-          <text x="130" y="514" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="Inter, sans-serif">Google Pay</text>
-          <text x="198" y="514" fill="rgba(255,255,255,0.15)" fontSize="10">·</text>
-          <text x="206" y="514" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="Inter, sans-serif">CB</text>
-
-          {/* Home bar */}
-          <rect x="100" y="534" width="80" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
-
-          <defs>
-            <linearGradient id="phone-border" x1="0" y1="0" x2="280" y2="560" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#3B82F6" stopOpacity="0.4" />
-              <stop offset="0.5" stopColor="#0A84FF" stopOpacity="0.2" />
-              <stop offset="1" stopColor="#06B6D4" stopOpacity="0.3" />
-            </linearGradient>
-            <linearGradient id="app-header-grad" x1="12" y1="92" x2="268" y2="144" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#1E3A6E" />
-              <stop offset="1" stopColor="#0A2A6E" />
-            </linearGradient>
-            <linearGradient id="pay-btn-grad" x1="20" y1="448" x2="260" y2="494" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#2563EB" />
-              <stop offset="1" stopColor="#0060CC" />
-            </linearGradient>
-            <linearGradient id="item-grad" x1="0" y1="0" x2="1" y2="1">
-              <stop stopColor="#3B82F6" />
-              <stop offset="1" stopColor="#0A84FF" />
-            </linearGradient>
-          </defs>
-        </svg>
-
-        {/* Floating cards */}
-        <div className="absolute -left-14 top-20 glass-card rounded-xl p-3 shadow-xl min-w-[130px]">
-          <div className="flex items-center gap-2 mb-1">
-            <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
-              <TrendingUp size={12} className="text-emerald-400" />
-            </div>
-            <span className="text-white/50 text-[10px] font-medium">Revenus magasin</span>
-          </div>
-          <div className="text-white text-[18px] font-bold">+0,2%</div>
-          <div className="text-emerald-400 text-[10px]">par transaction</div>
+    <div
+      style={{
+        background: "var(--dark-bg)",
+        color: "var(--dark-text)",
+        padding: "40px 48px",
+        fontFamily: "var(--mono)",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 10,
+          letterSpacing: "0.14em",
+          color: "#555",
+          marginBottom: 28,
+          textTransform: "uppercase",
+        }}
+      >
+        TRANSACTION RECORD — SCANPAY SYSTEM
+      </div>
+      {rows.map(([k, v]) => (
+        <div
+          key={k}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            borderBottom: "1px solid #1E1E1E",
+            padding: "9px 0",
+            fontSize: 12,
+          }}
+        >
+          <span style={{ color: "#555" }}>{k}</span>
+          <span>{v}</span>
         </div>
-
-        <div className="absolute -right-10 bottom-32 glass-card rounded-xl p-3 shadow-xl min-w-[120px]">
-          <div className="flex items-center gap-2 mb-1">
-            <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
-              <Clock size={12} className="text-blue-400" />
-            </div>
-            <span className="text-white/50 text-[10px] font-medium">Temps checkout</span>
-          </div>
-          <div className="text-white text-[18px] font-bold">28 sec</div>
-          <div className="text-blue-400 text-[10px]">vs 4 min en caisse</div>
-        </div>
+      ))}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          paddingTop: 16,
+          fontSize: 13,
+          fontWeight: 500,
+        }}
+      >
+        <span style={{ color: "#555" }}>STATUS</span>
+        <span style={{ color: statusColor, letterSpacing: "0.06em" }}>{status}</span>
       </div>
     </div>
   );
 }
 
-// Animated counter
-function AnimatedCounter({ target, suffix = "", prefix = "" }: { target: number; suffix?: string; prefix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
+function RevealSection({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 2000;
-          const start = Date.now();
-          const animate = () => {
-            const elapsed = Date.now() - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * target));
-            if (progress < 1) requestAnimationFrame(animate);
-          };
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 }
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.08 }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target]);
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <span ref={ref}>
-      {prefix}{count.toLocaleString("fr-FR")}{suffix}
-    </span>
+    <div
+      ref={ref}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+        transition: "opacity 0.55s ease, transform 0.55s ease",
+        ...style,
+      }}
+    >
+      {children}
+    </div>
   );
 }
 
+const MONO: React.CSSProperties = { fontFamily: "var(--mono)" };
+const RULE: React.CSSProperties = { height: 1, background: "var(--rule)", border: "none", margin: 0 };
+const RULE_SUBTLE: React.CSSProperties = { height: 1, background: "var(--rule-subtle)", border: "none", margin: 0 };
+const PAD = "clamp(24px, 4vw, 56px)";
+
 export default function Home() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<"enseignes" | "clients" | "investisseurs">("enseignes");
-
-  const faqs = [
-    { q: "Et si un produit ne scanne pas ?", a: "L'application permet d'ajouter manuellement un produit via sa recherche ou son code-barres. Un assistant vous guide à chaque étape." },
-    { q: "Comment se passe la sortie ?", a: "Présentez simplement le QR code de votre facture à la sortie. Un contrôle rapide peut être effectué aléatoirement." },
-    { q: "C'est compatible avec quels paiements ?", a: "Apple Pay, Google Pay, carte bancaire et tous les moyens de paiement standards sont acceptés." },
-    { q: "Comment éviter la fraude ?", a: "Contrôles aléatoires à la sortie, logs des transactions, détection des comportements suspects et vérifications par IA." },
-    { q: "Combien de temps pour intégrer ?", a: "L'intégration complète prend entre 2 et 4 semaines selon la complexité de votre infrastructure existante." },
-  ];
-
   return (
-    <div className="bg-[#07070F]">
+    <div style={{ background: "var(--bg)", paddingTop: 56 }}>
 
-      {/* ─── HERO ──────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0 grid-overlay pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 -left-64 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[120px] orb-animate" />
-          <div className="absolute bottom-1/4 -right-64 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[100px] orb-animate-delayed" />
-          <div className="absolute top-3/4 left-1/3 w-[400px] h-[400px] bg-cyan-600/8 rounded-full blur-[80px] orb-animate-slow" />
+      {/* ── 01 HERO ─────────────────────────────────── */}
+      <section
+        style={{
+          minHeight: "calc(100vh - 56px)",
+          display: "flex",
+          flexDirection: "column",
+          borderBottom: "1px solid var(--rule)",
+        }}
+      >
+        {/* Top bar */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: `16px ${PAD}`,
+            borderBottom: "1px solid var(--rule-subtle)",
+          }}
+        >
+          <span className="sp-label" style={{ color: "var(--signal)" }}>
+            01 — THE OLD STORE
+          </span>
+          <span className="sp-label">PHYSICAL RETAIL TRANSACTION INFRASTRUCTURE</span>
         </div>
 
-        <div className="relative max-w-[1280px] mx-auto px-6 md:px-8 pt-24 pb-20 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left */}
-            <div>
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 badge-pulse">
-                <div className="w-2 h-2 rounded-full bg-blue-400" />
-                <span className="text-blue-300 text-[13px] font-semibold">Offre pilote disponible</span>
-                <span className="text-blue-400/60 text-[13px]">→</span>
-                <span className="text-blue-300/80 text-[13px]">Rejoignez les premiers partenaires</span>
+        {/* Main content */}
+        <div
+          style={{
+            flex: 1,
+            padding: `clamp(48px, 8vw, 96px) ${PAD}`,
+            display: "grid",
+            gridTemplateColumns: "1fr auto",
+            gap: 64,
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <h1
+              style={{
+                fontSize: "clamp(64px, 11vw, 152px)",
+                fontWeight: 900,
+                lineHeight: 0.9,
+                letterSpacing: "-0.04em",
+                color: "var(--ink)",
+                marginBottom: 48,
+              }}
+            >
+              THE STORE
+              <br />
+              WITHOUT
+              <br />
+              <span style={{ color: "var(--signal)" }}>THE LINE.</span>
+            </h1>
+
+            <p
+              style={{
+                ...MONO,
+                fontSize: 13,
+                color: "var(--ink-3)",
+                lineHeight: 1.8,
+                maxWidth: 440,
+                marginBottom: 36,
+              }}
+            >
+              Scanpay supprime la caisse du retail physique. Le client scanne ses produits, paie sur son téléphone, et quitte le magasin. Sans file d'attente. En toute simplicité.
+            </p>
+
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <a
+                href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Scanpay"
+                className="btn-primary"
+              >
+                DEMANDER UNE DÉMO
+              </a>
+              <a
+                href="https://group-skid-95043529.figma.site"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                TESTER LA DÉMO MVP
+              </a>
+            </div>
+          </div>
+
+          {/* Right: live system indicator */}
+          <div
+            style={{
+              ...MONO,
+              fontSize: 11,
+              letterSpacing: "0.1em",
+              color: "var(--ink-3)",
+              textAlign: "right",
+              display: "flex",
+              flexDirection: "column",
+              gap: 8,
+              alignSelf: "flex-end",
+              paddingBottom: 4,
+              whiteSpace: "nowrap",
+            }}
+            className="hidden lg:flex"
+          >
+            <span>
+              <span className="blink-mech" style={{ color: "var(--signal)" }}>■</span>{" "}
+              LIVE SYSTEM
+            </span>
+            <span>
+              <LiveClock /> CET
+            </span>
+            <span>PARIS, FR</span>
+          </div>
+        </div>
+
+        {/* Bottom bar: sequence */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: `14px ${PAD}`,
+            borderTop: "1px solid var(--rule)",
+          }}
+        >
+          <div style={{ display: "flex", gap: 0, alignItems: "center" }}>
+            {["SCAN", "IDENTIFY", "PAY", "VERIFY", "EXIT"].map((step, i) => (
+              <span key={step} className="sp-label" style={{ display: "flex", alignItems: "center" }}>
+                {i > 0 && (
+                  <span style={{ margin: "0 12px", color: "var(--rule)" }}>→</span>
+                )}
+                {step}
+              </span>
+            ))}
+          </div>
+          <span className="sp-label">01 / 08</span>
+        </div>
+      </section>
+
+      {/* ── 02 THE SHIFT ─────────────────────────────── */}
+      <section
+        style={{
+          background: "var(--dark-bg)",
+          color: "var(--dark-text)",
+          padding: `clamp(64px, 10vw, 120px) ${PAD}`,
+          borderBottom: "1px solid #222",
+        }}
+      >
+        <RevealSection>
+          <span
+            style={{
+              ...MONO,
+              fontSize: 11,
+              letterSpacing: "0.1em",
+              color: "#555",
+              display: "block",
+              marginBottom: 40,
+            }}
+          >
+            02 — THE SHIFT
+          </span>
+
+          <h2
+            style={{
+              fontSize: "clamp(36px, 6vw, 84px)",
+              fontWeight: 900,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.05,
+              maxWidth: 900,
+              marginBottom: 56,
+            }}
+          >
+            "THE LINE IS A<br />
+            LEGACY INTERFACE."
+          </h2>
+
+          <hr style={{ ...RULE_SUBTLE, background: "#222", marginBottom: 48 }} />
+
+          <div style={{ display: "flex", alignItems: "center", gap: 0, flexWrap: "wrap" }}>
+            {["SCAN", "PAY", "EXIT"].map((step, i) => (
+              <span key={step} style={{ display: "flex", alignItems: "center" }}>
+                {i > 0 && (
+                  <span
+                    style={{
+                      ...MONO,
+                      fontSize: "clamp(20px, 3vw, 36px)",
+                      color: "#333",
+                      margin: "0 24px",
+                    }}
+                  >
+                    →
+                  </span>
+                )}
+                <span
+                  style={{
+                    fontSize: "clamp(28px, 5vw, 64px)",
+                    fontWeight: 900,
+                    letterSpacing: "-0.03em",
+                    color: i === 0 ? "var(--signal)" : "var(--dark-text)",
+                  }}
+                >
+                  {step}
+                </span>
+              </span>
+            ))}
+          </div>
+
+          <p
+            style={{
+              ...MONO,
+              fontSize: 13,
+              color: "#555",
+              marginTop: 48,
+              maxWidth: 500,
+              lineHeight: 1.7,
+            }}
+          >
+            La file d'attente n'est pas une fatalité. C'est une contrainte technologique héritée du XXe siècle. Scanpay la remplace par une interface mobile instantanée.
+          </p>
+        </RevealSection>
+      </section>
+
+      {/* ── 03 THE EXPERIENCE ────────────────────────── */}
+      <section style={{ borderBottom: "1px solid var(--rule)" }}>
+        {/* Section header */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: `16px ${PAD}`,
+            borderBottom: "1px solid var(--rule)",
+          }}
+        >
+          <span className="sp-label" style={{ color: "var(--signal)" }}>
+            03 — THE EXPERIENCE
+          </span>
+          <span className="sp-label">CHECKOUT SEQUENCE / 5 STEPS</span>
+        </div>
+
+        {[
+          {
+            num: "01",
+            step: "SCAN",
+            title: "Vous entrez dans le magasin",
+            desc: "À l'entrée, un QR code Scanpay ouvre instantanément votre session d'achat. Aucune inscription préalable. Aucun téléchargement obligatoire. Le magasin vous reconnaît.",
+            detail: "Identification du point de vente — Ouverture du panier — Session sécurisée",
+          },
+          {
+            num: "02",
+            step: "IDENTIFY",
+            title: "Chaque produit rejoint votre panier",
+            desc: "Vous scannez les codes-barres directement en rayon avec votre téléphone. Le prix exact, les promotions actives et les informations produit s'affichent en temps réel.",
+            detail: "EAN-13 / EAN-8 / QR / DataMatrix — Promos synchronisées — Ajout manuel possible",
+          },
+          {
+            num: "03",
+            step: "AUTHORIZE",
+            title: "Le paiement s'autorise en une seconde",
+            desc: "Apple Pay, Google Pay ou carte bancaire. Le paiement est sécurisé, tokenisé et conforme PCI-DSS. Aucun terminal physique. Aucune interaction avec un caissier.",
+            detail: "Stripe · Adyen · Wero · Worldline — 3D Secure automatique — Tokenisation",
+          },
+          {
+            num: "04",
+            step: "VERIFY",
+            title: "Un QR code de facture est généré",
+            desc: "Immédiatement après le paiement, un QR code certifiant la transaction apparaît sur votre écran. Présentez-le au passage en sortie pour un contrôle anti-fraude rapide.",
+            detail: "Reçu numérique — Contrôle anti-fraude — Facture envoyée par email",
+          },
+          {
+            num: "05",
+            step: "EXIT",
+            title: "Vous sortez. Sans attendre.",
+            desc: "La transaction est complète. Vous quittez le magasin avec votre reçu numérique. Le commerçant perçoit en retour une commission de 0,2 % sur chaque transaction Scanpay.",
+            detail: "Durée totale : < 30 secondes — Commission commerçant : +0,2% / transaction",
+          },
+        ].map((item, i) => (
+          <RevealSection key={item.num}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                borderBottom: i < 4 ? "1px solid var(--rule)" : "none",
+              }}
+              className="grid-cols-1 md:grid-cols-2"
+            >
+              {/* Left */}
+              <div
+                style={{
+                  padding: `clamp(40px, 6vw, 72px) ${PAD}`,
+                  borderRight: "1px solid var(--rule)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  gap: 32,
+                }}
+              >
+                <div>
+                  <span
+                    style={{
+                      fontSize: "clamp(72px, 10vw, 120px)",
+                      fontWeight: 900,
+                      letterSpacing: "-0.05em",
+                      color: "var(--rule)",
+                      lineHeight: 1,
+                      display: "block",
+                      marginBottom: 16,
+                    }}
+                  >
+                    {item.num}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "clamp(32px, 5vw, 60px)",
+                      fontWeight: 900,
+                      letterSpacing: "-0.03em",
+                      color: "var(--signal)",
+                      display: "block",
+                    }}
+                  >
+                    {item.step}
+                  </span>
+                </div>
+                <span className="sp-label">{item.detail}</span>
               </div>
 
-              <h1 className="text-[56px] md:text-[68px] font-black leading-[0.98] tracking-[-0.03em] text-white mb-4">
-                Réinventez<br />
-                <span className="gradient-text">l'expérience</span><br />
-                d'achat
-              </h1>
+              {/* Right */}
+              <div
+                style={{
+                  padding: `clamp(40px, 6vw, 72px) ${PAD}`,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  gap: 20,
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "clamp(20px, 2.5vw, 30px)",
+                    fontWeight: 700,
+                    letterSpacing: "-0.02em",
+                    color: "var(--ink)",
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 15,
+                    color: "var(--ink-2)",
+                    lineHeight: 1.75,
+                    maxWidth: 460,
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          </RevealSection>
+        ))}
+      </section>
 
-              <p className="text-[20px] md:text-[22px] italic text-white/35 font-medium mb-8 tracking-tight">
-                The Future of Checkout.
+      {/* ── 04 THE SYSTEM ────────────────────────────── */}
+      <section
+        style={{
+          padding: `clamp(64px, 10vw, 120px) ${PAD}`,
+          borderBottom: "1px solid var(--rule)",
+          background: "var(--bg-alt)",
+        }}
+      >
+        <RevealSection>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: 56,
+              flexWrap: "wrap",
+              gap: 24,
+            }}
+          >
+            <div>
+              <span className="sp-label" style={{ color: "var(--signal)", display: "block", marginBottom: 16 }}>
+                04 — THE SYSTEM
+              </span>
+              <h2
+                style={{
+                  fontSize: "clamp(32px, 5vw, 64px)",
+                  fontWeight: 900,
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1,
+                  color: "var(--ink)",
+                }}
+              >
+                COMMENT ÇA<br />FONCTIONNE.
+              </h2>
+            </div>
+            <div style={{ maxWidth: 400 }}>
+              <p style={{ fontSize: 15, color: "var(--ink-2)", lineHeight: 1.75 }}>
+                Scanpay est une infrastructure SaaS 100 % logicielle. Aucun matériel à installer. Aucun abonnement. L'intégration avec votre ERP existant se fait en 2 à 4 semaines.
               </p>
+            </div>
+          </div>
 
-              <p className="text-[18px] md:text-[20px] text-white/55 leading-relaxed mb-10 max-w-lg">
-                Scanpay transforme le passage en caisse en une expérience mobile ultra-fluide. Scannez, payez, et repartez — en toute simplicité.
+          <hr style={RULE} />
+
+          {/* System grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }} className="grid-cols-1 md:grid-cols-3">
+            {[
+              {
+                index: "A",
+                title: "Application mobile",
+                points: [
+                  "PWA + app native iOS / Android",
+                  "Scan continu haute performance",
+                  "Paiement intégré (Apple / Google Pay)",
+                  "Mode hors-ligne avec synchronisation",
+                  "QR code de sortie certifié",
+                ],
+              },
+              {
+                index: "B",
+                title: "Plateforme commerçant",
+                points: [
+                  "API REST compatible ERP / POS",
+                  "Catalogue produits synchronisé",
+                  "Dashboard analytics temps réel",
+                  "Gestion des promotions automatique",
+                  "Alertes et rapports configurables",
+                ],
+              },
+              {
+                index: "C",
+                title: "Infrastructure paiement",
+                points: [
+                  "Stripe · Adyen · Wero · Worldline",
+                  "Tokenisation PCI-DSS niveau 1",
+                  "3D Secure automatique",
+                  "Remboursements en 1 clic",
+                  "Réconciliation comptable automatique",
+                ],
+              },
+            ].map((col, i) => (
+              <div
+                key={col.index}
+                style={{
+                  padding: `40px ${PAD}`,
+                  borderLeft: i > 0 ? "1px solid var(--rule)" : "none",
+                }}
+              >
+                <div
+                  style={{
+                    ...MONO,
+                    fontSize: 28,
+                    fontWeight: 500,
+                    color: "var(--rule)",
+                    marginBottom: 12,
+                  }}
+                >
+                  {col.index}
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 700,
+                    letterSpacing: "-0.01em",
+                    color: "var(--ink)",
+                    marginBottom: 24,
+                  }}
+                >
+                  {col.title}
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {col.points.map((p) => (
+                    <div
+                      key={p}
+                      style={{
+                        ...MONO,
+                        fontSize: 11,
+                        color: "var(--ink-3)",
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 8,
+                      }}
+                    >
+                      <span style={{ color: "var(--rule)", flexShrink: 0 }}>—</span>
+                      {p}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <hr style={{ ...RULE, marginTop: 0 }} />
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              paddingTop: 32,
+            }}
+            className="grid-cols-2 md:grid-cols-4"
+          >
+            {[
+              { val: "2–4 SEM.", label: "Intégration" },
+              { val: "99,9%", label: "Uptime SLA" },
+              { val: "0 €", label: "Abonnement" },
+              { val: "< 30 SEC.", label: "Checkout moyen" },
+            ].map((s) => (
+              <div
+                key={s.label}
+                style={{ textAlign: "center", padding: "16px 0" }}
+              >
+                <div
+                  style={{
+                    ...MONO,
+                    fontSize: "clamp(20px, 3vw, 32px)",
+                    fontWeight: 500,
+                    color: "var(--signal)",
+                    marginBottom: 6,
+                  }}
+                >
+                  {s.val}
+                </div>
+                <div className="sp-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </RevealSection>
+      </section>
+
+      {/* ── 05 THE TRANSACTION ───────────────────────── */}
+      <section
+        style={{
+          borderBottom: "1px solid var(--rule)",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+        }}
+        className="grid-cols-1 md:grid-cols-2"
+      >
+        {/* Left */}
+        <div
+          style={{
+            padding: `clamp(64px, 10vw, 120px) ${PAD}`,
+            borderRight: "1px solid var(--rule)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <RevealSection>
+            <span className="sp-label" style={{ color: "var(--signal)", display: "block", marginBottom: 32 }}>
+              05 — THE TRANSACTION
+            </span>
+            <h2
+              style={{
+                fontSize: "clamp(36px, 6vw, 80px)",
+                fontWeight: 900,
+                letterSpacing: "-0.04em",
+                lineHeight: 0.95,
+                color: "var(--ink)",
+                marginBottom: 32,
+              }}
+            >
+              CHAQUE<br />
+              <span style={{ color: "var(--signal)" }}>TRANSACTION</span><br />
+              EST UN SIGNAL.
+            </h2>
+            <p style={{ fontSize: 15, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 400 }}>
+              Pour le client : une sortie immédiate. Pour le commerçant : un revenu additionnel de 0,2 % et une couche de données précieuse sur chaque achat.
+            </p>
+          </RevealSection>
+        </div>
+
+        {/* Right: animated transaction */}
+        <div
+          style={{
+            padding: `clamp(64px, 10vw, 120px) ${PAD}`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "var(--bg-alt)",
+          }}
+        >
+          <RevealSection style={{ width: "100%", maxWidth: 480 }}>
+            <TransactionBlock />
+          </RevealSection>
+        </div>
+      </section>
+
+      {/* ── 06 THE DATA ──────────────────────────────── */}
+      <section
+        style={{
+          padding: `clamp(64px, 10vw, 120px) ${PAD}`,
+          borderBottom: "1px solid var(--rule)",
+        }}
+      >
+        <RevealSection>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 56, flexWrap: "wrap", gap: 16 }}>
+            <span className="sp-label" style={{ color: "var(--signal)" }}>06 — THE DATA</span>
+            <span className="sp-label">MARCHÉ / OPPORTUNITÉ / IMPACT</span>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 0,
+            }}
+            className="grid-cols-1 md:grid-cols-3"
+          >
+            {[
+              {
+                val: "3 000",
+                unit: "Md€",
+                label: "Retail EU annuel",
+                sub: "TAM — marché total adressable",
+              },
+              {
+                val: "< 5",
+                unit: "%",
+                label: "Pénétration self-checkout",
+                sub: "En France — la place est à prendre",
+              },
+              {
+                val: "0,2",
+                unit: "%",
+                label: "Commission Scanpay",
+                sub: "Par transaction via Scanpay",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.label}
+                style={{
+                  padding: `48px ${PAD}`,
+                  borderLeft: i > 0 ? "1px solid var(--rule)" : "none",
+                  borderTop: "1px solid var(--rule)",
+                  borderBottom: "1px solid var(--rule)",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "clamp(56px, 9vw, 112px)",
+                    fontWeight: 900,
+                    letterSpacing: "-0.05em",
+                    lineHeight: 0.9,
+                    color: "var(--ink)",
+                    marginBottom: 4,
+                  }}
+                >
+                  {item.val}
+                  <span style={{ fontSize: "0.4em", color: "var(--signal)", marginLeft: 4 }}>
+                    {item.unit}
+                  </span>
+                </div>
+                <div
+                  style={{
+                    fontSize: 15,
+                    fontWeight: 600,
+                    color: "var(--ink)",
+                    marginBottom: 8,
+                    marginTop: 16,
+                  }}
+                >
+                  {item.label}
+                </div>
+                <div className="sp-label">{item.sub}</div>
+              </div>
+            ))}
+          </div>
+        </RevealSection>
+      </section>
+
+      {/* ── 07 THE NETWORK ───────────────────────────── */}
+      <section
+        style={{
+          background: "var(--bg-alt)",
+          borderBottom: "1px solid var(--rule)",
+          padding: `clamp(64px, 10vw, 120px) ${PAD}`,
+        }}
+      >
+        <RevealSection>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 56, flexWrap: "wrap", gap: 16 }}>
+            <span className="sp-label" style={{ color: "var(--signal)" }}>07 — THE NETWORK</span>
+            <span className="sp-label">INFRASTRUCTURE EN CONSTRUCTION</span>
+          </div>
+
+          <h2
+            style={{
+              fontSize: "clamp(36px, 6vw, 80px)",
+              fontWeight: 900,
+              letterSpacing: "-0.04em",
+              lineHeight: 0.95,
+              color: "var(--ink)",
+              marginBottom: 64,
+            }}
+          >
+            SCANPAY EST UNE<br />
+            INFRASTRUCTURE,<br />
+            PAS UNE APPLICATION.
+          </h2>
+
+          {/* Network grid: store codes */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: 0,
+              borderTop: "1px solid var(--rule)",
+            }}
+            className="grid-cols-2 md:grid-cols-4"
+          >
+            {[
+              { code: "FR-PAR-001", city: "Paris 1er", status: "PILOT" },
+              { code: "FR-PAR-015", city: "Paris 15e", status: "PILOT" },
+              { code: "FR-LYO-003", city: "Lyon", status: "SOON" },
+              { code: "FR-ROU-001", city: "Rouen", status: "SOON" },
+              { code: "BE-BRU-002", city: "Bruxelles", status: "ROADMAP" },
+              { code: "CH-ZRH-001", city: "Zürich", status: "ROADMAP" },
+              { code: "ES-MAD-004", city: "Madrid", status: "ROADMAP" },
+              { code: "FR-MAR-001", city: "Marseille", status: "SOON" },
+            ].map((s, i) => (
+              <div
+                key={s.code}
+                style={{
+                  padding: "24px 20px",
+                  borderBottom: "1px solid var(--rule)",
+                  borderRight: i % 4 < 3 ? "1px solid var(--rule)" : "none",
+                }}
+              >
+                <div
+                  className="sp-label"
+                  style={{
+                    color:
+                      s.status === "PILOT"
+                        ? "var(--signal)"
+                        : s.status === "SOON"
+                        ? "var(--ink)"
+                        : "var(--ink-3)",
+                    marginBottom: 8,
+                  }}
+                >
+                  {s.status}
+                </div>
+                <div style={{ ...MONO, fontSize: 11, color: "var(--ink-3)", marginBottom: 6 }}>{s.code}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)" }}>{s.city}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 40 }}>
+            <p style={{ ...MONO, fontSize: 12, color: "var(--ink-3)", lineHeight: 1.7 }}>
+              Chaque enseigne partenaire devient un nœud du réseau Scanpay. Plus le réseau grandit, plus la valeur est forte pour chaque commerçant — et pour chaque client.
+            </p>
+          </div>
+        </RevealSection>
+      </section>
+
+      {/* ── 08 THE FUTURE ────────────────────────────── */}
+      <section
+        style={{
+          background: "var(--dark-bg)",
+          color: "var(--dark-text)",
+          padding: `clamp(80px, 12vw, 160px) ${PAD}`,
+        }}
+      >
+        <RevealSection>
+          <span
+            style={{
+              ...MONO,
+              fontSize: 11,
+              letterSpacing: "0.1em",
+              color: "#555",
+              display: "block",
+              marginBottom: 48,
+            }}
+          >
+            08 — THE FUTURE
+          </span>
+
+          <h2
+            style={{
+              fontSize: "clamp(40px, 7vw, 100px)",
+              fontWeight: 900,
+              letterSpacing: "-0.04em",
+              lineHeight: 0.92,
+              marginBottom: 48,
+            }}
+          >
+            THE PHYSICAL STORE
+            <br />
+            IS CHANGING.
+          </h2>
+
+          <hr style={{ height: 1, background: "#222", border: "none", marginBottom: 48 }} />
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end" }} className="grid-cols-1 md:grid-cols-2">
+            <div>
+              <h3
+                style={{
+                  fontSize: "clamp(28px, 4vw, 56px)",
+                  fontWeight: 900,
+                  letterSpacing: "-0.03em",
+                  lineHeight: 0.95,
+                  color: "var(--signal)",
+                  marginBottom: 32,
+                }}
+              >
+                SCANPAY IS THE<br />
+                TRANSACTION LAYER.
+              </h3>
+              <p
+                style={{
+                  ...MONO,
+                  fontSize: 13,
+                  color: "#555",
+                  lineHeight: 1.8,
+                  maxWidth: 440,
+                  marginBottom: 40,
+                }}
+              >
+                Nous ne construisons pas une application de paiement. Nous construisons l'infrastructure transactionnelle du retail physique de demain.
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <a href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Scanpay" className="btn-primary text-[15px] text-center">
-                  <span>Demander une démo gratuite</span>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <a
+                  href="mailto:pauldormeau@icloud.com?subject=Investissement%20Scanpay%20%E2%80%94%20Pitch%20Deck"
+                  style={{
+                    ...MONO,
+                    fontSize: 11,
+                    letterSpacing: "0.1em",
+                    textDecoration: "none",
+                    padding: "13px 24px",
+                    background: "var(--signal)",
+                    color: "white",
+                    border: "1px solid var(--signal)",
+                    transition: "opacity 0.12s",
+                  }}
+                >
+                  INVESTIR DANS SCANPAY →
                 </a>
                 <a
-                  href="https://group-skid-95043529.figma.site"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary text-[15px] inline-flex items-center justify-center gap-2 border-blue-500/30 hover:border-blue-400/50"
+                  href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Scanpay"
+                  style={{
+                    ...MONO,
+                    fontSize: 11,
+                    letterSpacing: "0.1em",
+                    textDecoration: "none",
+                    padding: "12px 24px",
+                    background: "transparent",
+                    color: "#555",
+                    border: "1px solid #333",
+                    transition: "border-color 0.12s, color 0.12s",
+                  }}
                 >
-                  <Smartphone size={16} className="text-blue-400" />
-                  Tester la démo
+                  DÉMO COMMERÇANT
                 </a>
               </div>
-
-              {/* Trust signals */}
-              <div className="flex flex-wrap gap-6">
-                {[
-                  { icon: Shield, label: "PCI-DSS" },
-                  { icon: CheckCircle, label: "RGPD conforme" },
-                  { icon: Smartphone, label: "iOS & Android" },
-                  { icon: Lock, label: "Chiffrement E2E" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2 text-white/40 text-[13px]">
-                    <item.icon size={14} />
-                    <span>{item.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Right — Phone */}
-            <div className="relative flex justify-center lg:justify-end">
-              <PhoneMockup />
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 text-[12px]">
-          <span>Découvrir</span>
-          <ChevronDown size={16} className="animate-bounce" />
-        </div>
-      </section>
-
-      {/* ─── STATS BAR ─────────────────────────────────────────────────── */}
-      <section className="border-y border-white/[0.06] bg-white/[0.02]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-            {[
-              { display: "99,9%", label: "Disponibilité garantie", icon: Activity },
-              { display: "28 sec", label: "Checkout moyen", icon: Clock },
-              { display: "0,8%", label: "Commission totale", icon: CreditCard },
-              { display: "100+", label: "Magasins potentiels", icon: Store },
-            ].map((stat, i) => (
-              <div key={i} className="text-center md:text-left md:px-8 md:border-l border-white/[0.08] first:border-0">
-                <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-                  <stat.icon size={16} className="text-blue-400/70" />
-                </div>
-                <div className="text-[36px] md:text-[44px] font-black text-white leading-none mb-1">
-                  {stat.display}
-                </div>
-                <div className="text-[14px] text-white/45">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PROBLEM / SOLUTION ────────────────────────────────────────── */}
-      <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/5 rounded-full blur-[120px]" />
-        </div>
-        <div className="relative max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
-              Le problème
-            </div>
-            <h2 className="text-[40px] md:text-[52px] font-black text-white leading-tight tracking-tight mb-6">
-              Les caisses traditionnelles<br />coûtent cher à tout le monde
-            </h2>
-            <p className="text-[18px] text-white/50 max-w-2xl mx-auto">
-              Files d'attente, coûts de personnel, abandon de panier. Le retail moderne a besoin d'une révolution.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              { icon: Clock, color: "from-red-500/20 to-orange-500/10", border: "border-red-500/20", iconColor: "text-red-400", title: "Un temps d'attente évitable.", sub: "La file d'attente, un frein au quotidien", desc: "Chaque passage en caisse représente du temps perdu pour vos clients — et une opportunité manquée pour votre enseigne." },
-              { icon: Users, color: "from-orange-500/20 to-yellow-500/10", border: "border-orange-500/20", iconColor: "text-orange-400", title: "Un coût structurel élevé.", sub: "Le poids financier des caisses traditionnelles", desc: "Le personnel de caisse et les équipements physiques représentent l'un des postes de coûts les plus lourds du retail." },
-              { icon: TrendingUp, color: "from-yellow-500/20 to-amber-500/10", border: "border-yellow-500/20", iconColor: "text-yellow-400", title: "Des clients qui repartent.", sub: "Les files d'attente découragent", desc: "Les files d'attente découragent certains clients, qui renoncent à leurs achats avant d'atteindre la caisse." },
-            ].map((item, i) => (
-              <div key={i} className={`glass-card glass-card-hover rounded-2xl p-6 border ${item.border} bg-gradient-to-br ${item.color}`}>
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center mb-5">
-                  <item.icon className={item.iconColor} size={22} />
-                </div>
-                <div className={`text-[28px] font-black ${item.iconColor} mb-1`}>{item.title}</div>
-                <div className="text-[13px] font-semibold text-white/50 mb-3 uppercase tracking-wide">{item.sub}</div>
-                <p className="text-[14px] text-white/50 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Solution card */}
-          <div className="relative gradient-border rounded-3xl p-8 md:p-12 glass-card">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-500/25 mb-6">
-                  <CheckCircle size={15} className="text-emerald-400" />
-                  <span className="text-emerald-400 text-[13px] font-semibold">La solution Scanpay</span>
-                </div>
-                <h3 className="text-[36px] font-black text-white leading-tight mb-5">
-                  Self-checkout mobile.<br />Sans friction.
-                </h3>
-                <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                  Vos clients scannent les produits directement en rayon, paient dans l'app et repartent avec leur QR code de facture. Zéro file d'attente, satisfaction maximale, revenus additionnels.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { val: "-87%", label: "Temps checkout" },
-                    { val: "+0,2%", label: "Revenu commerçant" },
-                    { val: "100%", label: "Satisfaction client" },
-                    { val: "0 €", label: "Abonnement" },
-                  ].map((s, i) => (
-                    <div key={i} className="bg-white/[0.04] rounded-xl p-4">
-                      <div className="text-[24px] font-black gradient-text">{s.val}</div>
-                      <div className="text-[12px] text-white/45 mt-0.5">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-4">
-                {[
-                  { icon: QrCode, title: "QR d'entrée magasin", desc: "Le client scanne le QR à l'entrée pour ouvrir sa session." },
-                  { icon: Scan, title: "Scan produits en rayon", desc: "Ajout direct au panier mobile à chaque produit scanné." },
-                  { icon: CreditCard, title: "Paiement in-app", desc: "Apple Pay, Google Pay, CB — paiement sécurisé instantané." },
-                  { icon: Receipt, title: "QR facture à la sortie", desc: "Contrôle rapide et traçabilité totale pour le magasin." },
-                ].map((step, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 bg-white/[0.03] rounded-xl border border-white/[0.06] hover:bg-white/[0.06] transition-colors">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      <step.icon className="text-blue-400" size={18} />
-                    </div>
-                    <div>
-                      <div className="text-[15px] font-semibold text-white">{step.title}</div>
-                      <div className="text-[13px] text-white/45 mt-0.5">{step.desc}</div>
-                    </div>
-                    <div className="ml-auto text-white/20 text-[12px] font-bold self-center">{i + 1}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── FOR WHO — TABS ────────────────────────────────────────────── */}
-      <section className="py-28 bg-gradient-to-b from-transparent to-[#040810]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
-              Pour qui
-            </div>
-            <h2 className="text-[40px] md:text-[52px] font-black text-white tracking-tight mb-4">
-              Une solution, trois publics
-            </h2>
-          </div>
-
-          {/* Tab buttons */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex glass-card rounded-xl p-1">
-              {(["enseignes", "clients", "investisseurs"] as const).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-5 py-2.5 rounded-lg text-[14px] font-semibold transition-all duration-200 capitalize ${
-                    activeTab === tab
-                      ? "bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-lg"
-                      : "text-white/50 hover:text-white"
-                  }`}
-                >
-                  {tab === "enseignes" ? "Enseignes" : tab === "clients" ? "Clients" : "Investisseurs"}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Tab content */}
-          {activeTab === "enseignes" && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 border border-blue-500/20 flex items-center justify-center mb-6">
-                  <Store className="text-blue-400" size={26} />
-                </div>
-                <h3 className="text-[36px] font-black text-white mb-5">Boostez vos revenus<br />tout en réduisant vos coûts</h3>
-                <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                  Scanpay permet à vos enseignes de réduire drastiquement les coûts liés aux caisses tout en générant un revenu additionnel sur chaque transaction.
-                </p>
-                <div className="space-y-3 mb-8">
-                  {[
-                    "Réduction charge caisse de 40 à 70%",
-                    "Revenu additionnel de 0,2% par transaction",
-                    "Dashboard analytics en temps réel",
-                    "Intégration ERP/POS en 2-4 semaines",
-                    "Gestion anti-fraude par IA",
-                    "Support dédié et onboarding guidé",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle size={12} className="text-blue-400" />
-                      </div>
-                      <span className="text-[14px] text-white/70">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link to="/pour-les-enseignes" className="btn-primary text-[14px] inline-block">
-                  <span>En savoir plus →</span>
-                </Link>
-              </div>
-              <div className="glass-card rounded-2xl p-6 space-y-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[13px] text-white/50 font-semibold uppercase tracking-wide">Dashboard Scanpay</span>
-                  <div className="flex items-center gap-1.5 text-emerald-400 text-[12px]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Live
-                  </div>
-                </div>
-                {[
-                  { label: "Transactions aujourd'hui", value: "847", change: "+12%", positive: true },
-                  { label: "CA journalier", value: "14 238 €", change: "+8%", positive: true },
-                  { label: "Temps moyen checkout", value: "28 sec", change: "-65%", positive: true },
-                  { label: "Taux satisfaction", value: "96,4%", change: "+3%", positive: true },
-                ].map((metric, i) => (
-                  <div key={i} className="flex items-center justify-between py-3 border-b border-white/[0.05] last:border-0">
-                    <span className="text-[13px] text-white/50">{metric.label}</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-[15px] font-bold text-white">{metric.value}</span>
-                      <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${metric.positive ? "bg-emerald-500/15 text-emerald-400" : "bg-red-500/15 text-red-400"}`}>
-                        {metric.change}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {activeTab === "clients" && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/20 flex items-center justify-center mb-6">
-                  <Smartphone className="text-cyan-400" size={26} />
-                </div>
-                <h3 className="text-[36px] font-black text-white mb-5">Shopping fluide,<br />zéro file d'attente</h3>
-                <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                  Avec Scanpay, vos courses deviennent un plaisir. Scannez les produits en rayon, payez en quelques secondes et repartez sans attendre.
-                </p>
-                <div className="space-y-3 mb-8">
-                  {[
-                    "Zéro attente, zéro stress",
-                    "Panier en temps réel dans l'app",
-                    "Promos appliquées automatiquement",
-                    "Historique des achats accessible",
-                    "Facture numérique instantanée",
-                    "Compatible Apple Pay, Google Pay",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle size={12} className="text-cyan-400" />
-                      </div>
-                      <span className="text-[14px] text-white/70">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: Clock, title: "28 secondes", sub: "Checkout moyen", color: "from-cyan-500/15 to-blue-500/10" },
-                  { icon: Users, title: "Élevée", sub: "Satisfaction client", color: "from-blue-500/15 to-cyan-500/10" },
-                  { icon: Receipt, title: "100%", sub: "Facture numérique", color: "from-blue-500/15 to-cyan-500/10" },
-                  { icon: Bell, title: "+0,8%", sub: "Micro-surcharge client", color: "from-blue-500/15 to-cyan-500/10" },
-                ].map((card, i) => (
-                  <div key={i} className={`glass-card rounded-2xl p-5 bg-gradient-to-br ${card.color}`}>
-                    <div className="w-10 h-10 rounded-xl glass-card flex items-center justify-center mb-3">
-                      <card.icon size={18} className="text-white/70" />
-                    </div>
-                    <div className="text-[26px] font-black text-white">{card.title}</div>
-                    <div className="text-[12px] text-white/45 mt-1">{card.sub}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {activeTab === "investisseurs" && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/20 flex items-center justify-center mb-6">
-                  <TrendingUp className="text-blue-400" size={26} />
-                </div>
-                <h3 className="text-[36px] font-black text-white mb-5">Un marché de 50 Md€<br />à transformer</h3>
-                <p className="text-[16px] text-white/55 leading-relaxed mb-8">
-                  Le retail européen génère plus de 3 000 milliards d'euros par an. Scanpay capture une commission sur chaque transaction mobile — un modèle SaaS-like à forte scalabilité.
-                </p>
-                <div className="space-y-3 mb-8">
-                  {[
-                    "Modèle économique : commission sur transaction",
-                    "Marché adressable : 50 Md€ (Europe)",
-                    "Coûts marginaux quasi-nuls à l'échelle",
-                    "Effet réseau et switching costs élevés",
-                    "First-mover advantage en France",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle size={12} className="text-blue-400" />
-                      </div>
-                      <span className="text-[14px] text-white/70">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link to="/pour-les-investisseurs" className="btn-primary text-[14px] inline-block">
-                  <span>Voir le dossier investisseur →</span>
-                </Link>
-              </div>
-              <div className="space-y-4">
-                {[
-                  { label: "Marché total (TAM)", value: "50 Md€", desc: "Transactions retail EU/an" },
-                  { label: "Marché adressable (SAM)", value: "4,2 Md€", desc: "Self-checkout mobile EU" },
-                  { label: "Objectif Y3 (SOM)", value: "85 M€", desc: "Volume transactions" },
-                  { label: "Commission sur transactions", value: "0,6%", desc: "Revenue Scanpay" },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 glass-card rounded-xl border border-blue-500/10">
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 text-blue-400 font-black text-[13px]">
-                      {i + 1}
-                    </div>
-                    <div>
-                      <div className="text-[12px] text-white/40 font-semibold uppercase tracking-wide">{item.label}</div>
-                      <div className="text-[20px] font-black text-white">{item.value}</div>
-                      <div className="text-[11px] text-white/35">{item.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ─── FEATURES GRID ─────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#0C0C14]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
-              Fonctionnalités
-            </div>
-            <h2 className="text-[40px] md:text-[52px] font-black text-white tracking-tight mb-4">
-              Tout ce qu'il faut pour<br />réinventer le checkout
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: QrCode, title: "QR d'entrée", desc: "Identification de session magasin instantanée en un scan.", gradient: "from-blue-600/15 to-cyan-600/10" },
-              { icon: Scan, title: "Scan code-barres", desc: "Rapide, fiable et précis. Gestion des codes EAN-13, QR, DataMatrix.", gradient: "from-blue-600/15 to-blue-600/10" },
-              { icon: Package, title: "Panier intelligent", desc: "Quantités, suppression, promotions appliquées automatiquement.", gradient: "from-cyan-600/15 to-teal-600/10" },
-              { icon: CreditCard, title: "Paiement in-app", desc: "Apple Pay, Google Pay, CB. Instantané, sécurisé, tokenisé.", gradient: "from-emerald-600/15 to-cyan-600/10" },
-              { icon: Receipt, title: "Facture QR sortie", desc: "Contrôle anti-fraude rapide. Historique complet disponible.", gradient: "from-orange-600/15 to-amber-600/10" },
-              { icon: BarChart3, title: "Analytics temps réel", desc: "Dashboard complet : CA, flux, comportements, alertes.", gradient: "from-pink-600/15 to-blue-600/10" },
-              { icon: Database, title: "Intégration ERP/POS", desc: "API REST complète. Compatible avec les principaux systèmes.", gradient: "from-blue-600/15 to-indigo-600/10" },
-              { icon: Shield, title: "Anti-fraude IA", desc: "Détection comportementale, contrôles aléatoires, logs sécurisés.", gradient: "from-red-600/15 to-orange-600/10" },
-              { icon: Globe, title: "Multi-magasins", desc: "Gérez tous vos points de vente depuis un dashboard central.", gradient: "from-teal-600/15 to-green-600/10" },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className={`glass-card glass-card-hover rounded-2xl p-6 bg-gradient-to-br ${feature.gradient}`}
-              >
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center mb-5">
-                  <feature.icon className="text-white/80" size={22} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-[18px] font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-[14px] text-white/50 leading-relaxed">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECURITY ──────────────────────────────────────────────────── */}
-      <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-blue-600/8 rounded-full blur-[100px]" />
-        </div>
-        <div className="relative max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
-                Sécurité & Conformité
-              </div>
-              <h2 className="text-[40px] md:text-[48px] font-black text-white leading-tight mb-6">
-                Votre confiance est<br />notre priorité absolue
-              </h2>
-              <p className="text-[16px] text-white/55 leading-relaxed mb-10">
-                Scanpay est conçu dès la conception avec une approche security-by-design. Chaque transaction est protégée par des couches de sécurité multiples.
-              </p>
-              <Link to="/securite" className="btn-secondary text-[14px] inline-flex items-center gap-2">
-                Voir notre politique sécurité
-                <ArrowRight size={15} />
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
+            {/* Right: key proposition */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {[
-                { icon: Shield, title: "PCI-DSS", desc: "Prestataire de paiement certifié", color: "text-blue-400" },
-                { icon: Lock, title: "Chiffrement E2E", desc: "Données chiffrées de bout en bout", color: "text-blue-400" },
-                { icon: Database, title: "Logs complets", desc: "Traçabilité totale des transactions", color: "text-cyan-400" },
-                { icon: CheckCircle, title: "RGPD", desc: "Données minimisées et protégées", color: "text-emerald-400" },
-                { icon: Activity, title: "99,9% SLA", desc: "Uptime garanti contractuellement", color: "text-orange-400" },
-                { icon: Users, title: "Anti-fraude IA", desc: "Détection comportementale en temps réel", color: "text-pink-400" },
-              ].map((item, i) => (
-                <div key={i} className="glass-card glass-card-hover rounded-xl p-5">
-                  <item.icon className={`${item.color} mb-3`} size={22} strokeWidth={1.5} />
-                  <div className="text-[15px] font-semibold text-white mb-1">{item.title}</div>
-                  <div className="text-[12px] text-white/45 leading-relaxed">{item.desc}</div>
+                ["MODÈLE", "100 % SaaS — 0 € d'abonnement"],
+                ["COMMISSION", "0,2 % / transaction via Scanpay"],
+                ["INTÉGRATION", "2 à 4 semaines"],
+                ["SÉCURITÉ", "PCI-DSS · RGPD · 3D Secure"],
+                ["PAIEMENT", "Stripe · Adyen · Wero · Worldline"],
+              ].map(([k, v], i) => (
+                <div
+                  key={k}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    borderTop: i === 0 ? "1px solid #222" : "none",
+                    borderBottom: "1px solid #222",
+                    padding: "14px 0",
+                    ...MONO,
+                    fontSize: 12,
+                  }}
+                >
+                  <span style={{ color: "#555" }}>{k}</span>
+                  <span>{v}</span>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ─── PRICING TEASER ────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#0C0C14]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-white/50 text-[12px] font-semibold uppercase tracking-widest mb-6">
-              Tarification
-            </div>
-            <h2 className="text-[40px] md:text-[52px] font-black text-white tracking-tight mb-4">
-              Simple, transparent, aligné<br />sur votre succès
-            </h2>
-            <p className="text-[18px] text-white/50 max-w-2xl mx-auto">
-              Pas d'abonnement. Pas de frais cachés. L'enseigne ne paie rien — c'est le client qui prend en charge la micro-surcharge de 0,8%.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="relative gradient-border rounded-3xl p-8 md:p-12 glass-card text-center">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <div className="px-4 py-1.5 bg-gradient-to-r from-blue-600 to-blue-600 rounded-full text-white text-[12px] font-bold uppercase tracking-wider shadow-lg">
-                  Offre unique tout inclus
-                </div>
-              </div>
-
-              <div className="mb-8 pt-4">
-                <div className="text-[72px] font-black text-white leading-none">Gratuit</div>
-                <div className="text-white/50 text-[16px] mt-2">Aucun abonnement, aucun frais fixe</div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-                {[
-                  { val: "0,8%", label: "Commission totale", sub: "par transaction", color: "text-white" },
-                  { val: "0,6%", label: "Pour Scanpay", sub: "coût plateforme", color: "text-blue-400" },
-                  { val: "0,2%", label: "Pour vous", sub: "revenu additionnel", color: "text-emerald-400" },
-                ].map((item, i) => (
-                  <div key={i} className="glass-card rounded-xl p-5">
-                    <div className={`text-[40px] font-black ${item.color} mb-1`}>{item.val}</div>
-                    <div className="text-[13px] font-semibold text-white/70">{item.label}</div>
-                    <div className="text-[11px] text-white/35 mt-0.5">{item.sub}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-8">
-                <Zap className="text-emerald-400" size={16} />
-                <span className="text-emerald-400 text-[14px] font-semibold">
-                  Le commerçant génère un revenu sur chaque transaction client
-                </span>
-              </div>
-
-              <Link to="/tarifs" className="btn-primary text-[15px] inline-block">
-                <span>Voir les détails →</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="py-28">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-[40px] md:text-[48px] font-black text-white tracking-tight mb-4">
-              Questions fréquentes
-            </h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-3">
-            {faqs.map((faq, i) => (
-              <div key={i} className="glass-card rounded-xl overflow-hidden">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/[0.03] transition-colors"
-                >
-                  <span className="text-[16px] font-semibold text-white/90 pr-4">{faq.q}</span>
-                  <ChevronDown
-                    className={`text-white/30 flex-shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`}
-                    size={18}
-                  />
-                </button>
-                {openFaq === i && (
-                  <div className="px-6 pb-5 border-t border-white/[0.06]">
-                    <p className="text-[15px] text-white/55 leading-relaxed pt-4">{faq.a}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link to="/faq" className="text-blue-400 hover:text-blue-300 text-[15px] font-semibold transition-colors inline-flex items-center gap-1">
-              Voir toutes les questions
-              <ArrowRight size={15} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CTA FINAL ─────────────────────────────────────────────────── */}
-      <section className="py-28 relative overflow-hidden bg-[#0C0C14]">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-600/15 via-blue-600/15 to-cyan-600/10 rounded-full blur-[100px]" />
-        </div>
-        <div className="relative max-w-[800px] mx-auto px-6 md:px-8 text-center">
-          <h2 className="text-[48px] md:text-[60px] font-black text-white leading-tight tracking-tight mb-6">
-            Prêt à transformer<br />votre magasin ?
-          </h2>
-          <p className="text-[18px] text-white/55 mb-12 max-w-xl mx-auto leading-relaxed">
-            Rejoignez les enseignes pilotes et offrez à vos clients l'expérience d'achat de demain — dès aujourd'hui.
-          </p>
-
-          <div className="glass-card rounded-3xl p-8 text-center">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/20 flex items-center justify-center mx-auto mb-5">
-              <Mail size={26} className="text-blue-400" />
-            </div>
-            <p className="text-[16px] text-white/55 leading-relaxed mb-8 max-w-md mx-auto">
-              Écrivez-nous directement — nous répondons sous 24h pour organiser votre démo personnalisée.
-            </p>
-            <a
-              href="mailto:pauldormeau@icloud.com?subject=Demande%20de%20d%C3%A9mo%20%E2%80%94%20Scanpay&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9mo%20Scanpay.%0A%0ANom%20%3A%0AEnseigne%20%3A%0ANombre%20de%20magasins%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0A%0AMessage%20%3A"
-              className="btn-primary text-[16px] py-4 block w-full"
-            >
-              <span>Planifier une démo par email →</span>
-            </a>
-            <p className="text-[12px] text-white/30 mt-4">
-              Réponse sous 24h · Aucun engagement · 100% gratuit
-            </p>
-          </div>
-        </div>
+        </RevealSection>
       </section>
     </div>
   );
