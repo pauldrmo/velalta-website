@@ -3,7 +3,7 @@ import { TrendingUp, Globe, Zap, Target, Rocket, CheckCircle } from "lucide-reac
 const metrics = [
   { val: "3 000 Md€", label: "Marché européen du retail", sub: "Valeur adressable totale" },
   { val: "< 5 %", label: "Taux d'adoption actuel", sub: "Du self-checkout en Europe" },
-  { val: "0,2 %", label: "Commission par transaction", sub: "Reversée à l'enseigne" },
+  { val: "0,8 %", label: "Surcharge par transaction", sub: "0,2 % enseigne · 0,6 % Scanpay" },
   { val: "28 sec", label: "Durée de checkout", sub: "Vs 4 min en caisse traditionnelle" },
 ];
 
@@ -16,7 +16,7 @@ const thesis = [
   {
     icon: Zap,
     title: "Un modèle sans friction",
-    desc: "Scanpay ne remplace pas les caisses — il les complète. Zéro CAPEX pour l'enseigne, déploiement en 2 à 4 semaines, et un revenu additionnel immédiat via la commission de 0,2 %.",
+    desc: "Scanpay ne remplace pas les caisses — il les complète. Zéro CAPEX pour l'enseigne, déploiement en 2 à 4 semaines. La surcharge de 0,8 % est portée par le client : 0,2 % au magasin, 0,6 % à Scanpay.",
   },
   {
     icon: Target,

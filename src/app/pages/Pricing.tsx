@@ -59,7 +59,7 @@ export default function Pricing() {
             <em style={{ color: "var(--signal)" }}>100 % à la transaction.</em>
           </h1>
           <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 560 }}>
-            Scanpay est gratuit pour les enseignes. Une micro-surcharge de +0,8 % est portée par le client sur chaque transaction. Vous percevez 0,2 % de commission.
+            Scanpay est gratuit pour les enseignes. Le client paie une surcharge de +0,8 % par transaction : 0,2 % sont reversés au magasin, 0,6 % reviennent à Scanpay.
           </p>
         </div>
       </section>
@@ -81,9 +81,9 @@ export default function Pricing() {
             overflow: "hidden",
           }}>
             {[
-              { party: "L'enseigne", rate: "0 €", sub: "Aucun frais d'abonnement", accent: false },
-              { party: "Le client", rate: "+0,8 %", sub: "Micro-surcharge par transaction", accent: false },
-              { party: "Scanpay → Enseigne", rate: "0,2 %", sub: "Commission reversée à l'enseigne", accent: true },
+              { party: "Le client", rate: "+0,8 %", sub: "Surcharge totale par transaction", accent: false },
+              { party: "L'enseigne", rate: "0,2 %", sub: "Reversés au magasin", accent: true },
+              { party: "Scanpay", rate: "0,6 %", sub: "Part Scanpay sur la transaction", accent: false },
             ].map((r, i) => (
               <div key={i} style={{
                 padding: "36px 24px",
