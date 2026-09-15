@@ -1,126 +1,236 @@
-import { Link } from "react-router";
-import { QrCode, Scan, CreditCard, Receipt, Shield, BarChart3, Database, Globe, Bell, CheckCircle, ArrowRight, Package, Layers } from "lucide-react";
+import { QrCode, Scan, CreditCard, Receipt, Shield, BarChart3, Database, Bell, CheckCircle } from "lucide-react";
+
+const features = [
+  {
+    icon: QrCode,
+    label: "QR d'entrée",
+    step: "INIT",
+    desc: "Un QR code à l'entrée du magasin ouvre instantanément la session d'achat. Aucun téléchargement requis — un lien suffit.",
+    details: ["Ouverture en < 1 seconde", "Aucun compte requis", "Session sécurisée par token"],
+  },
+  {
+    icon: Scan,
+    label: "Scan produits",
+    step: "SCAN",
+    desc: "La caméra du smartphone devient un scanner. Chaque code-barres est reconnu en temps réel avec le prix, les promotions et les informations produit.",
+    details: ["Code-barres EAN-13 / QR", "Ajout manuel possible", "Prix et promos live"],
+  },
+  {
+    icon: CreditCard,
+    label: "Paiement intégré",
+    step: "PAY",
+    desc: "Apple Pay, Google Pay, carte bancaire — le paiement est tokenisé, certifié PCI-DSS et instantané. Micro-surcharge de +0,8 % portée par le client.",
+    details: ["Apple Pay & Google Pay", "Visa / Mastercard / Amex", "Stripe, Adyen, Wero, Worldline"],
+  },
+  {
+    icon: Receipt,
+    label: "QR de sortie",
+    step: "EXIT",
+    desc: "Un QR code de facture est généré après le paiement. Il est scanné au contrôle de sortie — en moins de 3 secondes.",
+    details: ["QR unique par transaction", "Reçu email automatique", "Archivé dans l'application"],
+  },
+  {
+    icon: Shield,
+    label: "Anti-fraude",
+    step: "VERIFY",
+    desc: "Contrôles aléatoires, détection comportementale par IA, logs de transactions complets. La fraude est détectée sans ralentir les clients honnêtes.",
+    details: ["Contrôles aléatoires discrets", "IA comportementale", "Logs temps réel"],
+  },
+  {
+    icon: BarChart3,
+    label: "Dashboard enseigne",
+    step: "DATA",
+    desc: "Les commerçants disposent d'un tableau de bord en temps réel : taux d'adoption, panier moyen, heures de pointe, revenus Scanpay.",
+    details: ["Temps réel", "Export CSV / PDF", "Alertes configurables"],
+  },
+];
+
+const techSpecs = [
+  { label: "Compatibilité", val: "iOS 14+ / Android 8+" },
+  { label: "Protocole", val: "HTTPS / TLS 1.3" },
+  { label: "Certification", val: "PCI-DSS Level 1" },
+  { label: "Disponibilité", val: "99,9 % SLA" },
+  { label: "Latence paiement", val: "< 2 secondes" },
+  { label: "API", val: "REST / JSON / Webhooks" },
+];
 
 export default function Product() {
   return (
-    <div style={{ paddingTop: 56 }}>
+    <div style={{ background: "var(--bg)", paddingTop: 56 }}>
+
       {/* Hero */}
-      <section className="relative overflow-hidden py-28">
-        <div className="absolute inset-0 pointer-events-none">
-          
-        </div>
-        <div className="relative max-w-[1280px] mx-auto px-6 md:px-8 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-8">
-            Le produit
-          </div>
-          <h1 className="text-[56px] md:text-[72px] font-black text-[#0C0C0C] leading-[0.95] tracking-tight mb-8">
-            Scanpay, de A à Z
+      <section style={{ borderBottom: "1px solid var(--rule)", padding: "80px 40px 64px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <span className="sp-badge" style={{ marginBottom: 24, display: "inline-block" }}>Le produit</span>
+          <h1 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(42px, 7vw, 80px)",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            color: "var(--ink)",
+            maxWidth: 800,
+            marginBottom: 24,
+          }}>
+            Une technologie simple.<br />
+            <em style={{ color: "var(--signal)" }}>Un parcours fluide.</em>
           </h1>
-          <p className="text-[20px] text-[#4A4A4A] leading-relaxed max-w-2xl mx-auto">
-            Découvrez toutes les fonctionnalités qui font de Scanpay la solution de self-checkout mobile la plus complète du marché.
+          <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
+            Scanpay remplace la caisse traditionnelle par une séquence mobile : scan → paiement → sortie. Cinq étapes, moins de trente secondes, zéro file d'attente.
           </p>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <a href="https://group-skid-95043529.figma.site" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Tester la démo MVP →
+            </a>
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-secondary">
+              Demander une démo
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Core flow */}
-      <section className="py-20 border-y border-[var(--rule)] bg-[var(--bg-alt)]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-[36px] font-black text-[#0C0C0C] mb-3">Le parcours client en 4 étapes</h2>
+      {/* Transaction sequence */}
+      <section style={{ borderBottom: "1px solid var(--rule)", background: "var(--ink)", padding: "32px 40px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", gap: 12, alignItems: "center", justifyContent: "center", flexWrap: "wrap" }}>
+          {["SCAN", "IDENTIFY", "AUTHORIZE", "PAY", "VERIFY", "EXIT"].map((step, i, arr) => (
+            <div key={step} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <span style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.12em", color: "rgba(255,255,255,0.5)" }}>{step}</span>
+              {i < arr.length - 1 && <span style={{ fontFamily: "var(--mono)", fontSize: 10, color: "rgba(255,255,255,0.2)" }}>→</span>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Features */}
+      <section style={{ padding: "80px 40px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ marginBottom: 48 }}>
+            <span className="sp-badge" style={{ marginBottom: 16, display: "inline-block" }}>Fonctionnalités</span>
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(28px, 4vw, 48px)",
+              fontWeight: 700,
+              color: "var(--ink)",
+            }}>Six modules, un seul flux</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { num: "1", icon: QrCode, title: "Entrée magasin", desc: "Le client scanne le QR code affiché à l'entrée. Sa session démarre instantanément.", color: "text-blue-400" },
-              { num: "2", icon: Scan, title: "Scan en rayon", desc: "Chaque produit est scanné directement avec la caméra du smartphone.", color: "text-blue-400" },
-              { num: "3", icon: CreditCard, title: "Paiement in-app", desc: "Apple Pay, Google Pay ou CB. Paiement sécurisé en un geste.", color: "text-cyan-400" },
-              { num: "4", icon: Receipt, title: "QR de sortie", desc: "Un QR code généré pour le contrôle à la sortie. C'est tout.", color: "text-emerald-400" },
-            ].map((step, i) => (
-              <div key={i} className="relative glass-card glass-card-hover rounded-2xl p-6 text-center">
-                <div className="text-[64px] font-black text-white/[0.04] absolute top-4 right-4 leading-none">{step.num}</div>
-                <div className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center mb-5 mx-auto">
-                  <step.icon className={step.color} size={26} strokeWidth={1.5} />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {features.map((f, i) => (
+              <div key={i} style={{
+                display: "grid",
+                gridTemplateColumns: "64px 1fr 280px",
+                borderBottom: "1px solid var(--rule)",
+                background: i % 2 === 0 ? "var(--bg)" : "var(--bg-alt)",
+              }}>
+                {/* Icon + step */}
+                <div style={{
+                  padding: "32px 20px",
+                  borderRight: "1px solid var(--rule)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 10,
+                }}>
+                  <div style={{
+                    width: 36, height: 36,
+                    background: "var(--signal-light)",
+                    borderRadius: 8,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    border: "1px solid var(--signal-mid)",
+                  }}>
+                    <f.icon size={16} color="var(--signal)" />
+                  </div>
+                  <span style={{ fontFamily: "var(--mono)", fontSize: 9, letterSpacing: "0.1em", color: "var(--signal)", textTransform: "uppercase" }}>{f.step}</span>
                 </div>
-                <h3 className="text-[18px] font-bold text-[#0C0C0C] mb-2">{step.title}</h3>
-                <p className="text-[14px] text-[#6B6B6B] leading-relaxed">{step.desc}</p>
+
+                {/* Main */}
+                <div style={{ padding: "32px 40px", borderRight: "1px solid var(--rule)" }}>
+                  <h3 style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: 20,
+                    fontWeight: 700,
+                    color: "var(--ink)",
+                    marginBottom: 10,
+                  }}>{f.label}</h3>
+                  <p style={{ fontSize: 14, color: "var(--ink-2)", lineHeight: 1.75 }}>{f.desc}</p>
+                </div>
+
+                {/* Details */}
+                <div style={{ padding: "32px 24px", display: "flex", flexDirection: "column", justifyContent: "center", gap: 10 }}>
+                  {f.details.map((d) => (
+                    <div key={d} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                      <CheckCircle size={13} color="var(--signal)" style={{ flexShrink: 0, marginTop: 1 }} />
+                      <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--ink-2)", lineHeight: 1.5 }}>{d}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features deep dive */}
-      <section className="py-28">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="space-y-24">
-            {[
-              {
-                title: "Scan ultra-fiable", badge: "Technologie de scan",
-                desc: "Notre moteur de scan est optimisé pour les conditions réelles de magasin : faible luminosité, codes abîmés, emballages brillants. Compatible EAN-13, EAN-8, QR, DataMatrix, Code 128.",
-                features: ["Scan continu ou manuel", "Ajout produit par recherche", "Détection des doublons", "Gestion des quantités", "Catalogue produits synchronisé en temps réel"],
-                icon: Scan, iconColor: "text-blue-400",
-                gradient: "from-blue-600/10 to-transparent",
-              },
-              {
-                title: "Paiements sécurisés", badge: "Module de paiement",
-                desc: "Scanpay s'appuie sur les meilleurs prestataires de paiement du marché (Stripe, Adyen, Wero, Worldline) pour garantir des transactions sécurisées, instantanées et conformes PCI-DSS.",
-                features: ["Apple Pay & Google Pay", "Carte bancaire physique", "3D Secure automatique", "Tokenisation des cartes", "Gestion des remboursements"],
-                icon: CreditCard, iconColor: "text-blue-400",
-                gradient: "from-blue-600/10 to-transparent",
-              },
-              {
-                title: "Analytics & reporting", badge: "Dashboard",
-                desc: "Un tableau de bord complet pour piloter vos performances. Données en temps réel, rapports automatiques, alertes configurables.",
-                features: ["Métriques live par magasin", "Heatmaps horaires", "Analyse du panier moyen", "Export CSV & comptabilité", "Alertes personnalisées par email/SMS"],
-                icon: BarChart3, iconColor: "text-cyan-400",
-                gradient: "from-cyan-600/10 to-transparent",
-              },
-            ].map((section, i) => (
-              <div key={i} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
-                <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="inline-block px-3 py-1 rounded-full glass-card text-[#8E8E8E] text-[11px] font-semibold uppercase tracking-widest mb-5">
-                    {section.badge}
-                  </div>
-                  <h2 className="text-[36px] md:text-[44px] font-black text-[#0C0C0C] mb-5">{section.title}</h2>
-                  <p className="text-[16px] text-[#4A4A4A] leading-relaxed mb-7">{section.desc}</p>
-                  <div className="space-y-2.5">
-                    {section.features.map((f, j) => (
-                      <div key={j} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-white/[0.06] flex items-center justify-center flex-shrink-0">
-                          <CheckCircle size={12} className={section.iconColor} />
-                        </div>
-                        <span className="text-[14px] text-[#3A3A3A]">{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className={`glass-card rounded-2xl p-8  "lg:order-1" : ""}`}>
-                  <div className="w-24 h-24 rounded-3xl glass-card flex items-center justify-center">
-                    <section.icon className={section.iconColor} size={48} strokeWidth={1} />
-                  </div>
-                </div>
+      {/* Tech specs */}
+      <section style={{ background: "var(--bg-alt)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", padding: "80px 40px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ marginBottom: 48 }}>
+            <span className="sp-badge" style={{ marginBottom: 16, display: "inline-block" }}>Spécifications</span>
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(28px, 4vw, 44px)",
+              fontWeight: 700,
+              color: "var(--ink)",
+            }}>Architecture technique</h2>
+          </div>
+          <div style={{
+            background: "var(--bg)",
+            border: "1px solid var(--rule)",
+            borderRadius: 16,
+            boxShadow: "var(--sh-md)",
+            overflow: "hidden",
+          }}>
+            {techSpecs.map((s, i, arr) => (
+              <div key={i} style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "18px 28px",
+                borderBottom: i < arr.length - 1 ? "1px solid var(--rule-subtle)" : "none",
+              }}>
+                <span className="sp-label">{s.label}</span>
+                <span style={{
+                  fontFamily: "var(--mono)",
+                  fontSize: 13,
+                  color: "var(--ink)",
+                  fontWeight: 500,
+                }}>{s.val}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Integration */}
-      <section className="py-28 bg-[var(--bg-alt)]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 text-center">
-          <h2 className="text-[40px] font-black text-[#0C0C0C] mb-4">Compatible avec votre stack</h2>
-          <p className="text-[18px] text-[#6B6B6B] mb-12 max-w-xl mx-auto">
-            API REST documentée, webhooks, SDKs. Scanpay s'intègre dans votre environnement existant.
+      {/* CTA */}
+      <section style={{ padding: "80px 40px", textAlign: "center" }}>
+        <div style={{ maxWidth: 560, margin: "0 auto" }}>
+          <h2 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(28px, 4vw, 44px)",
+            fontWeight: 700,
+            color: "var(--ink)",
+            marginBottom: 16,
+          }}>Prêt à voir le produit ?</h2>
+          <p style={{ fontSize: 15, color: "var(--ink-2)", marginBottom: 36 }}>
+            Testez la démo ou contactez-nous pour une démonstration en magasin.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-12">
-            {["Cegid", "Sage Retail", "SAP", "Odoo", "Lightspeed", "WooCommerce", "Custom ERP", "API REST"].map((name, i) => (
-              <div key={i} className="glass-card rounded-xl p-4 text-[14px] font-semibold text-[#4A4A4A] hover:text-[#0C0C0C] transition-colors">
-                {name}
-              </div>
-            ))}
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="https://group-skid-95043529.figma.site" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Tester la démo →
+            </a>
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-secondary">
+              Nous contacter
+            </a>
           </div>
-          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px] inline-block">
-            <span>Parler à l'équipe technique →</span>
-          </a>
         </div>
       </section>
     </div>

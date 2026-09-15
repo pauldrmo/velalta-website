@@ -1,223 +1,215 @@
-import { Link } from "react-router";
-import { CheckCircle, BarChart3, Store, TrendingUp, Clock, Users, ArrowRight, Shield, Zap, Database, Layers, ChevronRight } from "lucide-react";
+import { CheckCircle, TrendingUp, Clock, Users, Shield, Zap, Database, BarChart3 } from "lucide-react";
+
+const benefits = [
+  { icon: TrendingUp, label: "Revenus additionnels", desc: "0,2 % de commission sur chaque transaction Scanpay. Une source de revenu passive intégrée directement dans votre flux de caisse." },
+  { icon: Clock, label: "Débit client amélioré", desc: "Le temps de passage en caisse passe de 4 minutes à moins de 30 secondes. Moins de files, plus de rotations." },
+  { icon: Users, label: "Satisfaction client", desc: "L'expérience d'achat devient fluide et autonome. Les clients reviennent pour l'expérience, pas malgré elle." },
+  { icon: Shield, label: "Anti-fraude intégré", desc: "Contrôles aléatoires, logs de transactions, détection comportementale IA. La sécurité est dans le système, pas dans la file." },
+  { icon: Database, label: "Data en temps réel", desc: "Tableau de bord en direct : taux de conversion Scanpay, panier moyen, produits populaires, pics d'affluence." },
+  { icon: BarChart3, label: "Intégration ERP", desc: "Compatible Cegid, Sage, SAP Retail, Odoo et la plupart des systèmes POS. API REST complète disponible." },
+];
+
+const steps = [
+  { num: "01", title: "Signature du contrat", desc: "Définition du périmètre, des intégrations ERP nécessaires et du calendrier de déploiement." },
+  { num: "02", title: "Intégration technique", desc: "Connexion à votre catalogue produits, votre système de stock et votre solution de paiement. 2 à 4 semaines." },
+  { num: "03", title: "Formation équipe", desc: "Formation de vos équipes en magasin : gestion des contrôles, supervision du tableau de bord, support client." },
+  { num: "04", title: "Lancement pilote", desc: "Déploiement sur un ou plusieurs magasins pilotes. Suivi des métriques et ajustements en temps réel." },
+  { num: "05", title: "Déploiement complet", desc: "Extension à l'ensemble de votre réseau. Support dédié et mises à jour continues inclus." },
+];
 
 export default function ForRetailers() {
   return (
-    <div style={{ paddingTop: 56 }}>
+    <div style={{ background: "var(--bg)", paddingTop: 56 }}>
+
       {/* Hero */}
-      <section className="relative overflow-hidden py-28">
-        <div className="absolute inset-0 pointer-events-none">
-          
-          
-        </div>
-        <div className="relative max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="max-w-4xl">
-            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-8">
-              Pour les enseignes
-            </div>
-            <h1 className="text-[56px] md:text-[72px] font-black text-[#0C0C0C] leading-[0.95] tracking-tight mb-8">
-              Réduisez vos coûts.<br />
-              <span className="gradient-text">Augmentez vos revenus.</span>
-            </h1>
-            <p className="text-[20px] text-[#4A4A4A] leading-relaxed max-w-2xl mb-10">
-              Scanpay permet à vos enseignes de transformer les caisses en un avantage compétitif. Moins de personnel, plus de fluidité, plus de revenus.
-            </p>
-            <div className="flex gap-4">
-              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px]">
-                <span>Demander une démo</span>
-              </a>
-              <Link to="/tarifs" className="btn-secondary text-[15px] inline-flex items-center gap-2">
-                Voir les tarifs
-                <ArrowRight size={15} />
-              </Link>
-            </div>
+      <section style={{ borderBottom: "1px solid var(--rule)", padding: "80px 40px 64px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <span className="sp-badge" style={{ marginBottom: 24, display: "inline-block" }}>Pour les enseignes</span>
+          <h1 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(42px, 7vw, 80px)",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            color: "var(--ink)",
+            maxWidth: 800,
+            marginBottom: 24,
+          }}>
+            La caisse de demain,<br />
+            <em style={{ color: "var(--signal)" }}>déployée aujourd'hui.</em>
+          </h1>
+          <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 560, marginBottom: 40 }}>
+            Scanpay s'intègre à votre infrastructure existante. Vos clients scannent, paient et sortent. Vous percevez une commission sur chaque transaction.
+          </p>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay%20-%20Enseigne" className="btn-primary">
+              Demander une démo →
+            </a>
+            <a href="https://group-skid-95043529.figma.site" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              Voir la démo MVP
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Key metrics */}
-      <section className="py-20 border-y border-[var(--rule)] bg-[var(--bg-alt)]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { val: "↓", label: "Coût de caisse", desc: "Réduction des coûts liés aux caisses traditionnelles" },
-              { val: "+0,2%", label: "Revenu additionnel", desc: "Par transaction" },
-              { val: "2-4 sem", label: "Intégration", desc: "Délai de déploiement" },
-              { val: "99,9%", label: "Uptime SLA", desc: "Garanti contractuellement" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-[42px] font-black gradient-text mb-1">{stat.val}</div>
-                <div className="text-[15px] font-semibold text-[#0C0C0C] mb-1">{stat.label}</div>
-                <div className="text-[13px] text-[#8E8E8E]">{stat.desc}</div>
-              </div>
-            ))}
-          </div>
+      {/* Stat strip */}
+      <section style={{ borderBottom: "1px solid var(--rule)", background: "var(--bg-alt)" }}>
+        <div style={{
+          maxWidth: 1280, margin: "0 auto",
+          display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
+        }}>
+          {[
+            { val: "+0,2 %", label: "Commission par transaction Scanpay" },
+            { val: "< 30 sec", label: "Durée de checkout client" },
+            { val: "2–4 sem.", label: "Délai d'intégration" },
+          ].map((s, i) => (
+            <div key={i} style={{
+              padding: "40px 32px",
+              borderRight: i < 2 ? "1px solid var(--rule)" : "none",
+              textAlign: "center",
+            }}>
+              <div style={{
+                fontFamily: "var(--serif)",
+                fontSize: "clamp(32px, 4vw, 48px)",
+                fontWeight: 700,
+                color: "var(--signal)",
+                lineHeight: 1,
+                marginBottom: 8,
+              }}>{s.val}</div>
+              <div className="sp-label">{s.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Benefits */}
-      <section className="py-28">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-[40px] md:text-[52px] font-black text-[#0C0C0C] tracking-tight mb-4">
-              Pourquoi les enseignes<br />choisissent Scanpay
-            </h2>
+      <section style={{ padding: "80px 40px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ marginBottom: 48 }}>
+            <span className="sp-badge" style={{ marginBottom: 16, display: "inline-block" }}>Bénéfices</span>
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(28px, 4vw, 48px)",
+              fontWeight: 700,
+              color: "var(--ink)",
+            }}>Ce que Scanpay apporte à votre enseigne</h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: TrendingUp, title: "Revenu additionnel",
-                desc: "0,2% de commission sur chaque transaction client va directement dans votre poche. Plus vos clients achètent, plus vous gagnez.",
-                color: "from-emerald-600/15 to-teal-600/10", iconColor: "text-emerald-400",
-              },
-              {
-                icon: Clock, title: "Fluidité maximale",
-                desc: "Éliminez les files d'attente aux heures de pointe. Vos clients passent en moins de 30 secondes, même le samedi après-midi.",
-                color: "from-blue-600/15 to-cyan-600/10", iconColor: "text-blue-400",
-              },
-              {
-                icon: Users, title: "Optimisation RH",
-                desc: "Réaffectez votre personnel de caisse vers des missions à plus haute valeur : conseil, rayonnage, service client.",
-                color: "from-blue-600/15 to-blue-800/10", iconColor: "text-blue-400",
-              },
-              {
-                icon: BarChart3, title: "Analytics avancés",
-                desc: "Dashboard en temps réel : flux clients, comportements d'achat, heures de pointe, alertes automatiques.",
-                color: "from-orange-600/15 to-amber-600/10", iconColor: "text-orange-400",
-              },
-              {
-                icon: Database, title: "Intégration native",
-                desc: "API REST complète. Compatible avec Cegid, Sage, SAP Retail, et les principaux ERP/POS du marché.",
-                color: "from-pink-600/15 to-rose-600/10", iconColor: "text-pink-400",
-              },
-              {
-                icon: Shield, title: "Zéro risque fraude",
-                desc: "Contrôles aléatoires à la sortie, IA anti-fraude, logs complets. Niveau de sécurité équivalent aux caisses traditionnelles.",
-                color: "from-cyan-600/15 to-blue-600/10", iconColor: "text-cyan-400",
-              },
-            ].map((item, i) => (
-              <div key={i} className={`glass-card glass-card-hover rounded-2xl p-7 bg-gradient-to-br ${item.color}`}>
-                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center mb-5">
-                  <item.icon className={item.iconColor} size={22} />
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gap: 20,
+          }}>
+            {benefits.map((b, i) => (
+              <div
+                key={i}
+                className="glass-card glass-card-hover"
+                style={{ padding: 28, borderRadius: 14 }}
+              >
+                <div style={{
+                  width: 40, height: 40,
+                  background: "var(--signal-light)",
+                  border: "1px solid var(--signal-mid)",
+                  borderRadius: 8,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  marginBottom: 16,
+                }}>
+                  <b.icon size={18} color="var(--signal)" />
                 </div>
-                <h3 className="text-[20px] font-bold text-[#0C0C0C] mb-3">{item.title}</h3>
-                <p className="text-[14px] text-[#6B6B6B] leading-relaxed">{item.desc}</p>
+                <h3 style={{
+                  fontFamily: "var(--serif)",
+                  fontSize: 18,
+                  fontWeight: 700,
+                  color: "var(--ink)",
+                  marginBottom: 10,
+                }}>{b.label}</h3>
+                <p style={{ fontSize: 14, color: "var(--ink-2)", lineHeight: 1.7 }}>{b.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Dashboard preview */}
-      <section className="py-28 bg-[var(--bg-alt)]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-6">
-                Dashboard Scanpay
-              </div>
-              <h2 className="text-[40px] md:text-[48px] font-black text-[#0C0C0C] leading-tight mb-6">
-                Pilotez vos performances<br />en temps réel
-              </h2>
-              <p className="text-[16px] text-[#4A4A4A] leading-relaxed mb-8">
-                Votre dashboard Scanpay centralise toutes les métriques critiques de vos points de vente. Alertes en temps réel, rapports automatiques, export comptable.
-              </p>
-              <div className="space-y-3">
-                {[
-                  "Métriques live par magasin",
-                  "Historique et tendances",
-                  "Alertes personnalisées",
-                  "Export CSV / intégration comptable",
-                  "Gestion multi-utilisateurs",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center">
-                      <CheckCircle size={12} className="text-blue-400" />
-                    </div>
-                    <span className="text-[14px] text-[#3A3A3A]">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Mock dashboard */}
-            <div className="glass-card rounded-2xl p-6 space-y-5">
-              <div className="flex items-center justify-between">
+      {/* Onboarding steps */}
+      <section style={{ background: "var(--bg-alt)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", padding: "80px 40px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ marginBottom: 48 }}>
+            <span className="sp-badge" style={{ marginBottom: 16, display: "inline-block" }}>Intégration</span>
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(28px, 4vw, 44px)",
+              fontWeight: 700,
+              color: "var(--ink)",
+            }}>De zéro à actif en 5 étapes</h2>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {steps.map((s, i) => (
+              <div key={i} style={{
+                display: "grid",
+                gridTemplateColumns: "80px 1fr",
+                borderBottom: i < steps.length - 1 ? "1px solid var(--rule)" : "none",
+                paddingBottom: 32,
+                marginBottom: 32,
+              }}>
+                <span style={{
+                  fontFamily: "var(--mono)",
+                  fontSize: 28,
+                  fontWeight: 400,
+                  color: "var(--rule)",
+                  lineHeight: 1.2,
+                  paddingTop: 4,
+                }}>{s.num}</span>
                 <div>
-                  <div className="text-[13px] text-[#8E8E8E] font-semibold uppercase tracking-wide">Dashboard</div>
-                  <div className="text-[18px] font-bold text-[#0C0C0C]">Leclerc — Paris Opéra</div>
-                </div>
-                <div className="flex items-center gap-1.5 text-emerald-400 text-[12px] font-semibold">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  En direct
-                </div>
-              </div>
-
-              {/* Chart mock */}
-              <div className="bg-white/[0.03] rounded-xl p-4">
-                <div className="flex items-end gap-1 h-20">
-                  {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t-sm bg-gradient-to-t from-blue-600/40 to-blue-600/30" style={{ height: `${h}%` }} />
-                  ))}
-                </div>
-                <div className="flex justify-between mt-2 text-[10px] text-[#9E9E9E]">
-                  <span>08h</span><span>10h</span><span>12h</span><span>14h</span><span>16h</span><span>18h</span>
+                  <h3 style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: 20,
+                    fontWeight: 700,
+                    color: "var(--ink)",
+                    marginBottom: 8,
+                  }}>{s.title}</h3>
+                  <p style={{ fontSize: 14, color: "var(--ink-2)", lineHeight: 1.75 }}>{s.desc}</p>
                 </div>
               </div>
-
-              {[
-                { label: "Transactions (aujourd'hui)", val: "1 247", sub: "+18% vs hier", positive: true },
-                { label: "CA généré", val: "21 840 €", sub: "+12%", positive: true },
-                { label: "Revenu Scanpay/magasin", val: "+43,68 €", sub: "ce jour", positive: true },
-                { label: "Temps moyen checkout", val: "27 sec", sub: "-8 sec", positive: true },
-              ].map((m, i) => (
-                <div key={i} className="flex items-center justify-between py-3 border-b border-[var(--rule)] last:border-0">
-                  <span className="text-[13px] text-[#6B6B6B]">{m.label}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[15px] font-bold text-[#0C0C0C]">{m.val}</span>
-                    <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${m.positive ? "bg-emerald-500/15 text-emerald-400" : "bg-red-500/15 text-red-400"}`}>
-                      {m.sub}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Integration */}
-      <section className="py-28">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-[40px] md:text-[48px] font-black text-[#0C0C0C] tracking-tight mb-4">
-              Intégration simplifiée
-            </h2>
-            <p className="text-[18px] text-[#6B6B6B] max-w-2xl mx-auto">
-              Notre équipe technique vous accompagne à chaque étape du déploiement.
-            </p>
+      {/* What's included */}
+      <section style={{ padding: "80px 40px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ marginBottom: 48, textAlign: "center" }}>
+            <span className="sp-badge" style={{ marginBottom: 16, display: "inline-block" }}>Inclus dans l'offre</span>
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(28px, 4vw, 44px)",
+              fontWeight: 700,
+              color: "var(--ink)",
+            }}>Tout pour démarrer</h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div style={{
+            background: "var(--bg)",
+            border: "1px solid var(--rule)",
+            borderRadius: 16,
+            boxShadow: "var(--sh-md)",
+            overflow: "hidden",
+          }}>
             {[
-              { num: "01", title: "Kick-off", desc: "Analyse de votre infrastructure, définition du périmètre et du calendrier.", icon: Layers },
-              { num: "02", title: "Connexion API", desc: "Intégration avec votre ERP/POS existant via notre API REST documentée.", icon: Database },
-              { num: "03", title: "Tests & pilote", desc: "Phase pilote sur un ou plusieurs magasins avec suivi temps réel.", icon: Zap },
-              { num: "04", title: "Déploiement", desc: "Lancement progressif, formation équipes, support dédié 24/7.", icon: Store },
-            ].map((step, i) => (
-              <div key={i} className="relative glass-card glass-card-hover rounded-2xl p-6">
-                <div className="text-[48px] font-black text-white/8 leading-none mb-4">{step.num}</div>
-                <div className="w-10 h-10 rounded-xl  ">
-                  <step.icon className="text-blue-400" size={18} />
-                </div>
-                <h3 className="text-[18px] font-bold text-[#0C0C0C] mb-2">{step.title}</h3>
-                <p className="text-[13px] text-[#6B6B6B] leading-relaxed">{step.desc}</p>
-                {i < 3 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
-                    <ChevronRight size={16} className="text-[#ABABAB]" />
-                  </div>
-                )}
+              "Application mobile client (iOS & Android)",
+              "Tableau de bord enseigne en temps réel",
+              "Intégration ERP / POS sur mesure",
+              "API REST complète avec documentation",
+              "Système anti-fraude multi-couches",
+              "Support dédié et SLA garanti",
+              "Mises à jour continues incluses",
+              "Formation équipe en magasin",
+            ].map((item, i, arr) => (
+              <div key={i} style={{
+                display: "flex", alignItems: "center", gap: 14,
+                padding: "18px 28px",
+                borderBottom: i < arr.length - 1 ? "1px solid var(--rule-subtle)" : "none",
+              }}>
+                <CheckCircle size={16} color="var(--signal)" style={{ flexShrink: 0 }} />
+                <span style={{ fontSize: 14, color: "var(--ink-2)" }}>{item}</span>
               </div>
             ))}
           </div>
@@ -225,16 +217,20 @@ export default function ForRetailers() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 bg-[var(--bg-alt)]">
-        <div className="relative max-w-[800px] mx-auto px-6 md:px-8 text-center">
-          <h2 className="text-[48px] font-black text-[#0C0C0C] tracking-tight mb-6">
-            Rejoignez les enseignes<br />pilotes Scanpay
-          </h2>
-          <p className="text-[18px] text-[#6B6B6B] mb-10 max-w-lg mx-auto">
-            Accédez à l'offre pilote et transformez l'expérience d'achat de vos clients dès aujourd'hui.
+      <section style={{ background: "var(--ink)", padding: "80px 40px", textAlign: "center" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <h2 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(28px, 4vw, 44px)",
+            fontWeight: 700,
+            color: "#fff",
+            marginBottom: 16,
+          }}>Votre magasin, prêt demain.</h2>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", marginBottom: 36 }}>
+            Rejoignez les premières enseignes pilotes et transformez l'expérience de vos clients.
           </p>
-          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[16px] inline-block">
-            <span>Demander une démo gratuite →</span>
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay%20-%20Enseigne" className="btn-primary">
+            Nous contacter →
           </a>
         </div>
       </section>

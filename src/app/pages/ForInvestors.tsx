@@ -1,256 +1,235 @@
-import { Link } from "react-router";
-import { TrendingUp, Globe, Zap, BarChart3, CheckCircle, ArrowRight, Target, Rocket, Mail } from "lucide-react";
+import { TrendingUp, Globe, Zap, Target, Rocket, CheckCircle } from "lucide-react";
+
+const metrics = [
+  { val: "3 000 Md€", label: "Marché européen du retail", sub: "Valeur adressable totale" },
+  { val: "< 5 %", label: "Taux d'adoption actuel", sub: "Du self-checkout en Europe" },
+  { val: "0,2 %", label: "Commission par transaction", sub: "Reversée à l'enseigne" },
+  { val: "28 sec", label: "Durée de checkout", sub: "Vs 4 min en caisse traditionnelle" },
+];
+
+const thesis = [
+  {
+    icon: Globe,
+    title: "Un marché sous-digitalisé",
+    desc: "Le retail européen génère 3 000 milliards d'euros de transactions par an. Moins de 5 % passent par un système de self-checkout. Le potentiel d'adoption est structurellement élevé.",
+  },
+  {
+    icon: Zap,
+    title: "Un modèle sans friction",
+    desc: "Scanpay ne remplace pas les caisses — il les complète. Zéro CAPEX pour l'enseigne, déploiement en 2 à 4 semaines, et un revenu additionnel immédiat via la commission de 0,2 %.",
+  },
+  {
+    icon: Target,
+    title: "Un alignement d'intérêts rare",
+    desc: "L'enseigne gagne de l'argent à chaque transaction Scanpay. Le client gagne du temps. Scanpay génère un revenu sur le flux. Les trois parties ont intérêt à ce que le volume croisse.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Des revenus scalables",
+    desc: "Le modèle à la transaction crée une courbe de revenus corrélée au volume retail. Chaque nouveau magasin activé ajoute de la récurrence sans coût marginal significatif.",
+  },
+  {
+    icon: Rocket,
+    title: "Un timing de marché",
+    desc: "Post-COVID, les comportements d'achat autonomes sont normalisés. Les enseignes cherchent à réduire leurs coûts de caisse. Les consommateurs attendent un parcours fluide.",
+  },
+];
+
+const roadmap = [
+  { phase: "Phase 1", title: "Pilote & validation", desc: "3 à 5 enseignes pilotes en France. Validation du NPS client, du taux d'adoption et de la robustesse technique.", status: "En cours" },
+  { phase: "Phase 2", title: "Déploiement national", desc: "Extension aux 50 premières enseignes partenaires. Recrutement commercial et construction de l'équipe support.", status: "T3 2026" },
+  { phase: "Phase 3", title: "Expansion européenne", desc: "Entrée sur les marchés Benelux, Espagne et Italie. Partenariats avec les grands groupes retail continentaux.", status: "2027" },
+];
 
 export default function ForInvestors() {
   return (
-    <div style={{ paddingTop: 56 }}>
+    <div style={{ background: "var(--bg)", paddingTop: 56 }}>
+
       {/* Hero */}
-      <section className="relative overflow-hidden py-28">
-        <div className="absolute inset-0 pointer-events-none">
-          
-          
-        </div>
-        <div className="relative max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="max-w-4xl">
-            <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-8">
-              Investisseurs
-            </div>
-            <h1 className="text-[56px] md:text-[72px] font-black text-[#0C0C0C] leading-[0.95] tracking-tight mb-8">
-              Une opportunité<br />
-              <span className="gradient-text">de rupture.</span>
-            </h1>
-            <p className="text-[20px] text-[#4A4A4A] leading-relaxed max-w-2xl mb-10">
-              Scanpay s'attaque à un marché de 3 000 Md€ encore dominé par des caisses physiques coûteuses et obsolètes. Le moment de lancer la révolution mobile du retail, c'est maintenant.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="mailto:pauldormeau@icloud.com?subject=Investissement%20Scanpay%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20le%20pitch%20deck%20Scanpay.%0A%0ACordialement%2C" className="btn-primary text-[15px]">
-                <span>Demander le pitch deck →</span>
-              </a>
-              <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Investisseur%20%E2%80%94%20Scanpay" className="btn-secondary text-[15px] inline-flex items-center gap-2">
-                Prendre contact
-                <ArrowRight size={15} />
-              </a>
-            </div>
-          </div>
+      <section style={{ borderBottom: "1px solid var(--rule)", padding: "80px 40px 64px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <span className="sp-badge" style={{ marginBottom: 24, display: "inline-block" }}>Pour les investisseurs</span>
+          <h1 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(42px, 7vw, 80px)",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            color: "var(--ink)",
+            maxWidth: 800,
+            marginBottom: 24,
+          }}>
+            Le checkout est cassé.<br />
+            <em style={{ color: "var(--signal)" }}>Nous le reconstruisons.</em>
+          </h1>
+          <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 600, marginBottom: 40 }}>
+            Scanpay est une infrastructure de paiement mobile pour le retail physique. Nous résolvons le dernier point de friction du parcours d'achat avec un modèle économique aligné sur les intérêts de tous.
+          </p>
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay%20-%20Investisseurs" className="btn-primary">
+            Nous contacter →
+          </a>
         </div>
       </section>
 
-      {/* Market size */}
-      <section className="py-20 border-y border-[var(--rule)] bg-[var(--bg-alt)]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { val: "3 000 Md€", label: "Retail EU annuel", sub: "Marché total (TAM)" },
-              { val: "50 Md€", label: "Self-checkout mobile", sub: "Marché adressable (SAM)" },
-              { val: "<5%", label: "Pénétration actuelle", sub: "Du self-checkout en France" },
-              { val: "0,6%", label: "Commission Scanpay", sub: "Par transaction — modèle SaaS" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-[32px] md:text-[40px] font-black gradient-text mb-1">{stat.val}</div>
-                <div className="text-[15px] font-semibold text-[#0C0C0C] mb-0.5">{stat.label}</div>
-                <div className="text-[12px] text-[#8E8E8E]">{stat.sub}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Opportunity */}
-      <section className="py-28">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-6">
-                L'opportunité
-              </div>
-              <h2 className="text-[40px] md:text-[48px] font-black text-[#0C0C0C] leading-tight mb-6">
-                Une fenêtre de marché<br />historique
-              </h2>
-              <p className="text-[16px] text-[#4A4A4A] leading-relaxed mb-8">
-                Le self-checkout représente moins de 5% des transactions en France. Les solutions existantes — bornes physiques à 20-40 k€ par installation — sont coûteuses, peu fiables et frustrantes. Scanpay propose un modèle 100% logiciel, sans investissement matériel, déployable en quelques semaines.
-              </p>
-              <div className="space-y-4">
-                {[
-                  { title: "First-mover advantage", desc: "Aucun acteur dominant sur le mobile self-checkout en France : la place est à prendre." },
-                  { title: "Modèle asset-light", desc: "100% logiciel, zéro infrastructure physique. Les coûts marginaux tendent vers zéro à l'échelle." },
-                  { title: "Switching costs élevés", desc: "Une fois intégré dans l'ERP d'une enseigne, Scanpay devient une infrastructure critique." },
-                  { title: "Effet réseau", desc: "Plus d'enseignes partenaires = plus d'attractivité pour les clients finaux, et vice versa." },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 p-4 glass-card rounded-xl">
-                    <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle size={14} className="text-blue-400" />
-                    </div>
-                    <div>
-                      <div className="text-[15px] font-semibold text-[#0C0C0C]">{item.title}</div>
-                      <div className="text-[13px] text-[#6B6B6B] mt-0.5">{item.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+      {/* Metrics */}
+      <section style={{ borderBottom: "1px solid var(--rule)", background: "var(--ink)" }}>
+        <div style={{
+          maxWidth: 1280, margin: "0 auto",
+          display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
+        }}>
+          {metrics.map((m, i) => (
+            <div key={i} style={{
+              padding: "48px 32px",
+              borderRight: i < 3 ? "1px solid rgba(255,255,255,0.08)" : "none",
+              textAlign: "center",
+            }}>
+              <div style={{
+                fontFamily: "var(--serif)",
+                fontSize: "clamp(24px, 3vw, 40px)",
+                fontWeight: 700,
+                color: "var(--signal)",
+                lineHeight: 1,
+                marginBottom: 8,
+              }}>{m.val}</div>
+              <div style={{
+                fontFamily: "var(--mono)",
+                fontSize: 11,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.5)",
+                marginBottom: 4,
+              }}>{m.label}</div>
+              <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>{m.sub}</div>
             </div>
-
-            <div className="space-y-5">
-              {/* Revenue model */}
-              <div className="glass-card rounded-2xl p-6">
-                <div className="text-[13px] font-semibold text-[#8E8E8E] uppercase tracking-wide mb-4">Modèle économique</div>
-                <div className="space-y-3">
-                  {[
-                    { label: "Commission totale par transaction", val: "0,8%", color: "text-[#0C0C0C]" },
-                    { label: "Part Scanpay (revenus SaaS)", val: "0,6%", color: "text-blue-400" },
-                    { label: "Part commerçant (incentive adoption)", val: "0,2%", color: "text-emerald-400" },
-                    { label: "Abonnement ou frais fixes", val: "0 €", color: "text-[#6B6B6B]" },
-                    { label: "Frais d'intégration", val: "0 €", color: "text-[#6B6B6B]" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between py-2.5 border-b border-[var(--rule)] last:border-0">
-                      <span className="text-[14px] text-[#4A4A4A]">{item.label}</span>
-                      <span className={`text-[16px] font-bold ${item.color}`}>{item.val}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Use of funds */}
-              <div className="glass-card rounded-2xl p-6">
-                <div className="text-[13px] font-semibold text-[#8E8E8E] uppercase tracking-wide mb-4">Utilisation des fonds levés</div>
-                <div className="space-y-4">
-                  {[
-                    { label: "Développement produit & tech", pct: "40%", w: "w-[40%]" },
-                    { label: "Commercial & déploiement pilotes", pct: "30%", w: "w-[30%]" },
-                    { label: "Infrastructure & sécurité", pct: "20%", w: "w-[20%]" },
-                    { label: "Marketing & acquisition enseignes", pct: "10%", w: "w-[10%]" },
-                  ].map((item, i) => (
-                    <div key={i}>
-                      <div className="flex justify-between mb-1.5">
-                        <span className="text-[13px] text-[#4A4A4A]">{item.label}</span>
-                        <span className="text-[13px] font-bold text-[#0C0C0C]">{item.pct}</span>
-                      </div>
-                      <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
-                        <div className={`h-full ${item.w} bg-gradient-to-r from-blue-500 to-blue-400 rounded-full`} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[11px] text-[#9E9E9E] mt-4">Détail complet disponible dans le pitch deck — contactez-nous pour y accéder.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why now */}
-      <section className="py-28 bg-[var(--bg-alt)]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-[40px] md:text-[48px] font-black text-[#0C0C0C] tracking-tight mb-4">
-              Pourquoi maintenant
-            </h2>
-            <p className="text-[18px] text-[#6B6B6B] max-w-2xl mx-auto">
-              Quatre forces convergent pour créer une fenêtre d'entrée unique sur ce marché.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: Rocket, num: "01",
-                title: "Les comportements ont définitivement changé",
-                desc: "90% des Français possèdent un smartphone. Le sans-contact est devenu la norme post-COVID. Le marché est culturellement prêt pour le self-checkout mobile.",
-                color: "from-blue-600/15 to-cyan-600/10",
-              },
-              {
-                icon: TrendingUp, num: "02",
-                title: "Pression massive sur les marges retail",
-                desc: "L'inflation et la hausse des charges poussent les enseignes à réduire leurs coûts opérationnels en urgence. La caisse traditionnelle est la cible évidente.",
-                color: "from-blue-700/15 to-blue-600/10",
-              },
-              {
-                icon: Globe, num: "03",
-                title: "Cadre réglementaire favorable",
-                desc: "Le RGPD européen avantage les acteurs locaux face aux géants américains. Scanpay est conçu dès l'origine dans le respect de la réglementation européenne.",
-                color: "from-slate-600/15 to-blue-800/10",
-              },
-              {
-                icon: Zap, num: "04",
-                title: "Technologie enfin mature",
-                desc: "APIs de paiement (Stripe, Adyen), scan mobile précis, ERP modernes ouverts : les briques technologiques pour construire Scanpay à grande échelle existent et sont fiables.",
-                color: "from-blue-600/12 to-slate-600/10",
-              },
-            ].map((item, i) => (
-              <div key={i} className={`glass-card glass-card-hover rounded-2xl p-8 bg-gradient-to-br ${item.color}`}>
-                <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center flex-shrink-0">
-                    <item.icon className="text-blue-400" size={22} />
-                  </div>
-                  <div>
-                    <div className="text-[12px] font-bold text-[#9E9E9E] uppercase tracking-widest mb-2">{item.num}</div>
-                    <h3 className="text-[20px] font-bold text-[#0C0C0C] mb-3">{item.title}</h3>
-                    <p className="text-[14px] text-[#6B6B6B] leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Investment thesis */}
-      <section className="py-28">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="relative gradient-border rounded-3xl p-8 md:p-12 glass-card">
-            <div className="text-center mb-12">
-              <h2 className="text-[40px] md:text-[52px] font-black text-[#0C0C0C] mb-5">
-                Investir dans Scanpay,<br />c'est financer un lancement.
-              </h2>
-              <p className="text-[18px] text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed">
-                Nous recherchons des partenaires investisseurs pour financer le lancement commercial de Scanpay : premiers déploiements pilotes en France, développement du produit et structuration des premières équipes.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {[
-                {
-                  icon: Target,
-                  title: "Seed / Pré-seed",
-                  desc: "Financer les premiers magasins pilotes, valider le product-market fit et construire les fondations commerciales de Scanpay en France.",
-                },
-                {
-                  icon: BarChart3,
-                  title: "Vision long terme",
-                  desc: "Construire la référence européenne du self-checkout mobile. Un positionnement de rupture sur un marché vierge, avec un modèle scalable dès le premier euro.",
-                },
-                {
-                  icon: Globe,
-                  title: "Expansion EU",
-                  desc: "Feuille de route vers les marchés belge, suisse et ibérique dans les 24 mois suivant le lancement commercial en France.",
-                },
-              ].map((item, i) => (
-                <div key={i} className="glass-card rounded-2xl p-6 text-center">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center mb-4 mx-auto">
-                    <item.icon className="text-blue-400" size={22} />
-                  </div>
-                  <h3 className="text-[17px] font-bold text-[#0C0C0C] mb-2">{item.title}</h3>
-                  <p className="text-[13px] text-[#6B6B6B] leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA block */}
-            <div className="max-w-xl mx-auto text-center">
-              <p className="text-[15px] text-[#8E8E8E] mb-6">
-                Les informations financières détaillées, les termes d'investissement et les données de marché complètes sont disponibles exclusivement dans notre pitch deck confidentiel.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:pauldormeau@icloud.com?subject=Investissement%20Scanpay%20%E2%80%94%20Pitch%20Deck&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20le%20pitch%20deck%20Scanpay.%0A%0ACordialement%2C" className="btn-primary text-[15px] inline-block">
-                  <span>Demander le pitch deck complet →</span>
-                </a>
-                <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Investisseur%20%E2%80%94%20Scanpay" className="btn-secondary text-[15px] inline-flex items-center justify-center gap-2">
-                  <Mail size={15} />
-                  Échange informel
-                </a>
-              </div>
-              <p className="text-[12px] text-[#ABABAB] mt-4">NDA disponible sur demande · Réponse sous 48h</p>
-            </div>
+      <section style={{ padding: "80px 40px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ marginBottom: 48 }}>
+            <span className="sp-badge" style={{ marginBottom: 16, display: "inline-block" }}>Thèse d'investissement</span>
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(28px, 4vw, 48px)",
+              fontWeight: 700,
+              color: "var(--ink)",
+            }}>Pourquoi maintenant</h2>
           </div>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: 20,
+          }}>
+            {thesis.map((t, i) => (
+              <div
+                key={i}
+                className="glass-card glass-card-hover"
+                style={{ padding: 28, borderRadius: 14 }}
+              >
+                <div style={{
+                  width: 40, height: 40,
+                  background: "var(--signal-light)",
+                  border: "1px solid var(--signal-mid)",
+                  borderRadius: 8,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  marginBottom: 16,
+                }}>
+                  <t.icon size={18} color="var(--signal)" />
+                </div>
+                <h3 style={{
+                  fontFamily: "var(--serif)",
+                  fontSize: 18,
+                  fontWeight: 700,
+                  color: "var(--ink)",
+                  marginBottom: 10,
+                }}>{t.title}</h3>
+                <p style={{ fontSize: 14, color: "var(--ink-2)", lineHeight: 1.7 }}>{t.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap */}
+      <section style={{ background: "var(--bg-alt)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", padding: "80px 40px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ marginBottom: 48 }}>
+            <span className="sp-badge" style={{ marginBottom: 16, display: "inline-block" }}>Roadmap</span>
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(28px, 4vw, 44px)",
+              fontWeight: 700,
+              color: "var(--ink)",
+            }}>Le plan de développement</h2>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            {roadmap.map((r, i) => (
+              <div key={i} style={{
+                display: "grid",
+                gridTemplateColumns: "120px 1fr 100px",
+                borderBottom: i < roadmap.length - 1 ? "1px solid var(--rule)" : "none",
+                paddingBottom: i < roadmap.length - 1 ? 32 : 0,
+                marginBottom: i < roadmap.length - 1 ? 32 : 0,
+                alignItems: "start",
+                gap: 24,
+              }}>
+                <div>
+                  <div style={{
+                    fontFamily: "var(--mono)",
+                    fontSize: 11,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "var(--signal)",
+                    marginBottom: 4,
+                  }}>{r.phase}</div>
+                </div>
+                <div>
+                  <h3 style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: 20,
+                    fontWeight: 700,
+                    color: "var(--ink)",
+                    marginBottom: 8,
+                  }}>{r.title}</h3>
+                  <p style={{ fontSize: 14, color: "var(--ink-2)", lineHeight: 1.75 }}>{r.desc}</p>
+                </div>
+                <div style={{
+                  fontFamily: "var(--mono)",
+                  fontSize: 11,
+                  letterSpacing: "0.08em",
+                  color: i === 0 ? "var(--signal)" : "var(--ink-3)",
+                  background: i === 0 ? "var(--signal-light)" : "var(--rule-subtle)",
+                  border: `1px solid ${i === 0 ? "var(--signal-mid)" : "var(--rule)"}`,
+                  borderRadius: 4,
+                  padding: "5px 10px",
+                  textAlign: "center",
+                  alignSelf: "start",
+                  marginTop: 4,
+                }}>{r.status}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ padding: "80px 40px", textAlign: "center" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <h2 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(28px, 4vw, 44px)",
+            fontWeight: 700,
+            color: "var(--ink)",
+            marginBottom: 16,
+          }}>Construire l'avenir du retail, ensemble.</h2>
+          <p style={{ fontSize: 15, color: "var(--ink-2)", marginBottom: 36, maxWidth: 440, margin: "0 auto 36px" }}>
+            Pour toute question sur Scanpay, notre modèle ou nos perspectives de développement, contactez-nous directement.
+          </p>
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay%20-%20Investisseurs" className="btn-primary">
+            Prendre contact →
+          </a>
         </div>
       </section>
     </div>

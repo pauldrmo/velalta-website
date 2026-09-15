@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const categories = [
   {
@@ -15,7 +14,7 @@ const categories = [
   {
     title: "Paiements",
     faqs: [
-      { q: "Quels modes de paiement sont acceptés ?", a: "Apple Pay, Google Pay, carte bancaire Visa/Mastercard et American Express. Le paiement en espèces n'est pas disponible via l'app Scanpay." },
+      { q: "Quels modes de paiement sont acceptés ?", a: "Apple Pay, Google Pay, carte bancaire Visa/Mastercard et American Express. Stripe, Adyen, Wero et Worldline sont nos partenaires certifiés." },
       { q: "Mes données de carte sont-elles sécurisées ?", a: "Oui. Scanpay ne stocke jamais les numéros de carte bancaire. Seul un token sécurisé est conservé, via nos partenaires certifiés PCI-DSS." },
       { q: "Comment se passe le remboursement ?", a: "En cas de retour produit, le remboursement est effectué sur le mode de paiement d'origine dans un délai de 3 à 5 jours ouvrés." },
     ],
@@ -42,78 +41,147 @@ export default function FAQ() {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   return (
-    <div style={{ paddingTop: 56 }}>
+    <div style={{ background: "var(--bg)", paddingTop: 56 }}>
+
       {/* Hero */}
-      <section className="relative overflow-hidden py-28">
-        <div className="absolute inset-0 pointer-events-none">
-          
-        </div>
-        <div className="relative max-w-[1280px] mx-auto px-6 md:px-8 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full glass-card text-[#6B6B6B] text-[12px] font-semibold uppercase tracking-widest mb-8">
-            FAQ
-          </div>
-          <h1 className="text-[56px] md:text-[72px] font-black text-[#0C0C0C] leading-[0.95] tracking-tight mb-8">
+      <section style={{ borderBottom: "1px solid var(--rule)", padding: "80px 40px 64px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <span className="sp-badge" style={{ marginBottom: 24, display: "inline-block" }}>FAQ</span>
+          <h1 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(42px, 7vw, 72px)",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+            color: "var(--ink)",
+            marginBottom: 24,
+          }}>
             Questions<br />
-            <span className="gradient-text">fréquentes</span>
+            <em style={{ color: "var(--signal)" }}>fréquentes.</em>
           </h1>
-          <p className="text-[20px] text-[#4A4A4A] leading-relaxed max-w-xl mx-auto">
-            Tout ce que vous devez savoir sur Scanpay. Vous ne trouvez pas votre réponse ? Contactez-nous.
+          <p style={{ fontSize: 18, color: "var(--ink-2)", lineHeight: 1.75, maxWidth: 480 }}>
+            Tout ce que vous devez savoir sur Scanpay. Vous ne trouvez pas votre réponse ? Contactez-nous directement.
           </p>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 pb-28">
-        <div className="max-w-[900px] mx-auto px-6 md:px-8">
-          <div className="space-y-12">
-            {categories.map((cat, ci) => (
-              <div key={ci}>
-                <h2 className="text-[22px] font-black text-[#0C0C0C] mb-5 flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-lg  ">
-                    {ci + 1}
-                  </span>
-                  {cat.title}
-                </h2>
-                <div className="space-y-2">
-                  {cat.faqs.map((faq, fi) => {
-                    const key = `${ci}-${fi}`;
-                    return (
-                      <div key={fi} className="glass-card rounded-xl overflow-hidden">
-                        <button
-                          onClick={() => setOpenItem(openItem === key ? null : key)}
-                          className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/[0.03] transition-colors"
-                        >
-                          <span className="text-[16px] font-semibold text-white/90 pr-4">{faq.q}</span>
-                          <ChevronDown
-                            className={`text-[#9E9E9E] flex-shrink-0 transition-transform duration-200 ${openItem === key ? "rotate-180" : ""}`}
-                            size={18}
-                          />
-                        </button>
-                        {openItem === key && (
-                          <div className="px-6 pb-5 border-t border-[var(--rule)]">
-                            <p className="text-[15px] text-[#4A4A4A] leading-relaxed pt-4">{faq.a}</p>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+      {/* FAQ sections */}
+      <section style={{ padding: "64px 40px 80px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", flexDirection: "column", gap: 56 }}>
+          {categories.map((cat, ci) => (
+            <div key={ci}>
+              {/* Category header */}
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                marginBottom: 24,
+                paddingBottom: 16,
+                borderBottom: "2px solid var(--signal)",
+              }}>
+                <span style={{
+                  fontFamily: "var(--mono)",
+                  fontSize: 11,
+                  letterSpacing: "0.1em",
+                  color: "var(--signal)",
+                  background: "var(--signal-light)",
+                  border: "1px solid var(--signal-mid)",
+                  borderRadius: 4,
+                  padding: "4px 10px",
+                }}>0{ci + 1}</span>
+                <h2 style={{
+                  fontFamily: "var(--serif)",
+                  fontSize: "clamp(18px, 2vw, 24px)",
+                  fontWeight: 700,
+                  color: "var(--ink)",
+                }}>{cat.title}</h2>
               </div>
-            ))}
-          </div>
+
+              {/* FAQ items */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                {cat.faqs.map((faq, fi) => {
+                  const key = `${ci}-${fi}`;
+                  const open = openItem === key;
+                  return (
+                    <div
+                      key={fi}
+                      style={{
+                        background: "var(--bg)",
+                        border: `1px solid ${open ? "var(--signal-mid)" : "var(--rule)"}`,
+                        borderRadius: 10,
+                        overflow: "hidden",
+                        boxShadow: open ? "var(--sh-sm)" : "var(--sh-xs)",
+                        transition: "box-shadow 0.2s, border-color 0.2s",
+                      }}
+                    >
+                      <button
+                        onClick={() => setOpenItem(open ? null : key)}
+                        style={{
+                          width: "100%",
+                          padding: "20px 24px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          textAlign: "left",
+                          gap: 16,
+                        }}
+                      >
+                        <span style={{
+                          fontFamily: "var(--serif)",
+                          fontSize: 16,
+                          fontWeight: 600,
+                          color: "var(--ink)",
+                          lineHeight: 1.4,
+                        }}>{faq.q}</span>
+                        <ChevronDown
+                          size={18}
+                          color={open ? "var(--signal)" : "var(--ink-3)"}
+                          style={{
+                            flexShrink: 0,
+                            transition: "transform 0.2s",
+                            transform: open ? "rotate(180deg)" : "none",
+                          }}
+                        />
+                      </button>
+                      {open && (
+                        <div style={{
+                          padding: "0 24px 20px",
+                          borderTop: "1px solid var(--rule-subtle)",
+                        }}>
+                          <p style={{
+                            fontSize: 14,
+                            color: "var(--ink-2)",
+                            lineHeight: 1.8,
+                            paddingTop: 16,
+                          }}>{faq.a}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="py-20 bg-[var(--bg-alt)]">
-        <div className="max-w-[600px] mx-auto px-6 md:px-8 text-center">
-          <div className="glass-card rounded-2xl p-8">
-            <div className="text-[32px] font-black text-[#0C0C0C] mb-3">Vous avez une autre question ?</div>
-            <p className="text-[16px] text-[#6B6B6B] mb-6">Notre équipe répond sous 24h.</p>
-            <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary text-[15px] inline-block">
-              <span>Nous contacter →</span>
-            </a>
-          </div>
+      {/* CTA */}
+      <section style={{ background: "var(--bg-alt)", borderTop: "1px solid var(--rule)", padding: "64px 40px", textAlign: "center" }}>
+        <div style={{ maxWidth: 560, margin: "0 auto" }}>
+          <h2 style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(24px, 3vw, 36px)",
+            fontWeight: 700,
+            color: "var(--ink)",
+            marginBottom: 16,
+          }}>Vous avez une autre question ?</h2>
+          <p style={{ fontSize: 15, color: "var(--ink-2)", marginBottom: 32 }}>Notre équipe répond sous 24h.</p>
+          <a href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay" className="btn-primary">
+            Nous contacter →
+          </a>
         </div>
       </section>
     </div>

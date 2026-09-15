@@ -70,19 +70,8 @@ export default function Header() {
         {/* CTA */}
         <a
           href="mailto:pauldormeau@icloud.com?subject=Contact%20Scanpay"
-          className="hidden lg:inline-flex"
-          style={{
-            fontFamily: "var(--mono)",
-            fontSize: 11,
-            letterSpacing: "0.1em",
-            textDecoration: "none",
-            padding: "9px 18px",
-            border: "1px solid var(--ink)",
-            color: "var(--ink)",
-            transition: "background 0.12s, color 0.12s",
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = "var(--ink)"; e.currentTarget.style.color = "var(--bg)"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--ink)"; }}
+          className="hidden lg:inline-flex btn-primary"
+          style={{ padding: "9px 18px", fontSize: 11, borderRadius: 4 }}
         >
           CONTACT →
         </a>
